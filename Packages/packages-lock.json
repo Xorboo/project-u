@@ -1,5 +1,19 @@
 {
   "dependencies": {
+    "com.unity.addressables": {
+      "version": "1.19.19",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.scriptablebuildpipeline": "1.19.6",
+        "com.unity.modules.assetbundle": "1.0.0",
+        "com.unity.modules.imageconversion": "1.0.0",
+        "com.unity.modules.jsonserialize": "1.0.0",
+        "com.unity.modules.unitywebrequest": "1.0.0",
+        "com.unity.modules.unitywebrequestassetbundle": "1.0.0"
+      },
+      "url": "https://packages.unity.com"
+    },
     "com.unity.collab-proxy": {
       "version": "1.15.18",
       "depth": 0,
@@ -72,6 +86,13 @@
     "com.unity.performance.profile-analyzer": {
       "version": "1.1.1",
       "depth": 1,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://packages.unity.com"
+    },
+    "com.unity.scriptablebuildpipeline": {
+      "version": "1.20.1",
+      "depth": 2,
       "source": "registry",
       "dependencies": {},
       "url": "https://packages.unity.com"
@@ -154,6 +175,16 @@
         "com.unity.modules.jsonserialize": "1.0.0"
       },
       "url": "https://packages.unity.com"
+    },
+    "com.xorboo.urutils": {
+      "version": "https://github.com/Xorboo/UrUtils.git?path=Assets/UrUtils#master",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {
+        "com.unity.addressables": "1.16.19",
+        "com.unity.textmeshpro": "3.0.6"
+      },
+      "hash": "116e08a361f655cf090f8fb680fbf3df94ae0881"
     },
     "com.unity.modules.ai": {
       "version": "1.0.0",
