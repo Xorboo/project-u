@@ -1,3 +1,4 @@
+using System.IO;
 using System.Linq;
 using UnityEditor;
 using UnityEditor.AddressableAssets;
@@ -49,7 +50,7 @@ namespace Editor
             switch (summary.result)
             {
                 case BuildResult.Succeeded:
-                    Debug.Log($"Build succeeded: {summary.totalSize} bytes");
+                    Debug.Log($"Build succeeded: {summary.totalSize} bytes, path: {Path.GetFullPath(buildPlayerOptions.locationPathName)}");
                     break;
 
                 case BuildResult.Failed:
