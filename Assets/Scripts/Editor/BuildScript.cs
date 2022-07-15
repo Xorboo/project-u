@@ -29,13 +29,19 @@ namespace Editor
 
         static void BuildWebGl(BuildPlayerOptions buildPlayerOptions)
         {
-            AddressableAssetSettings.CleanPlayerContent(AddressableAssetSettingsDefaultObject.Settings.ActivePlayerDataBuilder);
-            AddressableAssetSettings.BuildPlayerContent(out var result);
-            if (!string.IsNullOrEmpty(result.Error))
+            if (AddressableAssetSettingsDefaultObject.Settings != null)
             {
-                Debug.LogError($"Addressable content build failure: {result.Error}");
-                return;
+                AddressableAssetSettings.CleanPlayerContent(AddressableAssetSettingsDefaultObject.Settings.ActivePlayerDataBuilder);
+                AddressableAssetSettings.BuildPlayerContent(out var result);
+                if (!string.IsNullOrEmpty(result.Error))
+                {
+                    Debug.LogError($"Addressable content build failure: {result.Error}");
+                    return;
+                }
             }
+            else
+                Debug.Log("Addressable settings object is null, can't build it");
+
 
             BuildReport report = BuildPipeline.BuildPlayer(buildPlayerOptions);
             BuildSummary summary = report.summary;
