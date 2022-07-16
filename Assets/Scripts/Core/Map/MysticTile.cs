@@ -4,16 +4,25 @@ using UnityEngine;
 
 namespace Core.Map
 {
+    [RequireComponent(typeof(TileRevealController))]
     public class MysticTile : MonoBehaviour
     {
         [SerializeField]
         GameObject InitialViewRoot;
 
         [SerializeField]
-        List<GameObject> RevealedRoots = new List<GameObject>();
+        List<GameObject> RevealedRoots = new();
+
+
+        TileRevealController RevealController;
 
 
         #region Unity
+
+        void Awake()
+        {
+            RevealController = GetComponent<TileRevealController>();
+        }
 
         void OnEnable()
         {
@@ -32,7 +41,9 @@ namespace Core.Map
         {
             InitialViewRoot.SetActive(false);
             RevealedRoots[dieResult].SetActive(true);
-            onFinished();
+
+            // Replay the same reveal animation again
+            RevealController.ForceReveal(0f, onFinished);
         }
     }
 }

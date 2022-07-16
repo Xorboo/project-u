@@ -48,23 +48,49 @@ namespace Core.Map
         #endregion
 
 
-        public void Reveal()
+        public void Reveal(float revealDelay, Action onFinished = null)
+        {
+            if (IsRevealed)
+                return;
+
+            IsRevealed = true;
+
+            // Scale parameters
+            var t = MainSide.transform;
+            Vector3 defaultScale = t.localScale;
+
+            DOTween.Sequence(gameObject)
+                .AppendInterval(revealDelay)
+                .AppendCallback(() =>
+                {
+                    // Show tile
+                    HiddenSide.SetActive(false);
+                    MainSide.SetActive(true);
+                    t.localScale = new Vector3(defaultScale.x, 0f, defaultScale.z);
+
+                    // Add particles
+                    var particlesTransform = Instantiate(Parameters.ParticlePrefab, transform).transform;
+                    particlesTransform.localPosition = new Vector3(0f, Parameters.ParticleVerticalShift, 0f);
+                    particlesTransform.localScale = particlesTransform.localScale * Parameters.ParticlesScaleFactor;
+                    Destroy(particlesTransform.gameObject, Parameters.ParticlesDestroyDelay);
+                })
+                // Animate scale
+                .Join(t.DOScaleY(defaultScale.y, Parameters.Duration).SetEase(Parameters.EaseType))
+                .OnComplete(() => onFinished?.Invoke());
+        }
+
+        public void ForceReveal(float revealDelay, Action onFinished = null)
+        {
+            IsRevealed = false;
+
+            Reveal(revealDelay, onFinished);
+        }
+
+        public void RevealImmediately()
         {
             IsRevealed = true;
             HiddenSide.SetActive(false);
             MainSide.SetActive(true);
-
-            // Animate scale
-            var t = MainSide.transform;
-            Vector3 defaultScale = t.localScale;
-            t.localScale = new Vector3(defaultScale.x, 0f, defaultScale.z);
-            t.DOScaleY(defaultScale.y, Parameters.Duration).SetEase(Parameters.EaseType);
-
-            // Add particles
-            var particlesTransform = Instantiate(Parameters.ParticlePrefab, transform).transform;
-            particlesTransform.localPosition = new Vector3(0f, Parameters.ParticleVerticalShift, 0f);
-            particlesTransform.localScale = Parameters.RequiredScale3D;
-            Destroy(particlesTransform.gameObject, Parameters.ParticlesDestroyDelay);
         }
     }
 }

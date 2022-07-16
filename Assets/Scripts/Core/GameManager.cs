@@ -48,8 +48,6 @@ namespace Core
 
         bool IsWaitingForDieValue = false;
 
-        public bool IsVisitingTile { get; private set; } = false;
-
         public int EnemyExtraHpFactor { get; private set; } = 0;
 
         public int VillagesCount { get; private set; } = 0;
@@ -198,73 +196,65 @@ namespace Core
 
         void TileClicked(Vector2Int coord, Tile tile)
         {
-            if (IsVisitingTile || IsWaitingForDie || Player.CurrentState != PlayerController.State.Idle || !Player.IsAdjacent(coord))
+            if (IsWaitingForDie || Player.CurrentState != PlayerController.State.Idle || !Player.IsAdjacent(coord))
                 return;
 
-            if (tile != null)
+            if (tile == null)
             {
-                if (!tile.Data.IsPassable)
-                    return; // Do nothing, wasted die
-
-                if (!tile.Data.IsMystic)
-                {
-                    Player.MoveToTile(coord, tile); // Move to normal tile
-                    return;
-                }
-
-                // Special case
-                CheckMysticTile(coord, tile);
+                Debug.LogError($"Null tile clicked on {coord}");
                 return;
             }
 
-            if (!WaitForDie((value) => RevealDiceThrown(coord, value)))
+            if (!tile.Data.IsPassable)
+                return; // Do nothing, wasted die
+
+            if (!tile.Data.IsMystic || tile.IsVisited)
             {
-                RestartGame();
+                MovePlayer(coord, tile); // Move to normal tile
                 return;
             }
+
+            // Special case
+            CheckMysticTile(coord, tile);
+            return;
         }
 
         void CheckMysticTile(Vector2Int coord, Tile tile)
         {
-            // Already opened mystic tile, just move to it
-            if (tile.IsVisited)
-            {
-                Player.MoveToTile(coord, tile);
-                return;
-            }
-
+            // Reveal the tile via die throw
             if (!WaitForDie((value) => MysticDiceThrown(coord, tile, value)))
             {
                 RestartGame();
                 return;
             }
-        }
 
-        void MysticDiceThrown(Vector2Int coord, Tile tile, int dieResult)
-        {
-            if (!tile.Data.IsMystic)
+            void MysticDiceThrown(Vector2Int pos, Tile mysticTile, int dieResult)
             {
-                Debug.LogError($"Mystic die on normal tile");
-                Player.MoveToTile(coord, tile, () => PostPlayerMove(coord, tile));
-                return;
-            }
+                if (!mysticTile.Data.IsMystic)
+                {
+                    Debug.LogError($"Mystic die on normal tile");
+                    MovePlayer(pos, mysticTile);
+                    return;
+                }
 
-            // Create a tile and then move the player there
-            tile.RevealMysticTile(dieResult, () => Player.MoveToTile(coord, tile, () => PostPlayerMove(coord, tile)));
+                // Create a tile and then move the player there
+                mysticTile.RevealMysticTile(dieResult, () => MovePlayer(pos, mysticTile));
+            }
         }
 
-        void RevealDiceThrown(Vector2Int coord, int dieResult)
+        void MovePlayer(Vector2Int coord, Tile tile)
         {
-            var tile = MapManager.Instance.RevealTile(coord, dieResult);
+            Player.MoveToTile(coord, tile, CheckPlayerMoves);
 
-            if (tile.Data.IsPassable)
-                Player.MoveToTile(coord, tile, () => PostPlayerMove(coord, tile));
-            else
+            void CheckPlayerMoves()
             {
                 if (CheckGameEnd())
                 {
                     RestartGame();
+                    return;
                 }
+
+                Player.CheckMovesDie();
             }
         }
 
@@ -287,24 +277,11 @@ namespace Core
             return true;
         }
 
-        void PostPlayerMove(Vector2Int coord, Tile tile)
-        {
-            IsVisitingTile = true;
-            tile.Visit(() =>
-            {
-                IsVisitingTile = false;
-                if (CheckGameEnd())
-                {
-                    RestartGame();
-                }
-            });
-        }
-
         void StartEnemyFight(int enemyBaseHp) { }
 
         bool CheckGameEnd()
         {
-            if (DiceCount <= 0)
+            if (DiceCount <= 0 && Player.MovesLeft <= 0)
             {
                 Debug.Log("Game over");
                 return true;
