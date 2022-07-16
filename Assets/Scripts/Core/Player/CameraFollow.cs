@@ -42,6 +42,7 @@ namespace Core.Player
         void PlayerSpawned(PlayerController player)
         {
             TargetPlayer = player;
+            transform.position = TargetPlayer.transform.position;
         }
     }
 }

@@ -41,7 +41,7 @@ namespace Core.Player
             transform.position = MapParameters.GetTileCenter3D(Coordinates);
         }
 
-        public void MoveToTile(Vector2Int coord, Tile tile)
+        public void MoveToTile(Vector2Int coord, Tile tile, Action onFinished = null)
         {
             if (CurrentState != State.Idle)
             {
@@ -49,17 +49,25 @@ namespace Core.Player
                 return;
             }
 
-            MovePlayer(coord);
+            MovePlayer(coord, onFinished);
         }
 
-        void MovePlayer(Vector2Int coord)
+        void MovePlayer(Vector2Int coord, Action onFinished = null)
         {
             CurrentState = State.Moving;
+            Vector2Int delta = coord - Coordinates;
             Coordinates = coord;
 
             Vector3 pos = MapParameters.GetTileCenter3D(Coordinates);
-            transform.DOMove(pos, MoveTime).SetEase(Ease.Linear).OnComplete(() => CurrentState = State.Idle);
+            transform.DOLocalRotate(new Vector3(0f, GetRotation(delta), 0f), 0.2f);
+            transform.DOMove(pos, MoveTime).SetEase(Ease.Linear).OnComplete(() =>
+            {
+                CurrentState = State.Idle;
+                onFinished?.Invoke();
+            });
         }
+
+        float GetRotation(Vector2Int delta) => delta.x == 1 ? 0 : delta.x == -1 ? 180 : delta.y == 1 ? -90 : 90;
 
         public bool IsAdjacent(Vector2Int coord)
         {

@@ -87,14 +87,14 @@ namespace Core.Map
             OnTileClicked(pressCoordinates, Map[pressCoordinates.y, pressCoordinates.x]);
         }
 
-        public Tile RevealTile(Vector2Int coord)
+        public Tile RevealTile(Vector2Int coord, int dieResult)
         {
-            return SpawnRandomTile(coord);
+            return SpawnRandomTile(coord, dieResult);
         }
 
-        Tile SpawnRandomTile(Vector2Int coord)
+        Tile SpawnRandomTile(Vector2Int coord, int dieResult)
         {
-            var randomTile = Parameters.NormalTiles.Random();
+            var randomTile = Parameters.NormalTiles[dieResult - 1];
             CreateTile(coord, randomTile);
             return randomTile;
         }
