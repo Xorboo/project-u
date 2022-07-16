@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using UnityEngine;
 
 namespace Core.Map
@@ -49,11 +49,11 @@ namespace Core.Map
                 return;
             }
 
-            if (Data.HasRandomEvent)
+            /*if (Data.HasRandomEvent)   Рандомный ивент будет управляться соответствующим объектом в отдельных скриптах
             {
-                StartRandomEvent();
+                //StartRandomEvent(); 
                 return;
-            }
+            }*/
 
             if (Data.IsMystic)
             {

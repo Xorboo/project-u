@@ -33,9 +33,13 @@ namespace Core.UI
             ThrowButton.gameObject.SetActive(isWaiting);
         }
 
-        public void OnFakeThrowClicked()
+        public void OnFakeThrowClicked(int value)
         {
-            int dieResult = Random.Range(0, 6) + 1;
+            int dieResult = 0;
+            if (value == 0)
+                dieResult = Random.Range(0, 6) + 1;
+            else
+                dieResult = value;
             Debug.Log($"Fake die result: {dieResult}");
 
             GameManager.Instance.OnDieThrown(dieResult);

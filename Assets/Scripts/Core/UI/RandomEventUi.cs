@@ -1,40 +1,35 @@
-using Core.Map;
+﻿using Core.Map;
 using UnityEngine;
+using TMPro;
 
 namespace Core.UI
 {
     public class RandomEventUi : MonoBehaviour
     {
-        [SerializeField]
-        RectTransform RandomEventPanel;
+        [SerializeField] GameObject RandomEncounterPanel;
+        [SerializeField] TMP_Text RandomEncounter_text, RandomEncounter_dices_text;
 
-        #region Unity
-
-        void OnEnable()
+        void Start()
         {
-            Tile.OnRandomEventStarted += EventStarted;
-            Tile.OnRandomEventFinished += EventFinished;
-
-            RandomEventPanel.gameObject.SetActive(false);
+            CloseEncounter();
         }
 
-        void OnDisable()
+        public void OpenEncounter(string encounter_text, int add_dices)
         {
-            Tile.OnRandomEventStarted -= EventStarted;
-            Tile.OnRandomEventFinished -= EventFinished;
+            RandomEncounterPanel.SetActive(true);
+            RandomEncounter_text.text = encounter_text;
+            
+            if (add_dices > 0)
+                RandomEncounter_dices_text.text = "Получено кубиков: " + add_dices;
+            else if (add_dices < 0)
+                RandomEncounter_dices_text.text = "Потеряно кубиков: " + -add_dices;
+            else
+                RandomEncounter_dices_text.text = "Количество кубиков не изменилось";
         }
 
-        #endregion
-
-
-        void EventStarted(Tile tile)
+        public void CloseEncounter()
         {
-            RandomEventPanel.gameObject.SetActive(true);
-        }
-
-        void EventFinished(Tile tile)
-        {
-            RandomEventPanel.gameObject.SetActive(false);
+            RandomEncounterPanel.SetActive(false);
         }
     }
 }
