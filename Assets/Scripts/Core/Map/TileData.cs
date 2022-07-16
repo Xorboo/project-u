@@ -11,5 +11,14 @@ namespace Core.Map
         public bool HasEnemy = false;
 
         public int EnemyBaseHp = 2;
+        public int EnemyHpScale = 1;
+
+        [Space]
+        public bool HasChest = false;
+
+        [Space]
+        public bool HasRandomEvent = false;
+
+        public int EnemyFullHp => EnemyBaseHp + EnemyHpScale * GameManager.Instance.EnemyExtraHpFactor;
     }
 }

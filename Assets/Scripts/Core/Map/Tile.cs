@@ -7,6 +7,13 @@ namespace Core.Map
     {
         public static event Action<Tile> OnFightStarted = delegate { };
         public static event Action<Tile> OnFightFinished = delegate { };
+
+        public static event Action<Tile> OnChestOpenStarted = delegate { };
+        public static event Action<Tile> OnChestOpenFinished = delegate { };
+
+        public static event Action<Tile> OnRandomEventStarted = delegate { };
+        public static event Action<Tile> OnRandomEventFinished = delegate { };
+
         public event Action<int> OnEnemyHpChanged = delegate { };
 
 
@@ -27,7 +34,19 @@ namespace Core.Map
 
             if (Data.HasEnemy)
             {
-                StartEnemyFight(Data.EnemyBaseHp);
+                StartEnemyFight(Data.EnemyFullHp);
+                return;
+            }
+
+            if (Data.HasChest)
+            {
+                StartChestOpen();
+                return;
+            }
+
+            if (Data.HasRandomEvent)
+            {
+                StartRandomEvent();
                 return;
             }
 
@@ -64,6 +83,48 @@ namespace Core.Map
                 VisitFinishedCallback?.Invoke();
                 return;
             }
+        }
+
+        void StartChestOpen()
+        {
+            OnChestOpenStarted(this);
+
+            // Throw a die
+            bool isFetchingDie = GameManager.Instance.WaitForDieThrowResult(OpenChest);
+            if (!isFetchingDie)
+            {
+                // Lose fight
+                OnChestOpenFinished(this);
+                VisitFinishedCallback?.Invoke();
+            }
+        }
+
+        void OpenChest(int dieResult)
+        {
+            GameManager.Instance.AddDice(dieResult);
+            OnChestOpenFinished(this);
+            VisitFinishedCallback?.Invoke();
+        }
+
+        void StartRandomEvent()
+        {
+            OnRandomEventStarted(this);
+
+            // Throw a die
+            bool isFetchingDie = GameManager.Instance.WaitForDieThrowResult(ResolveRandomEvent);
+            if (!isFetchingDie)
+            {
+                // Lose fight
+                OnRandomEventFinished(this);
+                VisitFinishedCallback?.Invoke();
+            }
+        }
+
+        void ResolveRandomEvent(int dieResult)
+        {
+            GameManager.Instance.ResolveRandomEvent(dieResult);
+            OnRandomEventFinished(this);
+            VisitFinishedCallback?.Invoke();
         }
     }
 }

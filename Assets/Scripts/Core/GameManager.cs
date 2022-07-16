@@ -2,7 +2,6 @@ using System;
 using Core.Map;
 using Core.Player;
 using UnityEngine;
-using UnityEngine.Tilemaps;
 using UrUtils.Misc;
 using Tile = Core.Map.Tile;
 
@@ -48,6 +47,9 @@ namespace Core
 
         public bool IsVisitingTile { get; private set; } = false;
 
+        public int EnemyExtraHpFactor { get; private set; } = 0;
+
+
         Action<int> DieResultListener = null;
 
 
@@ -82,11 +84,63 @@ namespace Core
             DieResultListener?.Invoke(dieResult);
         }
 
+        public bool WaitForDieThrowResult(Action<int> onDiceThrown)
+        {
+            if (IsWaitingForDie)
+            {
+                Debug.LogError($"Can't wait for die, already pending");
+                return false;
+            }
+
+            return WaitForDie(onDiceThrown);
+        }
+
+        public void AddDice(int dieResult)
+        {
+            DiceCount += dieResult;
+        }
+
+        public void ResolveRandomEvent(int dieResult)
+        {
+            switch (dieResult)
+            {
+                case 1:
+                    MultiplyCurrentCubes(false);
+                    break;
+                case 2:
+                    AddVillageCubes(Data.VillageBonusA);
+                    break;
+                case 3:
+                    AddVillageCubes(Data.VillageBonusB);
+                    break;
+                case 4:
+                    ShowRandomText();
+                    break;
+                case 5:
+                    IncreaseEnemyHp();
+                    break;
+                case 6:
+                    MultiplyCurrentCubes(true);
+                    break;
+                default:
+                    Debug.LogError($"Unsupported die result: {dieResult}");
+                    break;
+            }
+        }
+
+        void MultiplyCurrentCubes(bool increase)
+        {
+            Debug.Log($"Multiplying dice, increase: {increase}");
+            int delta = Mathf.CeilToInt(DiceCount * Data.DiceMultiplyFactor);
+            DiceCount += (increase ? 1 : -1) * delta;
+        }
+
         void StartGame()
         {
             DiceCount = Data.StartingDice;
             IsWaitingForDie = false;
             DieResultListener = null;
+            EnemyExtraHpFactor = 0;
 
             var spawnPoint = MapManager.Instance.InitializeMap();
 
@@ -97,6 +151,22 @@ namespace Core
             Player.SetSpawnPoint(spawnPoint);
 
             OnPlayerSpawned(Player);
+        }
+
+        void AddVillageCubes(int cubesPerVillage)
+        {
+            Debug.LogWarning($"Village bonuses not implemented");
+        }
+
+        void ShowRandomText()
+        {
+            Debug.LogWarning($"Random text not implemented");
+        }
+
+        void IncreaseEnemyHp()
+        {
+            Debug.Log("Enemy hp increased");
+            EnemyExtraHpFactor++;
         }
 
         void TileClicked(Vector2Int coord, Tile tile)
@@ -124,17 +194,13 @@ namespace Core
 
             if (tile.Data.IsPassable)
                 Player.MoveToTile(coord, tile, () => PostPlayerMove(coord, tile));
-        }
-
-        public bool WaitForDieThrowResult(Action<int> onDiceThrown)
-        {
-            if (IsWaitingForDie)
+            else
             {
-                Debug.LogError($"Can't wait for die, already pending");
-                return false;
+                if (CheckGameEnd())
+                {
+                    RestartGame();
+                }
             }
-
-            return WaitForDie(onDiceThrown);
         }
 
         bool WaitForDie(Action<int> onDiceThrown)
