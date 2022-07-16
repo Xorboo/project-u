@@ -7,9 +7,7 @@ namespace Core.Player
         [SerializeField]
         float LerpSpeed = 20f;
 
-
-        PlayerController TargetPlayer;
-
+        GameObject Target;
 
         #region Unity
 
@@ -29,10 +27,10 @@ namespace Core.Player
 
         void LateUpdate()
         {
-            if (TargetPlayer == null)
+            if (Target == null)
                 return;
 
-            Vector3 targetPos = TargetPlayer.transform.position;
+            Vector3 targetPos = Target.transform.position;
             transform.position = Vector3.Lerp(transform.position, targetPos, LerpSpeed * Time.deltaTime);
         }
 
@@ -41,8 +39,8 @@ namespace Core.Player
 
         void PlayerSpawned(PlayerController player)
         {
-            TargetPlayer = player;
-            transform.position = TargetPlayer.transform.position;
+            Target = player.gameObject;
+            transform.position = Target.transform.position;
         }
     }
 }
