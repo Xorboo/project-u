@@ -3,6 +3,7 @@ using UnityEngine;
 
 namespace Core.Map
 {
+    [RequireComponent(typeof(TileRevealController))]
     public class Tile : MonoBehaviour
     {
         public static event Action<Tile> OnFightStarted = delegate { };
@@ -27,7 +28,15 @@ namespace Core.Map
         public int RevealedMysticType { get; private set; } = -1;
 
 
+        TileRevealController RevealController;
+
+
         #region Unity
+
+        void Awake()
+        {
+            RevealController = GetComponent<TileRevealController>();
+        }
 
         #endregion
 
@@ -51,7 +60,7 @@ namespace Core.Map
 
             /*if (Data.HasRandomEvent)   Рандомный ивент будет управляться соответствующим объектом в отдельных скриптах
             {
-                //StartRandomEvent(); 
+                //StartRandomEvent();
                 return;
             }*/
 

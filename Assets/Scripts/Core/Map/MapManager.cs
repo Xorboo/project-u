@@ -108,6 +108,7 @@ namespace Core.Map
 
         public Tile RevealTile(Vector2Int coord, int dieResult)
         {
+            // TODO RevealController
             return SpawnRandomTile(coord, dieResult);
         }
 
