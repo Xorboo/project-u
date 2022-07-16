@@ -22,6 +22,10 @@ namespace Core.Map
         Action VisitFinishedCallback;
         public int CurrentEnemyHp { get; private set; } = 0;
 
+        public bool IsVisited { get; private set; } = false;
+
+        public int RevealedMysticType { get; private set; } = -1;
+
 
         #region Unity
 
@@ -30,6 +34,7 @@ namespace Core.Map
 
         public void Visit(Action onVisitFinished)
         {
+            IsVisited = true;
             VisitFinishedCallback = onVisitFinished;
 
             if (Data.HasEnemy)
@@ -50,8 +55,16 @@ namespace Core.Map
                 return;
             }
 
+            if (Data.IsMystic)
+            {
+                StartMysticEvent();
+                return;
+            }
+
             VisitFinishedCallback?.Invoke();
         }
+
+        #region Fight
 
         void StartEnemyFight(int enemyHp)
         {
@@ -85,6 +98,10 @@ namespace Core.Map
             }
         }
 
+        #endregion
+
+        #region Chest
+
         void StartChestOpen()
         {
             OnChestOpenStarted(this);
@@ -106,6 +123,10 @@ namespace Core.Map
             VisitFinishedCallback?.Invoke();
         }
 
+        #endregion
+
+        #region Random Event
+
         void StartRandomEvent()
         {
             OnRandomEventStarted(this);
@@ -126,5 +147,52 @@ namespace Core.Map
             OnRandomEventFinished(this);
             VisitFinishedCallback?.Invoke();
         }
+
+        #endregion
+
+        #region Mystic Tile
+
+        public void RevealMysticTile(int dieResult, Action onFinished)
+        {
+            RevealedMysticType = dieResult;
+            GetComponent<MysticTile>().RevealTile(dieResult, onFinished);
+        }
+
+        void StartMysticEvent()
+        {
+            switch (RevealedMysticType)
+            {
+                case 1:
+                    GameManager.Instance.AddPackOfDice();
+                    VisitFinishedCallback?.Invoke();
+                    break;
+
+                case 2:
+                    GameManager.Instance.AddPermanentDice();
+                    VisitFinishedCallback?.Invoke();
+                    break;
+
+                // Village
+                case 3:
+                case 4:
+                    GameManager.Instance.AddVillage();
+                    VisitFinishedCallback?.Invoke();
+                    break;
+
+                // Story
+                case 5:
+                case 6:
+                    Debug.LogWarning($"Story not implemented");
+                    VisitFinishedCallback?.Invoke();
+                    break;
+
+                default:
+                    Debug.LogError($"Unsupported mystic type: {RevealedMysticType}");
+                    VisitFinishedCallback?.Invoke();
+                    break;
+            }
+        }
+
+        #endregion
     }
 }

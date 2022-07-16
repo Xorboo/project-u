@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MapSize: {x: 41, y: 41}
   StartingTile: {fileID: -7151999172824762694, guid: 438a16867b3a65d409e2bc7ac06f7bec, type: 3}
+  MysticTile: {fileID: -7151999172824762694, guid: cbe260dcc7a843747936585edd651819, type: 3}
   NormalTiles:
   - {fileID: 1385979769874379371, guid: 390ea38a58376254db96dd24891bc3ee, type: 3}
   - {fileID: -7151999172824762694, guid: 438a16867b3a65d409e2bc7ac06f7bec, type: 3}

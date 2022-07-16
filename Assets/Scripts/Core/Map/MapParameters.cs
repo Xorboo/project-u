@@ -7,8 +7,10 @@ namespace Core.Map
     public class MapParameters : ScriptableObject
     {
         public Vector2Int MapSize = new(41, 41);
+        public int MysticTilesCount = 128;
 
         public Tile StartingTile;
+        public Tile MysticTile;
         public List<Tile> NormalTiles = new();
         public List<Tile> SpecialTiles = new();
 

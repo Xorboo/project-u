@@ -20,6 +20,9 @@ namespace Core
         [SerializeField]
         GameParameters Data;
 
+        // TODO Save to PlayerPrefs
+        public int ExtraStartingDice { get; private set; } = 0;
+
 
         public int DiceCount
         {
@@ -49,6 +52,8 @@ namespace Core
 
         public int EnemyExtraHpFactor { get; private set; } = 0;
 
+        public int VillagesCount { get; private set; } = 0;
+
 
         Action<int> DieResultListener = null;
 
@@ -73,6 +78,26 @@ namespace Core
         #endregion
 
 
+        void StartGame()
+        {
+            DiceCount = Data.StartingDice + ExtraStartingDice;
+            IsWaitingForDie = false;
+            DieResultListener = null;
+            EnemyExtraHpFactor = 0;
+            VillagesCount = 0;
+
+            var spawnPoint = MapManager.Instance.InitializeMap();
+
+            if (Player)
+                Destroy(Player.gameObject);
+
+            Player = Instantiate(PlayerPrefab);
+            Player.SetSpawnPoint(spawnPoint);
+
+            OnPlayerSpawned(Player);
+        }
+
+
         public void OnDieThrown(int dieResult)
         {
             if (!IsWaitingForDie)
@@ -95,9 +120,22 @@ namespace Core
             return WaitForDie(onDiceThrown);
         }
 
-        public void AddDice(int dieResult)
+        public void AddPermanentDice()
         {
-            DiceCount += dieResult;
+            Debug.Log($"Adding permanent pack of {Data.MysticPermanentDiceCount} dice");
+            ExtraStartingDice += Data.MysticPermanentDiceCount;
+        }
+
+        public void AddPackOfDice()
+        {
+            Debug.Log($"Adding pack of {Data.MysticDicePackCount} dice");
+            AddDice(Data.MysticDicePackCount);
+        }
+
+        public void AddDice(int diceCount)
+        {
+            Debug.Log($"Adding {diceCount} dice");
+            DiceCount += diceCount;
         }
 
         public void ResolveRandomEvent(int dieResult)
@@ -128,34 +166,23 @@ namespace Core
             }
         }
 
-        void MultiplyCurrentCubes(bool increase)
+        public void AddVillage()
         {
-            Debug.Log($"Multiplying dice, increase: {increase}");
-            int delta = Mathf.CeilToInt(DiceCount * Data.DiceMultiplyFactor);
-            DiceCount += (increase ? 1 : -1) * delta;
+            Debug.Log("Adding new found village");
+            VillagesCount++;
         }
 
-        void StartGame()
+        void MultiplyCurrentCubes(bool increase)
         {
-            DiceCount = Data.StartingDice;
-            IsWaitingForDie = false;
-            DieResultListener = null;
-            EnemyExtraHpFactor = 0;
-
-            var spawnPoint = MapManager.Instance.InitializeMap();
-
-            if (Player)
-                Destroy(Player.gameObject);
-
-            Player = Instantiate(PlayerPrefab);
-            Player.SetSpawnPoint(spawnPoint);
-
-            OnPlayerSpawned(Player);
+            int delta = Mathf.CeilToInt(DiceCount * Data.DiceMultiplyFactor);
+            Debug.Log($"Multiplying dice, delta: {delta}, increase: {increase}");
+            DiceCount += (increase ? 1 : -1) * delta;
         }
 
         void AddVillageCubes(int cubesPerVillage)
         {
-            Debug.LogWarning($"Village bonuses not implemented");
+            Debug.Log($"Adding {cubesPerVillage} cubes for {VillagesCount} villages");
+            AddDice(VillagesCount * cubesPerVillage);
         }
 
         void ShowRandomText()
@@ -176,8 +203,17 @@ namespace Core
 
             if (tile != null)
             {
-                if (tile.Data.IsPassable)
-                    Player.MoveToTile(coord, tile);
+                if (!tile.Data.IsPassable)
+                    return; // Do nothing, wasted die
+
+                if (!tile.Data.IsMystic)
+                {
+                    Player.MoveToTile(coord, tile); // Move to normal tile
+                    return;
+                }
+
+                // Special case
+                CheckMysticTile(coord, tile);
                 return;
             }
 
@@ -186,6 +222,35 @@ namespace Core
                 RestartGame();
                 return;
             }
+        }
+
+        void CheckMysticTile(Vector2Int coord, Tile tile)
+        {
+            // Already opened mystic tile, just move to it
+            if (tile.IsVisited)
+            {
+                Player.MoveToTile(coord, tile);
+                return;
+            }
+
+            if (!WaitForDie((value) => MysticDiceThrown(coord, tile, value)))
+            {
+                RestartGame();
+                return;
+            }
+        }
+
+        void MysticDiceThrown(Vector2Int coord, Tile tile, int dieResult)
+        {
+            if (!tile.Data.IsMystic)
+            {
+                Debug.LogError($"Mystic die on normal tile");
+                Player.MoveToTile(coord, tile, () => PostPlayerMove(coord, tile));
+                return;
+            }
+
+            // Create a tile and then move the player there
+            tile.RevealMysticTile(dieResult, () => Player.MoveToTile(coord, tile, () => PostPlayerMove(coord, tile)));
         }
 
         void RevealDiceThrown(Vector2Int coord, int dieResult)

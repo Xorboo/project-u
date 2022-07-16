@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UrUtils.Extensions;
 using UrUtils.Misc;
+using Random = UnityEngine.Random;
 
 namespace Core.Map
 {
@@ -47,8 +48,26 @@ namespace Core.Map
 
             var start = Parameters.SpawnPoint;
             CreateTile(start, Parameters.StartingTile);
+
+            for (int i = 0; i < Parameters.MysticTilesCount; i++)
+                CreateMysticTile();
             return start;
         }
+
+        void CreateMysticTile()
+        {
+            for (int attempt = 0; attempt < 10; attempt++)
+            {
+                var coord = RandomCoords;
+                if (Map[coord.y, coord.x] == null)
+                {
+                    CreateTile(coord, Parameters.MysticTile);
+                    break;
+                }
+            }
+        }
+
+        Vector2Int RandomCoords => new Vector2Int(Random.Range(0, Parameters.MapSize.x), Random.Range(0, Parameters.MapSize.y));
 
         void CreateTile(Vector2Int pos, Tile tileData)
         {

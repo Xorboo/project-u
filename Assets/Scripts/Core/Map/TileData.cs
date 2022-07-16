@@ -19,6 +19,9 @@ namespace Core.Map
         [Space]
         public bool HasRandomEvent = false;
 
+        [Space]
+        public bool IsMystic = false;
+
         public int EnemyFullHp => EnemyBaseHp + EnemyHpScale * GameManager.Instance.EnemyExtraHpFactor;
     }
 }

@@ -10,5 +10,8 @@ namespace Core
         public int VillageBonusA = 2;
         public int VillageBonusB = 3;
         public float DiceMultiplyFactor = 0.1f;
+
+        public int MysticDicePackCount = 20;
+        public int MysticPermanentDiceCount = 5;
     }
 }
