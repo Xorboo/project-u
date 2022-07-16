@@ -1172,32 +1172,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3112381902151415873, guid: 64f28c7e7ca37d844ab526c9e3566af0, type: 3}
       propertyPath: dialogs.Array.data[0].npc_name
-      value: "\u0412\u0430\u0441\u0438\u043B\u0438\u0441\u0430"
+      value: The Sane Opossum
       objectReference: {fileID: 0}
     - target: {fileID: 3112381902151415873, guid: 64f28c7e7ca37d844ab526c9e3566af0, type: 3}
       propertyPath: dialogs.Array.data[0].npc_text
-      value: "\u042D\u0442\u043E \u043D\u0435 \u0442\u043E\u0442 \u0437\u0430\u043C\u043E\u043A
-        \u0438 \u0442\u044B \u043D\u0435 \u041C\u0430\u0440\u0438\u043E. \u0418\u0434\u0438
-        \u0434\u0430\u043B\u044C\u0448\u0435."
+      value: Haa, Outlander, I will help you to get out, if you take me with you,
+        hraaaaahh!
       objectReference: {fileID: 0}
     - target: {fileID: 3112381902151415873, guid: 64f28c7e7ca37d844ab526c9e3566af0, type: 3}
       propertyPath: dialogs.Array.data[1].npc_name
-      value: "\u041C\u0430\u0442\u0432\u0435\u0439"
+      value: Crimson Riding Hood
       objectReference: {fileID: 0}
     - target: {fileID: 3112381902151415873, guid: 64f28c7e7ca37d844ab526c9e3566af0, type: 3}
       propertyPath: dialogs.Array.data[1].npc_text
-      value: "\u041A\u0442\u043E \u0442\u044B \u0442\u0430\u043A\u043E\u0439? \u042F
-        \u0442\u0435\u0431\u044F \u043D\u0435 \u0437\u0432\u0430\u043B! \u0418\u0434\u0438.."
+      value: Oh, you're not from here? You're redundant here, better leave...
       objectReference: {fileID: 0}
     - target: {fileID: 3112381902151415873, guid: 64f28c7e7ca37d844ab526c9e3566af0, type: 3}
       propertyPath: dialogs.Array.data[2].npc_name
-      value: "\u0417\u043B\u043E\u0434\u0435\u0439\u0441\u043A\u0438\u0439 \u0437\u043B\u043E\u0434\u0435\u0439"
+      value: The Mad Opossum
       objectReference: {fileID: 0}
     - target: {fileID: 3112381902151415873, guid: 64f28c7e7ca37d844ab526c9e3566af0, type: 3}
       propertyPath: dialogs.Array.data[2].npc_text
-      value: "\u0425\u0430-\u0445\u0430-\u0445\u0430. \u0422\u0435\u0431\u0435 \u043C\u0435\u043D\u044F
-        \u043D\u0435 \u043E\u0434\u043E\u043B\u0435\u0442\u044C. \u0418\u0434\u0438
-        \u043E\u0442\u0434\u043E\u0445\u043D\u0438."
+      value: Haa, Outlander, I will bite you everywhere, hraaaaaaaahhh!
       objectReference: {fileID: 0}
     - target: {fileID: 4045709071181824563, guid: 64f28c7e7ca37d844ab526c9e3566af0, type: 3}
       propertyPath: m_RootOrder
