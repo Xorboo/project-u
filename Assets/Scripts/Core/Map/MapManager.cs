@@ -8,6 +8,9 @@ namespace Core.Map
 {
     public class MapManager : Singleton<MapManager>, IPointerDownHandler
     {
+        public event Action<Vector2Int, Tile> OnTileClicked = delegate { };
+
+
         [SerializeField]
         MapParameters Parameters;
 
@@ -81,20 +84,19 @@ namespace Core.Map
             if (!isInBound)
                 return;
 
-            ProcessTileClick(pressCoordinates);
+            OnTileClicked(pressCoordinates, Map[pressCoordinates.y, pressCoordinates.x]);
         }
 
-        void ProcessTileClick(Vector2Int coord)
+        public Tile RevealTile(Vector2Int coord)
         {
-            var tile = Map[coord.y, coord.x];
-            if (tile == null)
-                SpawnRandomTile(coord);
+            return SpawnRandomTile(coord);
         }
 
-        void SpawnRandomTile(Vector2Int coord)
+        Tile SpawnRandomTile(Vector2Int coord)
         {
             var randomTile = Parameters.NormalTiles.Random();
             CreateTile(coord, randomTile);
+            return randomTile;
         }
 
         bool IsInBound(Vector2Int coord)

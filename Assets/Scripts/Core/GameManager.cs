@@ -22,13 +22,20 @@ namespace Core
 
         void OnEnable()
         {
+            MapManager.Instance.OnTileClicked += TileClicked;
             StartGame();
+        }
+
+        void OnDisable()
+        {
+            if (MapManager.Exists())
+                MapManager.Instance.OnTileClicked -= TileClicked;
         }
 
         #endregion
 
 
-        public void StartGame()
+        void StartGame()
         {
             var spawnPoint = MapManager.Instance.InitializeMap();
 
@@ -39,6 +46,20 @@ namespace Core
             Player.SetSpawnPoint(spawnPoint);
 
             OnPlayerSpawned(Player);
+        }
+
+        void TileClicked(Vector2Int coord, Tile tile)
+        {
+            if (Player.CurrentState != PlayerController.State.Idle || !Player.IsAdjacent(coord))
+                return;
+
+            if (tile == null)
+            {
+                tile = MapManager.Instance.RevealTile(coord);
+            }
+
+            if (tile.Data.IsPassable)
+                Player.MoveToTile(coord, tile);
         }
     }
 }
