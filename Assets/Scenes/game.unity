@@ -967,6 +967,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sound
       objectReference: {fileID: 0}
+    - target: {fileID: 6410611280227359364, guid: a7dcaabc3b7356c4ebdaf16a3a5cf5f6, type: 3}
+      propertyPath: m_Volume
+      value: 0.605
+      objectReference: {fileID: 0}
+    - target: {fileID: 6410611280227359364, guid: a7dcaabc3b7356c4ebdaf16a3a5cf5f6, type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 0.075
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a7dcaabc3b7356c4ebdaf16a3a5cf5f6, type: 3}
 --- !u!1001 &8274894248734212103
