@@ -218,8 +218,6 @@ MonoBehaviour:
       Chance: 1
     - Data: {fileID: 5603881619079897426}
       Chance: 1
-    - Data: {fileID: 0}
-      Chance: 0
     - Data: {fileID: 4263968282896444312}
       Chance: 1
   ShowOnAwake: 1
