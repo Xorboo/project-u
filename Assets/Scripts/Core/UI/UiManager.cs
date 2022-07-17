@@ -123,9 +123,9 @@ namespace Core.UI
             DialogUi.OpenDialog(entry, onDialogClosed);
         }
 
-        public void ShowChestEntry(int diceAmount, Action onChestUiClosed)
+        public void ShowChestEntry(int diceAmount, Action onChestUiClosed, bool isDice)
         {
-            ChestUi.OpenChestInfo(diceAmount, onChestUiClosed);
+            ChestUi.OpenChestInfo(diceAmount, onChestUiClosed, isDice);
         }
 
         public void ShowMysticInteractText(string interactText, Action onMysticWindowClosed)

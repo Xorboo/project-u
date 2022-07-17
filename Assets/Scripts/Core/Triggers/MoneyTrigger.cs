@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Core.Triggers
 {
-    public class ChestTrigger : PlayerTriggerBase
+    public class MoneyTrigger : PlayerTriggerBase
     {
         [SerializeField]
         int DiceAmount = 5;
@@ -17,11 +17,11 @@ namespace Core.Triggers
 
         protected override void ProcessTrigger(PlayerController player, Action onCompleted)
         {
-            UiManager.Instance.ShowChestEntry(DiceAmount, ChestUiClosed, true);
+            UiManager.Instance.ShowChestEntry(DiceAmount, ChestUiClosed, false);
 
             void ChestUiClosed()
             {
-                GameManager.Instance.ChangeDice(DiceAmount);
+                GameManager.Instance.Player.GetLoot(DiceAmount);
                 Destroy(gameObject);
                 onCompleted?.Invoke();
             }
