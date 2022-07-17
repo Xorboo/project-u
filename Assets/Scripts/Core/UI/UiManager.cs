@@ -22,6 +22,9 @@ namespace Core.UI
         [SerializeField]
         string MoveThrowText;
 
+        [SerializeField]
+        string MysticRevealThrowText;
+
         [Space]
         [SerializeField]
         RandomEventUi RandomEncounterUi;
@@ -31,6 +34,9 @@ namespace Core.UI
 
         [SerializeField]
         ChestUi ChestUi;
+
+        [SerializeField]
+        MysticInteractUi MysticUi;
 
 
         #region Unity
@@ -60,6 +66,11 @@ namespace Core.UI
             ShowDieRequest(MoveThrowText);
         }
 
+        public void ShowMysticRevealThrow()
+        {
+            ShowDieRequest(MysticRevealThrowText);
+        }
+
         public void HideDieRequest()
         {
             DieThrowRequestRoot.SetActive(false);
@@ -78,6 +89,7 @@ namespace Core.UI
             RandomEncounterUi.CloseEncounter();
             DialogUi.CloseDialog();
             ChestUi.CloseChestInfo();
+            MysticUi.ClosePanel();
         }
 
         public void ShowEncounterWindow(RandomEncounterData encounter, int diceChange, Action onEncounterWindowClosed)
@@ -93,6 +105,11 @@ namespace Core.UI
         public void ShowChestEntry(int diceAmount, Action onChestUiClosed)
         {
             ChestUi.OpenChestInfo(diceAmount, onChestUiClosed);
+        }
+
+        public void ShowMysticInteractText(string interactText, Action onMysticWindowClosed)
+        {
+            MysticUi.OpenPanel(interactText, onMysticWindowClosed);
         }
     }
 }

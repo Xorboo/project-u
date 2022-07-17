@@ -11,6 +11,9 @@ namespace Core.Map
         GameObject InitialViewRoot;
 
         [SerializeField]
+        GameObject ExploredViewRoot;
+
+        [SerializeField]
         List<GameObject> RevealedRoots = new();
 
 
@@ -27,6 +30,8 @@ namespace Core.Map
         void OnEnable()
         {
             InitialViewRoot.SetActive(true);
+            ExploredViewRoot.SetActive(false);
+
             foreach (var root in RevealedRoots)
             {
                 if (root)
@@ -40,6 +45,7 @@ namespace Core.Map
         public void RevealTile(int dieResult, Action onFinished)
         {
             InitialViewRoot.SetActive(false);
+            ExploredViewRoot.SetActive(true);
             RevealedRoots[dieResult].SetActive(true);
 
             // Replay the same reveal animation again

@@ -1,6 +1,7 @@
 using System;
 using Core.Map;
 using Core.Player;
+using Core.UI;
 using UnityEngine;
 using UrUtils.Misc;
 using Tile = Core.Map.Tile;
@@ -183,8 +184,11 @@ namespace Core
                 return;
             }
 
+            UiManager.Instance.ShowMysticRevealThrow();
+
             void MysticDiceThrown(Vector2Int pos, Tile mysticTile, int dieResult)
             {
+                UiManager.Instance.HideDieRequest();
                 if (!mysticTile.Data.IsMystic)
                 {
                     Debug.LogError($"Mystic die on normal tile");

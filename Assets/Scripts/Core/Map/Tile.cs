@@ -64,12 +64,6 @@ namespace Core.Map
                 return;
             }
 
-            if (Data.IsMystic)
-            {
-                StartMysticEvent();
-                return;
-            }
-
             VisitFinishedCallback?.Invoke();
         }
 
@@ -115,41 +109,6 @@ namespace Core.Map
         {
             RevealedMysticType = dieResult;
             GetComponent<MysticTile>().RevealTile(dieResult, onFinished);
-        }
-
-        void StartMysticEvent()
-        {
-            switch (RevealedMysticType)
-            {
-                case 1:
-                    GameManager.Instance.AddPackOfDice();
-                    VisitFinishedCallback?.Invoke();
-                    break;
-
-                case 2:
-                    GameManager.Instance.AddPermanentDice();
-                    VisitFinishedCallback?.Invoke();
-                    break;
-
-                // Village
-                case 3:
-                case 4:
-                    GameManager.Instance.AddVillage();
-                    VisitFinishedCallback?.Invoke();
-                    break;
-
-                // Story
-                case 5:
-                case 6:
-                    Debug.LogWarning($"Story not implemented");
-                    VisitFinishedCallback?.Invoke();
-                    break;
-
-                default:
-                    Debug.LogError($"Unsupported mystic type: {RevealedMysticType}");
-                    VisitFinishedCallback?.Invoke();
-                    break;
-            }
         }
 
         #endregion

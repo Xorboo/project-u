@@ -2,7 +2,7 @@ using System;
 using Core.Player;
 using Core.Story;
 
-namespace Core.Triggers.NpcDialog
+namespace Core.Triggers.MysticTriggers
 {
     public class NpcDialogTrigger : PlayerTriggerBase
     {
