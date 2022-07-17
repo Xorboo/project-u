@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c604f7d5df6ab9f4a9ca319a5ff5aece, type: 3}
   m_Name: Mad Opossum
   m_EditorClassIdentifier: 
-  NpcName: The Mad Opossum
+  NpcName: The Villager
