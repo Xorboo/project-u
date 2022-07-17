@@ -29,6 +29,9 @@ namespace Core.Units
 
         Animator Animator;
 
+        [SerializeField]
+        GameObject HitEffect;
+
 
         Action<bool> FightEndListener;
 
@@ -138,6 +141,10 @@ namespace Core.Units
             {
                 CurrentHealth = Math.Max(0, CurrentHealth - dieResult);
                 UpdateHealthUi();
+
+                var effect = Instantiate(HitEffect);
+                effect.transform.position = transform.position;
+                Destroy(effect.gameObject, 1f);
 
                 if (CurrentHealth <= 0)
                 {

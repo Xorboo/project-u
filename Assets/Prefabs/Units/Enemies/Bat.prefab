@@ -51,6 +51,7 @@ MonoBehaviour:
   HpText: {fileID: 1906524792128870418}
   NameText: {fileID: 5249145906718611073}
   DeathDuration: 1.5
+  HitEffect: {fileID: 8299151356811090127, guid: 823fdc685edf83c4b8227c039000dd0c, type: 3}
 --- !u!65 &7202642904775273550
 BoxCollider:
   m_ObjectHideFlags: 0

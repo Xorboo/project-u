@@ -1329,6 +1329,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GameParameters: {fileID: 11400000, guid: 642340e6323c85c4d9ff031bf5c5f444, type: 2}
   HealthText: {fileID: 7509355854426690439}
+  HitEffect: {fileID: 8299151356811090127, guid: 823fdc685edf83c4b8227c039000dd0c, type: 3}
+  Animator: {fileID: 1770838614652085376}
 --- !u!1 &4521329128334390597
 GameObject:
   m_ObjectHideFlags: 0

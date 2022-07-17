@@ -17,6 +17,8 @@ namespace Core.Dice
         [SerializeField, Range(0, 1)]
         float Volume = 0.5f;
 
+        [SerializeField]
+        GameObject EffectPrefab;
 
         AudioSource AudioSource;
         float LastPlayTime = float.MinValue;
@@ -35,6 +37,10 @@ namespace Core.Dice
 
             if (Time.time > LastPlayTime + MinRepeatDelay)
             {
+                var effect = Instantiate(EffectPrefab);
+                effect.transform.position = transform.position;
+                Destroy(effect.gameObject, 1f);
+
                 AudioSource.pitch = Random.Range(1 - PitchDiff, 1 + PitchDiff);
                 AudioSource.PlayOneShot(HitClip, Volume);
 
