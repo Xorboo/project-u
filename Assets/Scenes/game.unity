@@ -1171,6 +1171,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8445585054949766762, guid: 129db02345d1e4a439264829cd66764c, type: 3}
+      propertyPath: TrailModule.colorOverTrail.maxGradient.key0.b
+      value: 0.7264151
+      objectReference: {fileID: 0}
+    - target: {fileID: 8445585054949766762, guid: 129db02345d1e4a439264829cd66764c, type: 3}
+      propertyPath: TrailModule.colorOverTrail.maxGradient.key0.g
+      value: 0.4777417
+      objectReference: {fileID: 0}
+    - target: {fileID: 8445585054949766762, guid: 129db02345d1e4a439264829cd66764c, type: 3}
+      propertyPath: TrailModule.colorOverTrail.maxGradient.key0.r
+      value: 0.3335113
+      objectReference: {fileID: 0}
+    - target: {fileID: 8445585054949766762, guid: 129db02345d1e4a439264829cd66764c, type: 3}
+      propertyPath: TrailModule.colorOverTrail.maxGradient.key1.b
+      value: 0.7264151
+      objectReference: {fileID: 0}
+    - target: {fileID: 8445585054949766762, guid: 129db02345d1e4a439264829cd66764c, type: 3}
+      propertyPath: TrailModule.colorOverTrail.maxGradient.key1.g
+      value: 0.4777417
+      objectReference: {fileID: 0}
+    - target: {fileID: 8445585054949766762, guid: 129db02345d1e4a439264829cd66764c, type: 3}
+      propertyPath: TrailModule.colorOverTrail.maxGradient.key1.r
+      value: 0.3335113
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 129db02345d1e4a439264829cd66764c, type: 3}
 --- !u!1001 &6410611281893703539
