@@ -54,6 +54,8 @@ MonoBehaviour:
       Chance: 1
     - Data: {fileID: 5788414030878351154}
       Chance: 1
+    - Data: {fileID: 6070273010772016311}
+      Chance: 1
   ShowOnAwake: 1
 --- !u!1 &6697398296435956315
 GameObject:
@@ -356,6 +358,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 66718e066cf97bd4e826ccef390101e8, type: 3}
+--- !u!1 &6070273010772016311 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 66718e066cf97bd4e826ccef390101e8, type: 3}
+  m_PrefabInstance: {fileID: 6412168150266790374}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6878722352512017933 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 66718e066cf97bd4e826ccef390101e8, type: 3}
