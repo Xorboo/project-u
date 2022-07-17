@@ -1,6 +1,7 @@
 ﻿using System;
 using UnityEngine;
 using TMPro;
+using Core.Player;
 
 namespace Core.UI
 {
@@ -27,9 +28,12 @@ namespace Core.UI
 
         Action CloseListener;
 
+        [SerializeField]
+        GameObject ShopPanel;
 
         void Start()
         {
+            ShopPanel.SetActive(false);
             CloseEncounter();
         }
 
@@ -52,6 +56,49 @@ namespace Core.UI
         {
             RandomEncounterPanel.SetActive(false);
             CloseListener?.Invoke();
+        }
+
+        public void OpenShop(bool state)
+        {
+            ShopPanel.SetActive(state);
+            if (state)
+                RandomEncounterDicesText.text = "";
+        }
+
+        public void BuyRestoreHealth(int cost)
+        {
+            if (GameManager.Instance.Player.MoneyValue >= cost)
+            {
+                GameManager.Instance.Player.GetLoot(-cost);
+                GameManager.Instance.Player.Health.ApplyHeal(100);
+            }
+        }
+
+        public void BuyMaxHealth1(int cost)
+        {
+            if (GameManager.Instance.Player.MoneyValue >= cost)
+            {
+                GameManager.Instance.Player.GetLoot(-cost);
+                GameManager.Instance.Player.Health.AddMaxHealth(2);
+            }
+        }
+
+        public void BuyMaxHealth2(int cost)
+        {
+            if (GameManager.Instance.Player.MoneyValue >= cost)
+            {
+                GameManager.Instance.Player.GetLoot(-cost);
+                GameManager.Instance.Player.Health.AddMaxHealth(5);
+            }
+        }
+
+        public void BuyMaxHealth3(int cost)
+        {
+            if (GameManager.Instance.Player.MoneyValue >= cost)
+            {
+                GameManager.Instance.Player.GetLoot(-cost);
+                GameManager.Instance.Player.Health.AddMaxHealth(20);
+            }
         }
     }
 }

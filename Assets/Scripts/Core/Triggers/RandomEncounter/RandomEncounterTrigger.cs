@@ -40,6 +40,9 @@ namespace Core.Triggers.RandomEncounter
                     break;
                 case RandomEncounterData.EncounterType.RandomText:
                     break;
+                case RandomEncounterData.EncounterType.Shop:
+                    UiManager.Instance.ShowShopPanel(true);
+                    break;
                 default:
                     Debug.LogError($"Unknown encounter type: {encounter.Type}");
                     break;
@@ -69,6 +72,9 @@ namespace Core.Triggers.RandomEncounter
                 {
                     case RandomEncounterData.EncounterType.IncreaseEnemyHp:
                         GameManager.Instance.IncreaseEnemyHp();
+                        break;
+                    case RandomEncounterData.EncounterType.Shop:
+                        UiManager.Instance.ShowShopPanel(false);
                         break;
                     case RandomEncounterData.EncounterType.RandomText:
                         break;

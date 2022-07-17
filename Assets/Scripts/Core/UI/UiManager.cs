@@ -113,6 +113,11 @@ namespace Core.UI
             RandomEncounterUi.OpenEncounter(encounter.Description, diceChange, onEncounterWindowClosed);
         }
 
+        public void ShowShopPanel(bool state)
+        {
+            RandomEncounterUi.OpenShop(state);
+        }
+
         public void ShowStoryEntry(StoryEntry entry, Action onDialogClosed)
         {
             DialogUi.OpenDialog(entry, onDialogClosed);

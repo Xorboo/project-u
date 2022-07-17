@@ -32,7 +32,8 @@ namespace Core.Triggers.RandomEncounter
             VillageBonusA,
             VillageBonusB,
             IncreaseEnemyHp,
-            RandomText
+            RandomText,
+            Shop
         };
 
         public string Description;
