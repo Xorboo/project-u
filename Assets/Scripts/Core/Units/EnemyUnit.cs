@@ -121,6 +121,8 @@ namespace Core.Units
 
                 if (CurrentHealth <= 0)
                 {
+                    int loot = Data.RandomLoot;
+                    player.GetLoot(loot);
                     onFightFinished?.Invoke(true);
                 }
             }

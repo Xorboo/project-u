@@ -133,7 +133,7 @@ namespace Core
             if (z == 180)
                 dice_value = 6;
 
-            print(dice_value);
+            //print("Dice value: " + dice_value);
 
             if (dice_value > 0)
                 GameManager.Instance.OnDieThrown(dice_value);

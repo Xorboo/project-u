@@ -36,7 +36,7 @@ namespace Core.UI
 
             TrackingPlayer = player;
             TrackingPlayer.OnMoneyCountChanged += MoneyCountChanged;
-            MoneyCountChanged(TrackingPlayer.MoneyLeft);
+            MoneyCountChanged(TrackingPlayer.Money);
         }
 
 
