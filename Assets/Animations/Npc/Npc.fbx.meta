@@ -1,30 +1,51 @@
 fileFormatVersion: 2
-guid: 7ca5383010016b94ba11cf59287e8909
+guid: 4cb8cef439212324b8e77495ceba2e81
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable:
   - first:
-      74: -4182326462238737355
-    second: Armature.001|Cube.020Action
+      74: -2959672485226302094
+    second: Armature.003|Cube.020Action
   - first:
-      74: 8532295219475921262
-    second: Armature.001|MOB_BOSS_CROWNAction
+      74: -207824869273041856
+    second: Armature.003|MOB_BOSS_CROWNAction
   - first:
-      74: -7789913753882397390
-    second: Armature.001|ScullDeath
+      74: -72674631666322367
+    second: Armature.003|NpcIdle
   - first:
-      74: 1339928213490292613
-    second: Armature.001|ScullIdle
+      74: 1873868926024584607
+    second: Armature.003|SkullIdle
+  externalObjects:
   - first:
-      74: 16899117048352469
-    second: Armature.001|ScullIdleGetHit
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CHAR_VEGGY_COLLAR
+    second: {fileID: 2100000, guid: 50a3d1e53daa9c9409007af42726b762, type: 2}
   - first:
-      74: 6046218005823527883
-    second: Armature.001|ScullIdleHitting
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CHAR_VEGGY_EYES
+    second: {fileID: 2100000, guid: df32c62dc348d054caeaca0477777f0a, type: 2}
   - first:
-      74: 3821441836935657178
-    second: Armature.001|SkullIdle
-  externalObjects: {}
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CHAR_VEGGY_HEAD
+    second: {fileID: 2100000, guid: 22f1721cbf8f0904da9d18a7c5e6c8cc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CHAR_VEGGY_HEAD.001
+    second: {fileID: 2100000, guid: 71be0c72ab6197a4da3632cf8857a329, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CHAR_VEGGY_WINGS
+    second: {fileID: 2100000, guid: 5f62b89e8debf114085fcf011bcb4f68, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CLOVER
+    second: {fileID: 2100000, guid: b3844e5e2449fe046a536e69cfdb6cb2, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

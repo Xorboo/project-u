@@ -1,33 +1,71 @@
 fileFormatVersion: 2
-guid: cafec0d46ed41cf43b80c293b28e3d53
+guid: 85b1e912fd710ef4c91b582886ea81f1
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable:
   - first:
-      74: 8920559740511372390
-    second: Armature|Cube.020Action
+      74: -3170247667795832833
+    second: Armature.002|BossIdle1
   - first:
-      74: -2875620636250959808
-    second: Armature|death.001
+      74: -2851875071704322899
+    second: Armature.002|BossDeath
   - first:
-      74: -5363476605334689847
-    second: Armature|Fight in
+      74: -6905630532318081613
+    second: BossDeath
   - first:
-      74: 7285243943775499368
-    second: Armature|Fight out
+      74: 8244294614079938042
+    second: BossIdle1.001
   - first:
-      74: -8945691123924629249
-    second: Armature|Idle
+      74: 1075148474222669435
+    second: BossHitting.001
   - first:
-      74: 8652661431592866238
-    second: Armature|MOB_BOSS_CROWNAction
+      74: 8526060835976956743
+    second: Armature.002|BossHitting
   - first:
-      74: 7501720200318163216
-    second: Armature|SkullIdle
+      74: -4025133480395358312
+    second: BossGetHit
   - first:
-      74: 8349542763059015795
-    second: Armature|Walk
-  externalObjects: {}
+      74: 6540464433070863983
+    second: BossGetHit.001
+  - first:
+      74: -3720927594352010520
+    second: Armature.002|BossGetHit
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MOB_BOSS_BODY
+    second: {fileID: 2100000, guid: 67d23251cf5477245aa06770dcd01142, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MOB_BOSS_BROWS
+    second: {fileID: 2100000, guid: 3b67d044e85aa94458f57a15f963da40, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MOB_BOSS_CROWN
+    second: {fileID: 2100000, guid: 3c8c2fdf27b3cf345a72859ddfe0a788, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MOB_BOSS_EYES
+    second: {fileID: 2100000, guid: 60353d17e0d3c6c4c8d940cd8ba9f47c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MOB_BOSS_MOUTH
+    second: {fileID: 2100000, guid: 1d5c1998834c1344797820e6f6869488, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MOB_BOSS_TEETH
+    second: {fileID: 2100000, guid: d8ec194dcc9f7aa4c9e1305ca2ef9234, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MOB_BOSS_TONGUE
+    second: {fileID: 2100000, guid: ea3deac271ff04445a2ce465e7e9e496, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

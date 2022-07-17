@@ -1,21 +1,60 @@
 fileFormatVersion: 2
-guid: 4cb8cef439212324b8e77495ceba2e81
+guid: ea97d467211f13c4c905f11d4a7eaa0f
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable:
   - first:
-      74: -2959672485226302094
-    second: Armature.003|Cube.020Action
+      74: 2932621209331322776
+    second: Armature.005|BatDeath
   - first:
-      74: -207824869273041856
-    second: Armature.003|MOB_BOSS_CROWNAction
+      74: -7910019690364662169
+    second: Armature.005|BatGetHit
   - first:
-      74: -72674631666322367
-    second: Armature.003|NpcIdle
+      74: -4452317123094416858
+    second: Armature.005|BatHitting
   - first:
-      74: 1873868926024584607
-    second: Armature.003|SkullIdle
-  externalObjects: {}
+      74: -4679525068770412018
+    second: Armature.005|BatIdle
+  - first:
+      74: -7808211990167113437
+    second: Armature.005|Cube.020Action
+  - first:
+      74: -306165979759330354
+    second: Armature.005|MOB_BOSS_CROWNAction
+  - first:
+      74: 1273472434317551043
+    second: Armature.005|SkullIdle
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MOB_BAT_BODY
+    second: {fileID: 2100000, guid: fbe566518fcdede479e47c767fdf5e77, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MOB_BAT_BODY. hands
+    second: {fileID: 2100000, guid: 86f8558237751e94891b9f442bc6add5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MOB_BAT_EYES
+    second: {fileID: 2100000, guid: 3586ffbc8155ecb479f9b1c58dabd330, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MOB_BAT_TEETH
+    second: {fileID: 2100000, guid: 33519516f029cee46a54b908fd15070b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MOB_BAT_TONGUE
+    second: {fileID: 2100000, guid: af3c2a1e597239547a5aaa0652c5ad6f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MOB_BOSS_BROWS.001
+    second: {fileID: 2100000, guid: 50267c5fb87f3be4dab0dade7eed981d, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
