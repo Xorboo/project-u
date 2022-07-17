@@ -13,3 +13,9 @@ MonoBehaviour:
   m_Name: GameParameters
   m_EditorClassIdentifier: 
   StartingDice: 10
+  VillageBonusA: 2
+  VillageBonusB: 3
+  DiceMultiplyFactor: 0.1
+  MysticDicePackCount: 20
+  MysticPermanentDiceCount: 5
+  PlayerHealth: 10

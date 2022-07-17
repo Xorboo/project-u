@@ -41,6 +41,9 @@ namespace Core.UI
         [SerializeField]
         MysticInteractUi MysticUi;
 
+        [SerializeField]
+        PotionUi PotionUi;
+
 
         #region Unity
 
@@ -98,6 +101,7 @@ namespace Core.UI
             DialogUi.CloseDialog();
             ChestUi.CloseChestInfo();
             MysticUi.ClosePanel();
+            PotionUi.ClosePotionPanel();
         }
 
         public void ShowEncounterWindow(RandomEncounterData encounter, int diceChange, Action onEncounterWindowClosed)
@@ -118,6 +122,16 @@ namespace Core.UI
         public void ShowMysticInteractText(string interactText, Action onMysticWindowClosed)
         {
             MysticUi.OpenPanel(interactText, onMysticWindowClosed);
+        }
+
+        public void ShowHealthEntry(float healPercent, Action onPanelClosed)
+        {
+            PotionUi.OpenHealthPotionPanel(healPercent, onPanelClosed);
+        }
+
+        public void ShowBonusHealthEntry(int extraHealth, Action onPanelClosed)
+        {
+            PotionUi.OpenBonusHealthPotionPanel(extraHealth, onPanelClosed);
         }
     }
 }

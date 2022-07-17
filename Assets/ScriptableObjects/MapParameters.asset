@@ -32,5 +32,9 @@ MonoBehaviour:
       Chance: 10
     - Data: {fileID: -7151999172824762694, guid: cbe260dcc7a843747936585edd651819, type: 3}
       Chance: 10
+    - Data: {fileID: 400871738746095808, guid: 7f3a4d981166088478552a8870f44b09, type: 3}
+      Chance: 10
+    - Data: {fileID: 400871738746095808, guid: cf5793cf4d4386247b69765bcded38f8, type: 3}
+      Chance: 10
   TileWorldSize: 5
   TileRevealDelay: 0.3
