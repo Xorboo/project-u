@@ -44,5 +44,10 @@ namespace Core.UI
 
             GameManager.Instance.OnDieThrown(dieResult);
         }
+
+        public void OnChangeDiceClicked(int delta)
+        {
+            GameManager.Instance.ChangeDice(delta);
+        }
     }
 }

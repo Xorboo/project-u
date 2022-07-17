@@ -286,7 +286,7 @@ PrefabInstance:
       objectReference: {fileID: 952630212}
     - target: {fileID: 2867757815778634897, guid: 9f2568c18d364734395421557f68a30f, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 2867757815778634897, guid: 9f2568c18d364734395421557f68a30f, type: 3}
       propertyPath: m_LocalScale.x
@@ -380,8 +380,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 14571049}
-  m_Father: {fileID: 1626827493}
-  m_RootOrder: 3
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &741492433
 MonoBehaviour:
@@ -525,7 +525,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1178417001
 GameObject:
@@ -630,11 +630,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   m_MaxRayIntersections: 1
---- !u!4 &1626827493 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4045709071181824563, guid: 64f28c7e7ca37d844ab526c9e3566af0, type: 3}
-  m_PrefabInstance: {fileID: 8274894248734212103}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1921230715
 GameObject:
   m_ObjectHideFlags: 0
@@ -679,7 +674,7 @@ Transform:
   m_Children:
   - {fileID: 1178417004}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2040723659
 GameObject:
@@ -747,7 +742,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2086373670
 GameObject:
@@ -854,30 +849,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 240655372374938189, guid: 2e8c7cbf809b4c145913ab12504b72fd, type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: e7c841b74737e504a9300a33a5b13f29, type: 2}
-    - target: {fileID: 240655372374938189, guid: 2e8c7cbf809b4c145913ab12504b72fd, type: 3}
-      propertyPath: m_sharedMaterial
-      value: 
-      objectReference: {fileID: 4498643330913075457, guid: e7c841b74737e504a9300a33a5b13f29, type: 2}
-    - target: {fileID: 1624275697751050020, guid: 2e8c7cbf809b4c145913ab12504b72fd, type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: e7c841b74737e504a9300a33a5b13f29, type: 2}
-    - target: {fileID: 1624275697751050020, guid: 2e8c7cbf809b4c145913ab12504b72fd, type: 3}
-      propertyPath: m_sharedMaterial
-      value: 
-      objectReference: {fileID: 4498643330913075457, guid: e7c841b74737e504a9300a33a5b13f29, type: 2}
-    - target: {fileID: 2524639535964993414, guid: 2e8c7cbf809b4c145913ab12504b72fd, type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: e7c841b74737e504a9300a33a5b13f29, type: 2}
-    - target: {fileID: 2524639535964993414, guid: 2e8c7cbf809b4c145913ab12504b72fd, type: 3}
-      propertyPath: m_sharedMaterial
-      value: 
-      objectReference: {fileID: 4498643330913075457, guid: e7c841b74737e504a9300a33a5b13f29, type: 2}
     - target: {fileID: 2524639536559818008, guid: 2e8c7cbf809b4c145913ab12504b72fd, type: 3}
       propertyPath: m_Name
       value: Canvas
@@ -892,7 +863,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2524639536559818012, guid: 2e8c7cbf809b4c145913ab12504b72fd, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2524639536559818012, guid: 2e8c7cbf809b4c145913ab12504b72fd, type: 3}
       propertyPath: m_AnchorMax.x
@@ -966,50 +937,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2524639537344139822, guid: 2e8c7cbf809b4c145913ab12504b72fd, type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: e7c841b74737e504a9300a33a5b13f29, type: 2}
-    - target: {fileID: 2524639537344139822, guid: 2e8c7cbf809b4c145913ab12504b72fd, type: 3}
-      propertyPath: m_sharedMaterial
-      value: 
-      objectReference: {fileID: 4498643330913075457, guid: e7c841b74737e504a9300a33a5b13f29, type: 2}
-    - target: {fileID: 6298407903645407227, guid: 2e8c7cbf809b4c145913ab12504b72fd, type: 3}
-      propertyPath: m_text
-      value: Roll the dice to get more dices
-      objectReference: {fileID: 0}
-    - target: {fileID: 6298407903645407227, guid: 2e8c7cbf809b4c145913ab12504b72fd, type: 3}
-      propertyPath: m_margin.x
-      value: -145.35658
-      objectReference: {fileID: 0}
-    - target: {fileID: 6298407903645407227, guid: 2e8c7cbf809b4c145913ab12504b72fd, type: 3}
-      propertyPath: m_margin.z
-      value: -143.50317
-      objectReference: {fileID: 0}
-    - target: {fileID: 6298407903645407227, guid: 2e8c7cbf809b4c145913ab12504b72fd, type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: e7c841b74737e504a9300a33a5b13f29, type: 2}
-    - target: {fileID: 6298407903645407227, guid: 2e8c7cbf809b4c145913ab12504b72fd, type: 3}
-      propertyPath: m_sharedMaterial
-      value: 
-      objectReference: {fileID: 4498643330913075457, guid: e7c841b74737e504a9300a33a5b13f29, type: 2}
-    - target: {fileID: 6298407903645407227, guid: 2e8c7cbf809b4c145913ab12504b72fd, type: 3}
-      propertyPath: m_enableWordWrapping
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8219939124194489547, guid: 2e8c7cbf809b4c145913ab12504b72fd, type: 3}
-      propertyPath: m_text
-      value: Random Encounter
-      objectReference: {fileID: 0}
-    - target: {fileID: 8219939124194489547, guid: 2e8c7cbf809b4c145913ab12504b72fd, type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: e7c841b74737e504a9300a33a5b13f29, type: 2}
-    - target: {fileID: 8219939124194489547, guid: 2e8c7cbf809b4c145913ab12504b72fd, type: 3}
-      propertyPath: m_sharedMaterial
-      value: 
-      objectReference: {fileID: 4498643330913075457, guid: e7c841b74737e504a9300a33a5b13f29, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e8c7cbf809b4c145913ab12504b72fd, type: 3}
 --- !u!114 &2524639536428401282 stripped
@@ -1023,6 +950,75 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a96158fffa7e86c4eb88fa2357e01c5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1001 &6410611281893703539
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3604843320642636530, guid: a7dcaabc3b7356c4ebdaf16a3a5cf5f6, type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3604843320642636530, guid: a7dcaabc3b7356c4ebdaf16a3a5cf5f6, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3604843320642636530, guid: a7dcaabc3b7356c4ebdaf16a3a5cf5f6, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3604843320642636530, guid: a7dcaabc3b7356c4ebdaf16a3a5cf5f6, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3604843320642636530, guid: a7dcaabc3b7356c4ebdaf16a3a5cf5f6, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3604843320642636530, guid: a7dcaabc3b7356c4ebdaf16a3a5cf5f6, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3604843320642636530, guid: a7dcaabc3b7356c4ebdaf16a3a5cf5f6, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3604843320642636530, guid: a7dcaabc3b7356c4ebdaf16a3a5cf5f6, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3604843320642636530, guid: a7dcaabc3b7356c4ebdaf16a3a5cf5f6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3604843320642636530, guid: a7dcaabc3b7356c4ebdaf16a3a5cf5f6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3604843320642636530, guid: a7dcaabc3b7356c4ebdaf16a3a5cf5f6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6163965988137058812, guid: a7dcaabc3b7356c4ebdaf16a3a5cf5f6, type: 3}
+      propertyPath: m_Name
+      value: Sound
+      objectReference: {fileID: 0}
+    - target: {fileID: 6410611280227359364, guid: a7dcaabc3b7356c4ebdaf16a3a5cf5f6, type: 3}
+      propertyPath: m_Volume
+      value: 0.711
+      objectReference: {fileID: 0}
+    - target: {fileID: 6410611280227359364, guid: a7dcaabc3b7356c4ebdaf16a3a5cf5f6, type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 0.393
+      objectReference: {fileID: 0}
+    - target: {fileID: 6410611280227359364, guid: a7dcaabc3b7356c4ebdaf16a3a5cf5f6, type: 3}
+      propertyPath: reverbZoneMixCustomCurve.m_Curve.Array.data[0].value
+      value: 0.329
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a7dcaabc3b7356c4ebdaf16a3a5cf5f6, type: 3}
 --- !u!1001 &8274894248734212103
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1039,37 +1035,37 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2524639536428401282}
     - target: {fileID: 3112381902151415873, guid: 64f28c7e7ca37d844ab526c9e3566af0, type: 3}
+      propertyPath: StoryData
+      value: 
+      objectReference: {fileID: 11400000, guid: dda64cff61ea90a43b4a067263da4995, type: 2}
+    - target: {fileID: 3112381902151415873, guid: 64f28c7e7ca37d844ab526c9e3566af0, type: 3}
       propertyPath: dialogs.Array.size
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3112381902151415873, guid: 64f28c7e7ca37d844ab526c9e3566af0, type: 3}
       propertyPath: dialogs.Array.data[0].npc_name
-      value: "\u0412\u0430\u0441\u0438\u043B\u0438\u0441\u0430"
+      value: The Sane Opossum
       objectReference: {fileID: 0}
     - target: {fileID: 3112381902151415873, guid: 64f28c7e7ca37d844ab526c9e3566af0, type: 3}
       propertyPath: dialogs.Array.data[0].npc_text
-      value: "\u042D\u0442\u043E \u043D\u0435 \u0442\u043E\u0442 \u0437\u0430\u043C\u043E\u043A
-        \u0438 \u0442\u044B \u043D\u0435 \u041C\u0430\u0440\u0438\u043E. \u0418\u0434\u0438
-        \u0434\u0430\u043B\u044C\u0448\u0435."
+      value: Haa, Outlander, I will help you to get out, if you take me with you,
+        hraaaaahh!
       objectReference: {fileID: 0}
     - target: {fileID: 3112381902151415873, guid: 64f28c7e7ca37d844ab526c9e3566af0, type: 3}
       propertyPath: dialogs.Array.data[1].npc_name
-      value: "\u041C\u0430\u0442\u0432\u0435\u0439"
+      value: Crimson Riding Hood
       objectReference: {fileID: 0}
     - target: {fileID: 3112381902151415873, guid: 64f28c7e7ca37d844ab526c9e3566af0, type: 3}
       propertyPath: dialogs.Array.data[1].npc_text
-      value: "\u041A\u0442\u043E \u0442\u044B \u0442\u0430\u043A\u043E\u0439? \u042F
-        \u0442\u0435\u0431\u044F \u043D\u0435 \u0437\u0432\u0430\u043B! \u0418\u0434\u0438.."
+      value: Oh, you're not from here? You're redundant here, better leave...
       objectReference: {fileID: 0}
     - target: {fileID: 3112381902151415873, guid: 64f28c7e7ca37d844ab526c9e3566af0, type: 3}
       propertyPath: dialogs.Array.data[2].npc_name
-      value: "\u0417\u043B\u043E\u0434\u0435\u0439\u0441\u043A\u0438\u0439 \u0437\u043B\u043E\u0434\u0435\u0439"
+      value: The Mad Opossum
       objectReference: {fileID: 0}
     - target: {fileID: 3112381902151415873, guid: 64f28c7e7ca37d844ab526c9e3566af0, type: 3}
       propertyPath: dialogs.Array.data[2].npc_text
-      value: "\u0425\u0430-\u0445\u0430-\u0445\u0430. \u0422\u0435\u0431\u0435 \u043C\u0435\u043D\u044F
-        \u043D\u0435 \u043E\u0434\u043E\u043B\u0435\u0442\u044C. \u0418\u0434\u0438
-        \u043E\u0442\u0434\u043E\u0445\u043D\u0438."
+      value: Haa, Outlander, I will bite you everywhere, hraaaaaaaahhh!
       objectReference: {fileID: 0}
     - target: {fileID: 4045709071181824563, guid: 64f28c7e7ca37d844ab526c9e3566af0, type: 3}
       propertyPath: m_RootOrder

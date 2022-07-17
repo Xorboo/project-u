@@ -12,6 +12,7 @@ namespace Utils
         [SerializeField]
         List<WeightedElement<T>> Elements = new();
 
+        [NonSerialized]
         float ChancesSum = float.NaN;
 
         public T GetRandom()
@@ -29,6 +30,11 @@ namespace Utils
 
             Debug.LogError($"Failed to get random weighted element [{typeof(T).Name}]");
             return default;
+        }
+
+        public IEnumerable<T> GetElements()
+        {
+            return Elements.Select(e => e.Data);
         }
     }
 

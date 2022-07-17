@@ -1,7 +1,7 @@
 using System;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UrUtils.Extensions;
 using UrUtils.Misc;
 using Random = UnityEngine.Random;
 
@@ -47,34 +47,66 @@ namespace Core.Map
             MapCollider.center = MapCollider.size / 2f;
 
             var start = Parameters.SpawnPoint;
-            CreateTile(start, Parameters.StartingTile);
+            FillStartingArea(start);
+            FillBorders();
+            FillRandomTiles();
 
-            for (int i = 0; i < Parameters.MysticTilesCount; i++)
-                CreateMysticTile();
             return start;
         }
 
-        void CreateMysticTile()
+        void FillStartingArea(Vector2Int coord)
         {
-            for (int attempt = 0; attempt < 10; attempt++)
+            int d = Parameters.StartingAreaSize / 2;
+            for (int y = coord.y - d; y <= coord.y + d; y++)
             {
-                var coord = RandomCoords;
-                if (Map[coord.y, coord.x] == null)
+                for (int x = coord.x - d; x <= coord.x + d; x++)
                 {
-                    CreateTile(coord, Parameters.MysticTile);
-                    break;
+                    var tile = CreateTile(new Vector2Int(x, y), Parameters.StartingTile);
+                    if (tile != null)
+                        tile.RevealImmediately();
+                }
+            }
+        }
+
+        void FillBorders()
+        {
+            for (int y = 0; y < Parameters.MapSize.y; y++)
+            {
+                CreateTile(new Vector2Int(0, y), Parameters.BorderTile);
+                CreateTile(new Vector2Int(Parameters.MapSize.x - 1, y), Parameters.BorderTile);
+            }
+
+            for (int x = 0; x < Parameters.MapSize.x; x++)
+            {
+                CreateTile(new Vector2Int(x, 0), Parameters.BorderTile);
+                CreateTile(new Vector2Int(x, Parameters.MapSize.y - 1), Parameters.BorderTile);
+            }
+        }
+
+        void FillRandomTiles()
+        {
+            for (int y = 0; y < Parameters.MapSize.y; y++)
+            {
+                for (int x = 0; x < Parameters.MapSize.x; x++)
+                {
+                    var randomTile = Parameters.TileChances.GetRandom();
+                    CreateTile(new Vector2Int(x, y), randomTile);
                 }
             }
         }
 
         Vector2Int RandomCoords => new Vector2Int(Random.Range(0, Parameters.MapSize.x), Random.Range(0, Parameters.MapSize.y));
 
-        void CreateTile(Vector2Int pos, Tile tileData)
+        Tile CreateTile(Vector2Int pos, Tile tileData)
         {
+            if (Map[pos.y, pos.x] != null)
+                return null;
+
             var tile = Instantiate(tileData, MapRoot);
             tile.transform.position = Parameters.GetTileCenter3D(pos);
 
             Map[pos.y, pos.x] = tile;
+            return tile;
         }
 
         void ClearMap()
@@ -99,29 +131,36 @@ namespace Core.Map
                 Mathf.FloorToInt(pressPos.x / Parameters.TileWorldSize),
                 Mathf.FloorToInt(pressPos.z / Parameters.TileWorldSize));
             bool isInBound = IsInBound(pressCoordinates);
-            Debug.Log($"Clicked {pressCoordinates} -> {isInBound}");
+            // Debug.Log($"Clicked {pressCoordinates} -> {isInBound}");
             if (!isInBound)
                 return;
 
             OnTileClicked(pressCoordinates, Map[pressCoordinates.y, pressCoordinates.x]);
         }
 
-        public Tile RevealTile(Vector2Int coord, int dieResult)
+        public void RevealTilesAround(Vector2Int pos, Action onFinished)
         {
-            return SpawnRandomTile(coord, dieResult);
+            float revealDelay = 0f;
+            for (int y = pos.y - 1; y <= pos.y + 1; y++)
+            {
+                for (int x = pos.x - 1; x <= pos.x + 1; x++)
+                {
+                    if (!IsInBound(x, y))
+                        continue;
+
+                    var tile = Map[y, x];
+                    if (tile == null || tile.IsRevealed)
+                        continue;
+
+                    tile.Reveal(revealDelay);
+                    revealDelay += Parameters.TileRevealDelay;
+                }
+            }
+
+            DOTween.Sequence().AppendInterval(revealDelay).OnComplete(() => onFinished());
         }
 
-        Tile SpawnRandomTile(Vector2Int coord, int dieResult)
-        {
-            var randomTile = Parameters.NormalTiles[dieResult - 1];
-            CreateTile(coord, randomTile);
-            return randomTile;
-        }
-
-        bool IsInBound(Vector2Int coord)
-        {
-            return coord.x >= 0 && coord.x < Parameters.MapSize.x &&
-                   coord.y >= 0 && coord.y < Parameters.MapSize.y;
-        }
+        bool IsInBound(Vector2Int coord) => IsInBound(coord.x, coord.y);
+        bool IsInBound(int x, int y) => x >= 0 && x < Parameters.MapSize.x && y >= 0 && y < Parameters.MapSize.y;
     }
 }

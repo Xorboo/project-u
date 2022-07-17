@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8621ad7a561887445bc494db32dcb6ac, type: 3}
+  m_Name: Story Data
+  m_EditorClassIdentifier: 
+  Entries:
+  - Npc: {fileID: 11400000, guid: 7028fd07ab1a1254cad3ee0ac610f8f6, type: 2}
+    Text: Haa, Outlander, I will help you to get out, if you take me with you, hraaaaahh!
+  - Npc: {fileID: 11400000, guid: 171b17c399ea6ae47b75fa186b8ed5f7, type: 2}
+    Text: Oh, you're not from here? You're redundant here, better leave...
+  - Npc: {fileID: 11400000, guid: fe048fdbe335b134c890cf372ba59f5f, type: 2}
+    Text: Haa, Outlander, I will bite you everywhere, hraaaaaaaahhh!
