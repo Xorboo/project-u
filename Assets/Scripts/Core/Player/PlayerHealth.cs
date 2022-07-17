@@ -39,6 +39,8 @@ namespace Core.Player
 
         int MaxHealthValue = 0;
 
+        static int GatheredBonusHealth = 0;
+
 
         #region Unity
 
@@ -51,7 +53,7 @@ namespace Core.Player
 
         public void Initialize()
         {
-            MaxHealth = Health = GameParameters.PlayerHealth;
+            MaxHealth = Health = GameParameters.PlayerHealth + GatheredBonusHealth;
             UpdateHealthUi();
         }
 
@@ -64,6 +66,7 @@ namespace Core.Player
 
         public void AddMaxHealth(int amount)
         {
+            GatheredBonusHealth += amount;
             MaxHealth += amount;
             Health += amount;
         }
