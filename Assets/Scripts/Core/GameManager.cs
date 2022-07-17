@@ -65,6 +65,9 @@ namespace Core
 
         void OnEnable()
         {
+            QualitySettings.vSyncCount = 0;
+            Application.targetFrameRate = 60;
+
             MapManager.Instance.OnTileClicked += TileClicked;
             StartGame();
         }
@@ -102,7 +105,7 @@ namespace Core
         {
             if (!IsWaitingForDie)
             {
-                Debug.LogError($"Die thrown when not waiting for it");
+                Debug.LogWarning($"Die thrown when not waiting for it");
                 return;
             }
 
