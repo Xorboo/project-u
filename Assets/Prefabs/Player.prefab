@@ -529,7 +529,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Mr. Dice
+  m_text: DeeSix
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e7c841b74737e504a9300a33a5b13f29, type: 2}
   m_sharedMaterial: {fileID: 4498643330913075457, guid: e7c841b74737e504a9300a33a5b13f29, type: 2}
