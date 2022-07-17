@@ -47,7 +47,7 @@ namespace Core.Map
         {
             InitialViewRoot.SetActive(false);
             ExploredViewRoot.SetActive(true);
-            var revealedItem = RevealedRoots[dieResult];
+            var revealedItem = RevealedRoots[dieResult-1];
             revealedItem.SetActive(true);
 
             // Replay the same reveal animation again

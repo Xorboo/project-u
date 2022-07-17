@@ -47,6 +47,8 @@ namespace Core.UI
         [SerializeField]
         GameOverUi GameOverUi;
 
+        [SerializeField]
+        GameObject TutorialPanel;
 
         #region Unity
 
@@ -62,7 +64,10 @@ namespace Core.UI
         }
 
         #endregion
-
+        private void Start()
+        {
+            TutorialPanel.SetActive(true);
+        }
         protected override bool IsPersistent => false;
 
         /*public void ShowRandomEncounterThrow()

@@ -2626,6 +2626,7 @@ MonoBehaviour:
   MysticUi: {fileID: 300560050412078147}
   PotionUi: {fileID: 4932582017002969244}
   GameOverUi: {fileID: 451254851343283348}
+  TutorialPanel: {fileID: 7664776051017944582}
 --- !u!1 &2524639536560380275
 GameObject:
   m_ObjectHideFlags: 0
