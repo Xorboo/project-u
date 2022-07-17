@@ -10,6 +10,7 @@ namespace Core.UI
         [SerializeField]
         GameObject CheatPanel;
 
+        [SerializeField] bool cheats_enabled = false;
 
         #region Unity
 
@@ -30,7 +31,10 @@ namespace Core.UI
 
         void DieWaitingChanged(bool isWaiting)
         {
-            CheatPanel.SetActive(isWaiting);
+            if (cheats_enabled)
+                CheatPanel.SetActive(isWaiting);
+            else
+                CheatPanel.SetActive(false);
         }
 
         public void OnFakeThrowClicked(int value)
@@ -60,6 +64,12 @@ namespace Core.UI
         public void GetMoney()
         {
             GameManager.Instance.Player.GetLoot(100);
+        }
+
+        private void Update()
+        {
+            if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.C))
+                cheats_enabled = !cheats_enabled;
         }
     }
 }
