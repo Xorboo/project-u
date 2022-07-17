@@ -74,7 +74,11 @@ namespace Core.Units
                     .OnComplete(() =>
                     {
                         if (gameObject)
+                        {
+                            if (gameObject.CompareTag("Boss"))
+                                GameManager.Instance.PlayFinal();
                             Destroy(gameObject);
+                        }
                         onCompleted?.Invoke();
                     });
             }

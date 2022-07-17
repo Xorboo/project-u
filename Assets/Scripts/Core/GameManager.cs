@@ -22,6 +22,9 @@ namespace Core
         [SerializeField]
         GameParameters Data;
 
+        [SerializeField]
+        GameObject FinalScreen;
+
         // TODO Save to PlayerPrefs
         public int ExtraStartingDice { get; private set; } = 0;
 
@@ -91,6 +94,8 @@ namespace Core
             VillagesCount = 0;
 
             var spawnPoint = MapManager.Instance.InitializeMap();
+
+            FinalScreen.SetActive(false);
 
             if (Player)
                 Destroy(Player.gameObject);
@@ -250,6 +255,11 @@ namespace Core
         public void RestartGame()
         {
             UiManager.Instance.ShowGameOverPanel(StartGame);
+        }
+
+        public void PlayFinal()
+        {
+            FinalScreen.SetActive(true);
         }
     }
 }

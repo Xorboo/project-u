@@ -168,6 +168,11 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 10, y: 0.01, z: 10}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &188221995 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2135520137688947615, guid: 2e8c7cbf809b4c145913ab12504b72fd, type: 3}
+  m_PrefabInstance: {fileID: 2524639536428401281}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &316825840
 GameObject:
   m_ObjectHideFlags: 0
@@ -1095,5 +1100,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5409809349025542981, guid: 64f28c7e7ca37d844ab526c9e3566af0, type: 3}
+      propertyPath: FinalScreen
+      value: 
+      objectReference: {fileID: 188221995}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 64f28c7e7ca37d844ab526c9e3566af0, type: 3}

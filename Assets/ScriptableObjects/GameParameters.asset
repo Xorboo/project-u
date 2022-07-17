@@ -18,4 +18,4 @@ MonoBehaviour:
   DiceMultiplyFactor: 0.1
   MysticDicePackCount: 20
   MysticPermanentDiceCount: 5
-  PlayerHealth: 1
+  PlayerHealth: 10
