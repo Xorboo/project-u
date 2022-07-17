@@ -2,6 +2,7 @@ using System;
 using Core.Player;
 using Core.Triggers;
 using Core.UI;
+using DG.Tweening;
 using TMPro;
 using UnityEngine;
 
@@ -53,17 +54,28 @@ namespace Core.Units
             {
                 if (playerWon)
                 {
-                    // TODO Death animation (but disable trigger immediately)
-                    // transform.Translate(0, 1, 0);
-                    // transform.Rotate(0, 0, 180, Space.Self);
-
-                    Destroy(gameObject);
-                    onCompleted?.Invoke();
+                    AnimateEnemyDeath();
                 }
                 else
                 {
                     // TODO Lose (maybe do nothing, player will restart)
                 }
+            }
+
+            void AnimateEnemyDeath()
+            {
+                float fallDuration = 0.4f;
+                float sinkDuration = 2f;
+                DOTween.Sequence(gameObject)
+                    .Append(transform.DOLocalMove(transform.localPosition + new Vector3(0f, 0.3f, 0f), fallDuration))
+                    .Join(transform.DOLocalRotate(new Vector3(90, 0, 0), fallDuration))
+                    .Append(transform.DOLocalMove(transform.localPosition + new Vector3(0, -0.3f, 0f), sinkDuration))
+                    .Join(transform.DOScale(new Vector3(1.7f, 1.7f, 0f), sinkDuration))
+                    .OnComplete(() =>
+                    {
+                        Destroy(gameObject);
+                        onCompleted?.Invoke();
+                    });
             }
         }
 
@@ -99,6 +111,11 @@ namespace Core.Units
                 UiManager.Instance.HideDieRequest();
 
                 // TODO Animate attack
+                player.AnimateAttack(this, () => ApplyPlayerAttack(dieResult), FinishPlayerAttack);
+            }
+
+            void ApplyPlayerAttack(int dieResult)
+            {
                 CurrentHealth = Math.Max(0, CurrentHealth - dieResult);
                 UpdateHealthUi();
 
@@ -106,7 +123,11 @@ namespace Core.Units
                 {
                     onFightFinished?.Invoke(true);
                 }
-                else
+            }
+
+            void FinishPlayerAttack()
+            {
+                if (CurrentHealth > 0)
                 {
                     PerformEnemyAttack();
                 }
@@ -114,13 +135,38 @@ namespace Core.Units
 
             void PerformEnemyAttack()
             {
-                // TODO Animate attack
+                Vector3 playerDir = (player.transform.position - transform.position).normalized;
+                playerDir.y = 0f;
+
+                float shiftDistance = 0.7f;
+                float shiftDuration = 0.4f;
+                float shiftBackDuration = 0.7f;
+                Vector3 originalPos = transform.localPosition;
+                Vector3 attackPos = originalPos + playerDir * shiftDistance;
+                DOTween.Sequence(gameObject)
+                    .Append(transform.DOLocalMove(attackPos, shiftDuration).SetEase(Ease.OutElastic))
+                    .AppendCallback(ApplyEnemyAttack)
+                    .Append(transform.DOLocalMove(originalPos, shiftBackDuration).SetEase(Ease.InOutSine))
+                    .OnComplete(FinishEnemyAttack);
+            }
+
+            void ApplyEnemyAttack()
+            {
                 int damage = Data.RandomDamage;
                 player.Health.ReceiveDamage(damage);
+
                 if (!player.Health.IsAlive)
                 {
                     // Fight lost
                     onFightFinished?.Invoke(false);
+                    return;
+                }
+            }
+
+            void FinishEnemyAttack()
+            {
+                if (!player.Health.IsAlive)
+                {
                     return;
                 }
 

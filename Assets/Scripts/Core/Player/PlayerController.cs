@@ -1,6 +1,7 @@
 using System;
 using Core.Map;
 using Core.UI;
+using Core.Units;
 using DG.Tweening;
 using UnityEngine;
 
@@ -162,6 +163,23 @@ namespace Core.Player
         {
             Vector2Int delta = coord - Coordinates;
             return Mathf.Abs(delta.x) + Mathf.Abs(delta.y) == 1;
+        }
+
+        public void AnimateAttack(EnemyUnit enemy, Action onDealDamage, Action onCompleted)
+        {
+            Vector3 playerDir = (enemy.transform.position - transform.position).normalized;
+            playerDir.y = 0f;
+
+            float shiftDistance = 0.7f;
+            float shiftDuration = 0.4f;
+            float shiftBackDuration = 0.7f;
+            Vector3 originalPos = transform.localPosition;
+            Vector3 attackPos = originalPos + playerDir * shiftDistance;
+            DOTween.Sequence(gameObject)
+                .Append(transform.DOLocalMove(attackPos, shiftDuration).SetEase(Ease.OutElastic))
+                .AppendCallback(() => onDealDamage?.Invoke())
+                .Append(transform.DOLocalMove(originalPos, shiftBackDuration).SetEase(Ease.InOutSine))
+                .OnComplete(() => onCompleted?.Invoke());
         }
     }
 }
