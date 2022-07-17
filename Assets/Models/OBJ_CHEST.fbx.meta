@@ -3,7 +3,22 @@ guid: 4d1cecad55b1c6f4bb1d01c6f2bc9972
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: OBJ_CHEST
+    second: {fileID: 2100000, guid: 25a097a167938e34f94d5156187f4e62, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: OBJ_CHEST.001
+    second: {fileID: 2100000, guid: b09da918a24ff7443b5a1c09c3194fb8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: OBJ_CHEST_DARK
+    second: {fileID: 2100000, guid: d421c1b5d3615d7499c41237c46d1798, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -88,7 +103,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 0.024999999
+    globalScale: 2.5
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0

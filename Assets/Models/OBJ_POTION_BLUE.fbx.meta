@@ -6,7 +6,22 @@ ModelImporter:
   - first:
       74: 6594468911820483061
     second: Armature|potionBlue
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: OBJ_POTION_BLUE_LIQUID
+    second: {fileID: 2100000, guid: 9e3bf4b10aa589c4fa3f8f23f866b6b4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: OBJ_POTION_RED
+    second: {fileID: 2100000, guid: 85124d22aa6dff845b08d425288d6935, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: OBJ_POTION_RED_CORK
+    second: {fileID: 2100000, guid: c6f0d771c3a341d448a0a6854880a78b, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

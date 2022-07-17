@@ -3,7 +3,67 @@ guid: b7517673101c3254e9f0c16edebe654c
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BUILDING
+    second: {fileID: 2100000, guid: 1a976c5498deafa47839a266564821f5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BUILDING.001
+    second: {fileID: 2100000, guid: 636391ac9934d584ba370b29d0c4ee99, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CLOVER
+    second: {fileID: 2100000, guid: 2d854b8c02a44134da75613a2f3da88c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: DOOR
+    second: {fileID: 2100000, guid: 30e2514217ef91d4498506f03af4a66b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: DOOR.001
+    second: {fileID: 2100000, guid: dd585464fdf37fc43b919635834440a1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: DOOR.002
+    second: {fileID: 2100000, guid: df585a8e4851e5d4cb6a33c9b2dd29dd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: GRASS
+    second: {fileID: 2100000, guid: 5db05206760f1964d8ed763aadf62f06, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: GRASSTILE_BUSH
+    second: {fileID: 2100000, guid: b6286a7d6c69cd84bab176d59845c2e7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: GROUND SEEN
+    second: {fileID: 2100000, guid: 95c645f0def56724db5e9615829aaf5b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: GROUND SEEN BRIGHT
+    second: {fileID: 2100000, guid: 6c35a17ddb128074d84de4c410f96747, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TREE
+    second: {fileID: 2100000, guid: 4dcfaacd51b78a54fb68bbd7ebee447b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: WINDOW
+    second: {fileID: 2100000, guid: b256586b033b60448b40c11eaee8671a, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -88,7 +148,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 0.024999999
+    globalScale: 2.5
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0
