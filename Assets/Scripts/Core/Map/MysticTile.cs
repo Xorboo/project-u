@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Core.Triggers.MysticTriggers;
 using UnityEngine;
 
 namespace Core.Map
@@ -46,10 +47,24 @@ namespace Core.Map
         {
             InitialViewRoot.SetActive(false);
             ExploredViewRoot.SetActive(true);
-            RevealedRoots[dieResult].SetActive(true);
+            var revealedItem = RevealedRoots[dieResult];
+            revealedItem.SetActive(true);
 
             // Replay the same reveal animation again
-            RevealController.ForceReveal(0f, onFinished);
+            RevealController.ForceReveal(0f, ProcessImmediateMysticTile);
+
+            void ProcessImmediateMysticTile()
+            {
+                // Check if something should be changed before the player steps on a tile
+                var immediateTrigger = revealedItem.GetComponent<VillageTrigger>();
+                if (!immediateTrigger)
+                {
+                    onFinished?.Invoke();
+                    return;
+                }
+
+                immediateTrigger.ImmediateProcessTrigger(onFinished);
+            }
         }
     }
 }

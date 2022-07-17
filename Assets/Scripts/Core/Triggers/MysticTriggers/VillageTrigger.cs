@@ -5,14 +5,19 @@ using UnityEngine;
 
 namespace Core.Triggers.MysticTriggers
 {
-    public class VillageTrigger : PlayerTriggerBase
+    public class VillageTrigger : ImmediatePlayerTriggerBase
     {
         [SerializeField]
-        string InteractText;
+        string RevealText;
 
         protected override void ProcessTrigger(PlayerController player, Action onCompleted)
         {
-            UiManager.Instance.ShowMysticInteractText(InteractText, MysticWindowClosed);
+            onCompleted?.Invoke();
+        }
+
+        public override void ImmediateProcessTrigger(Action onCompleted)
+        {
+            UiManager.Instance.ShowMysticInteractText(RevealText, MysticWindowClosed);
 
             void MysticWindowClosed()
             {

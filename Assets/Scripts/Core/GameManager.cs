@@ -197,7 +197,7 @@ namespace Core
                 }
 
                 // Create a tile and then move the player there
-                mysticTile.RevealMysticTile(dieResult, () => MovePlayer(pos, mysticTile));
+                mysticTile.RevealMysticTile(dieResult, null);
             }
         }
 
