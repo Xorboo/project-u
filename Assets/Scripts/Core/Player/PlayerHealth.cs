@@ -12,6 +12,8 @@ namespace Core.Player
         [SerializeField]
         TMP_Text HealthText;
 
+        public Animator Animator;
+
         PlayerController Player;
 
         public int Health
@@ -82,7 +84,7 @@ namespace Core.Player
 
             if (!IsAlive)
             {
-                // TODO Die animation
+                Player._anim.SetTrigger("Die");
                 GameManager.Instance.RestartGame();
             }
         }

@@ -24,10 +24,21 @@ namespace Core.Units
 
         public bool IsInFight { get; private set; }
 
+        [SerializeField]
+        float DeathDuration = 1f;
+
+        Animator Animator;
+
+
         Action<bool> FightEndListener;
 
 
         #region Unity
+
+        void Awake()
+        {
+            Animator = GetComponentInChildren<Animator>();
+        }
 
         void OnEnable()
         {
@@ -64,22 +75,26 @@ namespace Core.Units
 
             void AnimateEnemyDeath()
             {
-                float fallDuration = 0.4f;
                 float sinkDuration = 2f;
-                DOTween.Sequence(gameObject)
-                    .Append(transform.DOLocalMove(transform.localPosition + new Vector3(0f, 0.3f, 0f), fallDuration))
-                    .Join(transform.DOLocalRotate(new Vector3(90, 0, 0), fallDuration))
-                    .Append(transform.DOLocalMove(transform.localPosition + new Vector3(0, -0.3f, 0f), sinkDuration))
-                    .Join(transform.DOScale(new Vector3(1.7f, 1.7f, 0f), sinkDuration))
-                    .OnComplete(() =>
+                Animator.SetTrigger("Die");
+                DOTween.Sequence()
+                    .AppendInterval(DeathDuration)
+                    .AppendCallback(() =>
                     {
                         if (gameObject)
                         {
                             if (gameObject.CompareTag("Boss"))
                                 GameManager.Instance.PlayFinal();
-                            Destroy(gameObject);
                         }
+
                         onCompleted?.Invoke();
+                    })
+                    .Append(transform.DOLocalMove(transform.localPosition + new Vector3(0, -0.3f, 0f), sinkDuration))
+                    .Join(transform.DOScale(new Vector3(1.7f, 0f, 1.7f), sinkDuration))
+                    .OnComplete(() =>
+                    {
+                        if (gameObject)
+                            Destroy(gameObject);
                     });
             }
         }
