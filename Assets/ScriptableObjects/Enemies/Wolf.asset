@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6e8f5a83de1e5843a77ea08c846aa2e, type: 3}
   m_Name: Wolf
   m_EditorClassIdentifier: 
-  UnitName: Bat McBattie
+  UnitName: Batty The Sucker
   Hp: 5
   HpScaleFactor: 2
   MinDamage: 2

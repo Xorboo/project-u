@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Entries:
   - Npc: {fileID: 11400000, guid: 7028fd07ab1a1254cad3ee0ac610f8f6, type: 2}
-    Text: Haa, Outlander, I will help you to get out, if you take me with you, hraaaaahh!
+    Text: It smells like you possess brains... I will get into your ear!
     isFinal: 1
   - Npc: {fileID: 11400000, guid: 171b17c399ea6ae47b75fa186b8ed5f7, type: 2}
-    Text: Oh, you're not from here? You're redundant here, better leave...
+    Text: Ahh, brave dicefolk, have some brief rest here...
     isFinal: 0
   - Npc: {fileID: 11400000, guid: fe048fdbe335b134c890cf372ba59f5f, type: 2}
-    Text: Haa, Outlander, I will bite you everywhere, hraaaaaaaahhh!
+    Text: Awawaw!
     isFinal: 0
