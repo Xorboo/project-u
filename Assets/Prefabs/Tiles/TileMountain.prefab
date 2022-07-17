@@ -51,9 +51,9 @@ MonoBehaviour:
   Objects:
     Elements:
     - Data: {fileID: 4105393828589080462}
-      Chance: 1
+      Chance: 0
     - Data: {fileID: 5788414030878351154}
-      Chance: 1
+      Chance: 0
     - Data: {fileID: 6070273010772016311}
       Chance: 1
   ShowOnAwake: 1
@@ -343,6 +343,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 66718e066cf97bd4e826ccef390101e8, type: 3}
       propertyPath: m_Name
       value: TILE_ROCK
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 66718e066cf97bd4e826ccef390101e8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1015846922842064075, guid: 66718e066cf97bd4e826ccef390101e8, type: 3}
       propertyPath: m_IsActive
