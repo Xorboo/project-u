@@ -22,12 +22,16 @@ namespace Core.Player
         MapParameters MapParameters;
 
         [SerializeField]
+        GameParameters GameParameters;
+
+        [SerializeField]
         float MoveTime = 1f;
+
+        public PlayerHealth Health;
 
 
         public Vector2Int Coordinates { get; private set; }
         public State CurrentState { get; private set; } = State.Idle;
-        public bool WaitingForMovesDie { get; private set; } = false;
 
 
         public int MovesLeft
@@ -52,12 +56,13 @@ namespace Core.Player
         #endregion
 
 
-        public void SetSpawnPoint(Vector2Int spawnPoint)
+        public void SpawnPlayer(Vector2Int spawnPoint)
         {
             Debug.Log($"Spawning player at {spawnPoint}");
             Coordinates = spawnPoint;
             transform.position = MapParameters.GetTileCenter3D(Coordinates);
 
+            Health.Initialize();
             CheckMovesDie();
         }
 
@@ -78,7 +83,6 @@ namespace Core.Player
                 return;
 
             Debug.Log($"Requiring die throw for moves");
-            WaitingForMovesDie = true;
             UiManager.Instance.ShowMoveThrow();
             GameManager.Instance.WaitForDieThrowResult(MoveDieThrown);
 
@@ -87,7 +91,6 @@ namespace Core.Player
                 Debug.Log($"Player now has {dieResult} moves");
                 UiManager.Instance.HideDieRequest();
                 MovesLeft = dieResult;
-                WaitingForMovesDie = false;
             }
         }
 

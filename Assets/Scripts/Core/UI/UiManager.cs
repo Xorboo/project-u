@@ -25,6 +25,9 @@ namespace Core.UI
         [SerializeField]
         string MysticRevealThrowText;
 
+        [SerializeField]
+        string AttackThrowText;
+
         [Space]
         [SerializeField]
         RandomEventUi RandomEncounterUi;
@@ -69,6 +72,11 @@ namespace Core.UI
         public void ShowMysticRevealThrow()
         {
             ShowDieRequest(MysticRevealThrowText);
+        }
+
+        public void ShowAttackThrow()
+        {
+            ShowDieRequest(AttackThrowText);
         }
 
         public void HideDieRequest()

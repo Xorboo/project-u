@@ -1467,7 +1467,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.01
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -1490,6 +1490,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   throwing_force: 3
+  DicePositionAtCamera: {fileID: 0}
 --- !u!1 &7030342787114664156
 GameObject:
   m_ObjectHideFlags: 0
