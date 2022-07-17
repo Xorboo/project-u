@@ -47,7 +47,7 @@ namespace Core.UI
 
         public void OnChangeDiceClicked(int delta)
         {
-            GameManager.Instance.AddDice(delta);
+            GameManager.Instance.ChangeDice(delta);
         }
     }
 }

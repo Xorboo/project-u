@@ -16,8 +16,8 @@ TagManager:
   - Dice
   - DiceThrowingLayer
   - DiceDeck
-  - 
-  - 
+  - Player
+  - PlayerTrigger
   - 
   - 
   - 

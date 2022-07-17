@@ -145,33 +145,8 @@ namespace Core.Map
 
         void OpenChest(int dieResult)
         {
-            GameManager.Instance.AddDice(dieResult);
+            GameManager.Instance.ChangeDice(dieResult);
             OnChestOpenFinished(this);
-            VisitFinishedCallback?.Invoke();
-        }
-
-        #endregion
-
-        #region Random Event
-
-        void StartRandomEvent()
-        {
-            OnRandomEventStarted(this);
-
-            // Throw a die
-            bool isFetchingDie = GameManager.Instance.WaitForDieThrowResult(ResolveRandomEvent);
-            if (!isFetchingDie)
-            {
-                // Lose fight
-                OnRandomEventFinished(this);
-                VisitFinishedCallback?.Invoke();
-            }
-        }
-
-        void ResolveRandomEvent(int dieResult)
-        {
-            GameManager.Instance.ResolveRandomEvent(dieResult);
-            OnRandomEventFinished(this);
             VisitFinishedCallback?.Invoke();
         }
 

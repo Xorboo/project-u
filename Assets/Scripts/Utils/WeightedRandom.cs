@@ -12,6 +12,7 @@ namespace Utils
         [SerializeField]
         List<WeightedElement<T>> Elements = new();
 
+        [NonSerialized]
         float ChancesSum = float.NaN;
 
         public T GetRandom()

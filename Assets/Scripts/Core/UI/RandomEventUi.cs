@@ -1,4 +1,4 @@
-﻿using Core.Map;
+﻿using System;
 using UnityEngine;
 using TMPro;
 
@@ -6,30 +6,52 @@ namespace Core.UI
 {
     public class RandomEventUi : MonoBehaviour
     {
-        [SerializeField] GameObject RandomEncounterPanel;
-        [SerializeField] TMP_Text RandomEncounter_text, RandomEncounter_dices_text;
+        [SerializeField]
+        GameObject RandomEncounterPanel;
+
+        [SerializeField]
+        TMP_Text RandomEncounterText;
+
+        [SerializeField]
+        TMP_Text RandomEncounterDicesText;
+
+        [SerializeField]
+        string DicesAddedText = "Received dice:";
+
+        [SerializeField]
+        string DicesLostText = "Lost dice:";
+
+        [SerializeField]
+        string DicesNotChangedText = "Same dice count";
+
+
+        Action CloseListener;
+
 
         void Start()
         {
             CloseEncounter();
         }
 
-        public void OpenEncounter(string encounter_text, int add_dices)
+        public void OpenEncounter(string encounterText, int diceDelta, Action onEncounterWindowClosed)
         {
+            CloseListener = onEncounterWindowClosed;
+
             RandomEncounterPanel.SetActive(true);
-            RandomEncounter_text.text = encounter_text;
-            
-            if (add_dices > 0)
-                RandomEncounter_dices_text.text = "Получено кубиков: " + add_dices;
-            else if (add_dices < 0)
-                RandomEncounter_dices_text.text = "Потеряно кубиков: " + -add_dices;
+            RandomEncounterText.text = encounterText;
+
+            if (diceDelta > 0)
+                RandomEncounterDicesText.text = $"{DicesAddedText} {diceDelta}";
+            else if (diceDelta < 0)
+                RandomEncounterDicesText.text = $"{DicesLostText} {diceDelta}";
             else
-                RandomEncounter_dices_text.text = "Количество кубиков не изменилось";
+                RandomEncounterDicesText.text = DicesNotChangedText;
         }
 
         public void CloseEncounter()
         {
             RandomEncounterPanel.SetActive(false);
+            CloseListener?.Invoke();
         }
     }
 }

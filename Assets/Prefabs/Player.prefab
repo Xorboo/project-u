@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 9109513434998168068}
   - component: {fileID: 9217763908135559025}
   - component: {fileID: 3620572382280095368}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: CHAR_BACKPACK
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 8844919015143091507}
   - component: {fileID: 3416307491847836092}
   - component: {fileID: 4645588034635849624}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: CHAR_CUBE
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -178,7 +178,7 @@ GameObject:
   - component: {fileID: 4733696063085050615}
   - component: {fileID: 1186497933008865703}
   - component: {fileID: 8166703923585449320}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: CHAR_GLASSES
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -261,7 +261,7 @@ GameObject:
   - component: {fileID: 562589825618982079}
   - component: {fileID: 286810254978921968}
   - component: {fileID: 5093533448478200433}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: CHAR_BACKPACK_RAG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -345,7 +345,7 @@ GameObject:
   - component: {fileID: 4900693224154837725}
   - component: {fileID: 6840026808170278093}
   - component: {fileID: 713710342788591485}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Capsule (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -442,7 +442,7 @@ GameObject:
   - component: {fileID: 728285129034473432}
   - component: {fileID: 6951760846488663233}
   - component: {fileID: 4268605542730090688}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Name
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -577,7 +577,7 @@ GameObject:
   - component: {fileID: 3624327030783413954}
   - component: {fileID: 7312103469345187819}
   - component: {fileID: 7509355854426690439}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Health
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -714,7 +714,7 @@ GameObject:
   - component: {fileID: 928803830277773339}
   - component: {fileID: 1358758174620013278}
   - component: {fileID: 5738155222022039146}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -826,7 +826,7 @@ GameObject:
   - component: {fileID: 7378598371478038228}
   - component: {fileID: 791878818468468393}
   - component: {fileID: 4808836140507084368}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: CHAR_TEETH
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -909,7 +909,7 @@ GameObject:
   - component: {fileID: 978921874602890662}
   - component: {fileID: 6530295412680631612}
   - component: {fileID: 4643821057939031478}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: CHAR_HAT
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -994,7 +994,7 @@ GameObject:
   - component: {fileID: 3855582555621673948}
   - component: {fileID: 3855582555621673947}
   - component: {fileID: 3855582555621673946}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1092,7 +1092,7 @@ GameObject:
   - component: {fileID: 3855582557062795655}
   - component: {fileID: 3855582557062795654}
   - component: {fileID: 7805615068127540093}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Capsule
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -1210,7 +1210,7 @@ GameObject:
   - component: {fileID: 7593965707711326028}
   - component: {fileID: 8319529420197528673}
   - component: {fileID: 1863628455979521284}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -1304,7 +1304,7 @@ GameObject:
   - component: {fileID: 3977968049168091683}
   - component: {fileID: 7717336159056212834}
   - component: {fileID: 2833709029731080194}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1399,7 +1399,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5971355527649429648}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: hero
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1441,7 +1441,7 @@ GameObject:
   - component: {fileID: 8744269922792067726}
   - component: {fileID: 737294467986102157}
   - component: {fileID: 4716657402296822747}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: CHAR_EYES
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1524,7 +1524,7 @@ GameObject:
   - component: {fileID: 7128082992637017590}
   - component: {fileID: 6974552250270790991}
   - component: {fileID: 2515736824498468534}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1602,7 +1602,7 @@ GameObject:
   - component: {fileID: 3142275181307629979}
   - component: {fileID: 5466394927437977279}
   - component: {fileID: 6692366206787757812}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: CHAR_TONGUE
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1685,7 +1685,7 @@ GameObject:
   - component: {fileID: 5314659643238631031}
   - component: {fileID: 6428744507646327860}
   - component: {fileID: 801590998049087247}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: CHAR_DOTS
   m_TagString: Untagged
   m_Icon: {fileID: 0}

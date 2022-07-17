@@ -127,41 +127,13 @@ namespace Core
         public void AddPackOfDice()
         {
             Debug.Log($"Adding pack of {Data.MysticDicePackCount} dice");
-            AddDice(Data.MysticDicePackCount);
+            ChangeDice(Data.MysticDicePackCount);
         }
 
-        public void AddDice(int diceCount)
+        public void ChangeDice(int diceChange)
         {
-            Debug.Log($"Adding {diceCount} dice");
-            DiceCount += diceCount;
-        }
-
-        public void ResolveRandomEvent(int dieResult)
-        {
-            switch (dieResult)
-            {
-                case 1:
-                    MultiplyCurrentCubes(false);
-                    break;
-                case 2:
-                    AddVillageCubes(Data.VillageBonusA);
-                    break;
-                case 3:
-                    AddVillageCubes(Data.VillageBonusB);
-                    break;
-                case 4:
-                    ShowRandomText();
-                    break;
-                case 5:
-                    IncreaseEnemyHp();
-                    break;
-                case 6:
-                    MultiplyCurrentCubes(true);
-                    break;
-                default:
-                    Debug.LogError($"Unsupported die result: {dieResult}");
-                    break;
-            }
+            Debug.Log($"Adding {diceChange} dice");
+            DiceCount = Mathf.Max(0, DiceCount + diceChange);
         }
 
         public void AddVillage()
@@ -170,26 +142,9 @@ namespace Core
             VillagesCount++;
         }
 
-        void MultiplyCurrentCubes(bool increase)
+        public void IncreaseEnemyHp()
         {
-            int delta = Mathf.CeilToInt(DiceCount * Data.DiceMultiplyFactor);
-            Debug.Log($"Multiplying dice, delta: {delta}, increase: {increase}");
-            DiceCount += (increase ? 1 : -1) * delta;
-        }
-
-        void AddVillageCubes(int cubesPerVillage)
-        {
-            Debug.Log($"Adding {cubesPerVillage} cubes for {VillagesCount} villages");
-            AddDice(VillagesCount * cubesPerVillage);
-        }
-
-        void ShowRandomText()
-        {
-            Debug.LogWarning($"Random text not implemented");
-        }
-
-        void IncreaseEnemyHp()
-        {
+            // TODO Add to existing enemies
             Debug.Log("Enemy hp increased");
             EnemyExtraHpFactor++;
         }

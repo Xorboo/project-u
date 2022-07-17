@@ -1,5 +1,6 @@
 using System;
 using Core.Map;
+using Core.UI;
 using DG.Tweening;
 using UnityEngine;
 
@@ -8,8 +9,6 @@ namespace Core.Player
     public class PlayerController : MonoBehaviour
     {
         public event Action<int> OnMovesCountChanged = delegate { };
-        public event Action OnMovesDieStarted = delegate { };
-        public event Action OnMovesDieFinished = delegate { };
 
 
         public enum State
@@ -80,21 +79,29 @@ namespace Core.Player
 
             Debug.Log($"Requiring die throw for moves");
             WaitingForMovesDie = true;
-            OnMovesDieStarted();
+            UiManager.Instance.ShowMoveThrow();
             GameManager.Instance.WaitForDieThrowResult(MoveDieThrown);
 
             void MoveDieThrown(int dieResult)
             {
                 Debug.Log($"Player now has {dieResult} moves");
+                UiManager.Instance.HideDieRequest();
                 MovesLeft = dieResult;
                 WaitingForMovesDie = false;
-                OnMovesDieFinished();
             }
         }
 
+        Tween ActiveMoveTween = null;
 
         void MovePlayer(Vector2Int coord, Tile tile, Action onFinished = null)
         {
+            if (ActiveMoveTween != null)
+            {
+                Debug.LogError($"Moving when older tween is still active!");
+                ActiveMoveTween.Kill();
+                ActiveMoveTween = null;
+            }
+
             CurrentState = State.Moving;
             Vector2Int delta = coord - Coordinates;
             Coordinates = coord;
@@ -103,7 +110,7 @@ namespace Core.Player
             transform.DOLocalRotate(new Vector3(0f, GetRotation(delta), 0f), 0.2f);
 
             Vector3 pos = MapParameters.GetTileCenter3D(Coordinates);
-            transform
+            ActiveMoveTween = transform
                 .DOMove(pos, MoveTime)
                 .SetEase(Ease.Linear)
                 .OnComplete(VisitTile);
@@ -118,9 +125,32 @@ namespace Core.Player
                 MapManager.Instance.RevealTilesAround(coord, () =>
                 {
                     CurrentState = State.Idle;
+                    ActiveMoveTween = null;
                     onFinished?.Invoke();
                 });
             }
+        }
+
+        public void TriggerStarted()
+        {
+            if (ActiveMoveTween == null)
+            {
+                Debug.LogError($"Trigger started when not moving, ignoring");
+                return;
+            }
+
+            ActiveMoveTween.Pause();
+        }
+
+        public void TriggerFinished()
+        {
+            if (ActiveMoveTween == null)
+            {
+                Debug.LogError($"Trigger finished when not moving, ignoring");
+                return;
+            }
+
+            ActiveMoveTween.Play();
         }
 
         float GetRotation(Vector2Int delta) => delta.x == 1 ? 0 : delta.x == -1 ? 180 : delta.y == 1 ? -90 : 90;
