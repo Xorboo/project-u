@@ -1,4 +1,5 @@
-using Core.Map;
+using System;
+using TMPro;
 using UnityEngine;
 
 namespace Core.UI
@@ -8,33 +9,28 @@ namespace Core.UI
         [SerializeField]
         RectTransform ChestPanel;
 
-        #region Unity
+        [SerializeField]
+        TMP_Text ChestAmountText;
 
-        void OnEnable()
+        [SerializeField]
+        string DiceAmountString = "Found dice:";
+
+        Action ChestCloseListener = null;
+
+        public void OpenChestInfo(int diceAmount, Action onChestUiClosed)
         {
-            Tile.OnChestOpenStarted += ChestStarted;
-            Tile.OnChestOpenFinished += ChestFinished;
+            ChestCloseListener = onChestUiClosed;
 
-            ChestPanel.gameObject.SetActive(false);
-        }
-
-        void OnDisable()
-        {
-            Tile.OnChestOpenStarted -= ChestStarted;
-            Tile.OnChestOpenFinished -= ChestFinished;
-        }
-
-        #endregion
-
-
-        void ChestStarted(Tile tile)
-        {
             ChestPanel.gameObject.SetActive(true);
+            ChestAmountText.text = $"{DiceAmountString} {diceAmount}";
         }
 
-        void ChestFinished(Tile tile)
+        public void CloseChestInfo()
         {
             ChestPanel.gameObject.SetActive(false);
+
+            ChestCloseListener?.Invoke();
+            ChestCloseListener = null;
         }
     }
 }

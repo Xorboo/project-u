@@ -31,6 +31,11 @@ namespace Utils
             Debug.LogError($"Failed to get random weighted element [{typeof(T).Name}]");
             return default;
         }
+
+        public IEnumerable<T> GetElements()
+        {
+            return Elements.Select(e => e.Data);
+        }
     }
 
     [Serializable]

@@ -29,6 +29,9 @@ namespace Core.UI
         [SerializeField]
         DialogUi DialogUi;
 
+        [SerializeField]
+        ChestUi ChestUi;
+
 
         #region Unity
 
@@ -74,6 +77,7 @@ namespace Core.UI
             HideDieRequest();
             RandomEncounterUi.CloseEncounter();
             DialogUi.CloseDialog();
+            ChestUi.CloseChestInfo();
         }
 
         public void ShowEncounterWindow(RandomEncounterData encounter, int diceChange, Action onEncounterWindowClosed)
@@ -84,6 +88,11 @@ namespace Core.UI
         public void ShowStoryEntry(StoryEntry entry, Action onDialogClosed)
         {
             DialogUi.OpenDialog(entry, onDialogClosed);
+        }
+
+        public void ShowChestEntry(int diceAmount, Action onChestUiClosed)
+        {
+            ChestUi.OpenChestInfo(diceAmount, onChestUiClosed);
         }
     }
 }

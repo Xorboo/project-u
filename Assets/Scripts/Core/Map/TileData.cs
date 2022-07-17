@@ -14,12 +14,6 @@ namespace Core.Map
         public int EnemyHpScale = 1;
 
         [Space]
-        public bool HasChest = false;
-
-        [Space]
-        public bool HasRandomEvent = false;
-
-        [Space]
         public bool IsMystic = false;
 
         public int EnemyFullHp => EnemyBaseHp + EnemyHpScale * GameManager.Instance.EnemyExtraHpFactor;

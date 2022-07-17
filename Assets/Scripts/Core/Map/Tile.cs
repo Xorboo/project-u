@@ -9,12 +9,6 @@ namespace Core.Map
         public static event Action<Tile> OnFightStarted = delegate { };
         public static event Action<Tile> OnFightFinished = delegate { };
 
-        public static event Action<Tile> OnChestOpenStarted = delegate { };
-        public static event Action<Tile> OnChestOpenFinished = delegate { };
-
-        public static event Action<Tile> OnRandomEventStarted = delegate { };
-        public static event Action<Tile> OnRandomEventFinished = delegate { };
-
         public event Action<int> OnEnemyHpChanged = delegate { };
 
 
@@ -70,18 +64,6 @@ namespace Core.Map
                 return;
             }
 
-            if (Data.HasChest)
-            {
-                StartChestOpen();
-                return;
-            }
-
-            /*if (Data.HasRandomEvent)   Рандомный ивент будет управляться соответствующим объектом в отдельных скриптах
-            {
-                //StartRandomEvent();
-                return;
-            }*/
-
             if (Data.IsMystic)
             {
                 StartMysticEvent();
@@ -123,31 +105,6 @@ namespace Core.Map
                 VisitFinishedCallback?.Invoke();
                 return;
             }
-        }
-
-        #endregion
-
-        #region Chest
-
-        void StartChestOpen()
-        {
-            OnChestOpenStarted(this);
-
-            // Throw a die
-            bool isFetchingDie = GameManager.Instance.WaitForDieThrowResult(OpenChest);
-            if (!isFetchingDie)
-            {
-                // Lose fight
-                OnChestOpenFinished(this);
-                VisitFinishedCallback?.Invoke();
-            }
-        }
-
-        void OpenChest(int dieResult)
-        {
-            GameManager.Instance.ChangeDice(dieResult);
-            OnChestOpenFinished(this);
-            VisitFinishedCallback?.Invoke();
         }
 
         #endregion
