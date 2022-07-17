@@ -25,6 +25,9 @@ namespace Core.UI
         [SerializeField]
         string MysticRevealThrowText;
 
+        [SerializeField]
+        string AttackThrowText;
+
         [Space]
         [SerializeField]
         RandomEventUi RandomEncounterUi;
@@ -37,6 +40,12 @@ namespace Core.UI
 
         [SerializeField]
         MysticInteractUi MysticUi;
+
+        [SerializeField]
+        PotionUi PotionUi;
+
+        [SerializeField]
+        GameOverUi GameOverUi;
 
 
         #region Unity
@@ -71,6 +80,11 @@ namespace Core.UI
             ShowDieRequest(MysticRevealThrowText);
         }
 
+        public void ShowAttackThrow()
+        {
+            ShowDieRequest(AttackThrowText);
+        }
+
         public void HideDieRequest()
         {
             DieThrowRequestRoot.SetActive(false);
@@ -90,6 +104,8 @@ namespace Core.UI
             DialogUi.CloseDialog();
             ChestUi.CloseChestInfo();
             MysticUi.ClosePanel();
+            PotionUi.ClosePotionPanel();
+            GameOverUi.ClosePanel();
         }
 
         public void ShowEncounterWindow(RandomEncounterData encounter, int diceChange, Action onEncounterWindowClosed)
@@ -110,6 +126,21 @@ namespace Core.UI
         public void ShowMysticInteractText(string interactText, Action onMysticWindowClosed)
         {
             MysticUi.OpenPanel(interactText, onMysticWindowClosed);
+        }
+
+        public void ShowHealthEntry(float healPercent, Action onPanelClosed)
+        {
+            PotionUi.OpenHealthPotionPanel(healPercent, onPanelClosed);
+        }
+
+        public void ShowBonusHealthEntry(int extraHealth, Action onPanelClosed)
+        {
+            PotionUi.OpenBonusHealthPotionPanel(extraHealth, onPanelClosed);
+        }
+
+        public void ShowGameOverPanel(Action onRestartPressed)
+        {
+            GameOverUi.OpenGameOverPanel(onRestartPressed);
         }
     }
 }

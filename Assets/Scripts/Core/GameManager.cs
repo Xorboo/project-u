@@ -13,6 +13,7 @@ namespace Core
         public event Action<PlayerController> OnPlayerSpawned = delegate { };
         public event Action<int> OnDiceCountChanged = delegate { };
         public event Action<bool> OnDieWaitingChanged = delegate { };
+        public event Action OnEnemyHpIncreased = delegate { };
 
 
         [SerializeField]
@@ -64,6 +65,9 @@ namespace Core
 
         void OnEnable()
         {
+            QualitySettings.vSyncCount = 0;
+            Application.targetFrameRate = 60;
+
             MapManager.Instance.OnTileClicked += TileClicked;
             StartGame();
         }
@@ -91,7 +95,7 @@ namespace Core
                 Destroy(Player.gameObject);
 
             Player = Instantiate(PlayerPrefab);
-            Player.SetSpawnPoint(spawnPoint);
+            Player.SpawnPlayer(spawnPoint);
 
             OnPlayerSpawned(Player);
         }
@@ -101,7 +105,7 @@ namespace Core
         {
             if (!IsWaitingForDie)
             {
-                Debug.LogError($"Die thrown when not waiting for it");
+                Debug.LogWarning($"Die thrown when not waiting for it");
                 return;
             }
 
@@ -148,6 +152,7 @@ namespace Core
             // TODO Add to existing enemies
             Debug.Log("Enemy hp increased");
             EnemyExtraHpFactor++;
+            OnEnemyHpIncreased();
         }
 
         void TileClicked(Vector2Int coord, Tile tile)
@@ -164,7 +169,7 @@ namespace Core
             if (!tile.Data.IsPassable)
                 return; // Do nothing, wasted die
 
-            if (!tile.Data.IsMystic || tile.IsVisited)
+            if (!tile.Data.IsMystic || tile.MysticRevealed)
             {
                 MovePlayer(coord, tile); // Move to normal tile
                 return;
@@ -207,7 +212,7 @@ namespace Core
 
             void CheckPlayerMoves()
             {
-                if (CheckGameEnd())
+                if (!PlayerCanMove)
                 {
                     RestartGame();
                     return;
@@ -220,7 +225,7 @@ namespace Core
         bool WaitForDie(Action<int> onDiceThrown)
         {
             // Can't wait for die if we have none
-            if (CheckGameEnd())
+            if (!PlayerCanThrowDie)
                 return false;
 
             DieResultListener = (dieResult) =>
@@ -238,20 +243,12 @@ namespace Core
 
         void StartEnemyFight(int enemyBaseHp) { }
 
-        bool CheckGameEnd()
-        {
-            if (DiceCount <= 0 && Player.MovesLeft <= 0)
-            {
-                Debug.Log("Game over");
-                return true;
-            }
+        public bool PlayerCanMove => DiceCount > 0 || Player.MovesLeft > 0;
+        public bool PlayerCanThrowDie => DiceCount > 0;
 
-            return false;
-        }
-
-        void RestartGame()
+        public void RestartGame()
         {
-            StartGame();
+            UiManager.Instance.ShowGameOverPanel(StartGame);
         }
     }
 }

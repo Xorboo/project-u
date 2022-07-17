@@ -13,13 +13,14 @@ namespace Core.Triggers
 
         void OnTriggerEnter(Collider other)
         {
-            TriggeredPlayer = other.GetComponent<PlayerController>();
-            if (!TriggeredPlayer)
+            var player = other.GetComponent<PlayerController>();
+            if (!player)
             {
-                Debug.LogError($"[{gameObject.name}] should only collide with player");
+                Debug.LogError($"[{gameObject.name}] should only collide with player", gameObject);
                 return;
             }
 
+            TriggeredPlayer = player;
             TriggeredPlayer.TriggerStarted();
             ProcessTrigger(TriggeredPlayer, TriggerCompleted);
         }
@@ -34,7 +35,7 @@ namespace Core.Triggers
         {
             if (!TriggeredPlayer)
             {
-                Debug.LogWarning($"Trigger ended with no player around");
+                Debug.LogWarning($"Trigger ended with no player around", gameObject);
                 return;
             }
 

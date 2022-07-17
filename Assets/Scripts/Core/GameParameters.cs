@@ -13,5 +13,6 @@ namespace Core
 
         public int MysticDicePackCount = 20;
         public int MysticPermanentDiceCount = 5;
+        public int PlayerHealth = 20;
     }
 }
