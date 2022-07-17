@@ -48,17 +48,17 @@ namespace Core.Player
 
         int MovesLeftValue = 0;
 
-        public int MoneyLeft
+        public int Money
         {
-            get => MoneyLeftValue;
+            get => MoneyValue;
             private set
             {
-                MoneyLeftValue = value;
-                OnMoneyCountChanged(MoneyLeftValue);
+                MoneyValue = value;
+                OnMoneyCountChanged(MoneyValue);
             }
         }
 
-        int MoneyLeftValue = 0;
+        public int MoneyValue = 0;
 
         #region Unity
 
@@ -192,6 +192,11 @@ namespace Core.Player
                 .AppendCallback(() => onDealDamage?.Invoke())
                 .Append(transform.DOLocalMove(originalPos, shiftBackDuration).SetEase(Ease.InOutSine))
                 .OnComplete(() => onCompleted?.Invoke());
+        }
+
+        public void GetLoot(int money_value)
+        {
+            Money += money_value;
         }
     }
 }

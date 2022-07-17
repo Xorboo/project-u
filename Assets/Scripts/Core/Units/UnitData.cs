@@ -16,5 +16,13 @@ namespace Core.Units
         int MaxDamage = 3;
 
         public int RandomDamage => Random.Range(MinDamage, MaxDamage + 1);
+
+        [SerializeField]
+        int MinLoot = 5;
+
+        [SerializeField]
+        int MaxLoot = 15;
+
+        public int RandomLoot => Random.Range(MinLoot, MaxLoot + 1);
     }
 }

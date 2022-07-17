@@ -157,7 +157,7 @@ namespace Core.Dice
                 dieResult = minIndex + 1;
             }
 
-            Debug.Log($"Die result: {dieResult}");
+            // Debug.Log($"Die result: {dieResult}");
 
             if (dieResult > 0)
             {

@@ -17,3 +17,5 @@ MonoBehaviour:
   HpScaleFactor: 2
   MinDamage: 2
   MaxDamage: 4
+  MinLoot: 30
+  MaxLoot: 50
