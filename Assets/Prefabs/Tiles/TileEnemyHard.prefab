@@ -475,6 +475,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TILE_FIELDS_BUSHY
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b419ed3744f45e642b3665a97e750b1d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b419ed3744f45e642b3665a97e750b1d, type: 3}
 --- !u!4 &9002101976754111738 stripped

@@ -50,6 +50,8 @@ MonoBehaviour:
   Data: {fileID: 11400000, guid: dae46fb6620e68540b46658e19c94485, type: 2}
   HpText: {fileID: 4765908232095676101}
   NameText: {fileID: 1192899881079257174}
+  DeathDuration: 1
+  HitEffect: {fileID: 8299151356811090127, guid: 823fdc685edf83c4b8227c039000dd0c, type: 3}
 --- !u!65 &887485876921376067
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -32,7 +32,7 @@ namespace Core.Player
         public PlayerHealth Health;
 
         [SerializeField]
-        Animator _anim;
+        public Animator _anim;
 
         public Vector2Int Coordinates { get; private set; }
         public State CurrentState { get; private set; } = State.Idle;

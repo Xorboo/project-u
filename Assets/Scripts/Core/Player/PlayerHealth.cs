@@ -12,6 +12,12 @@ namespace Core.Player
         [SerializeField]
         TMP_Text HealthText;
 
+        [SerializeField]
+        GameObject HitEffect;
+
+
+        public Animator Animator;
+
         PlayerController Player;
 
         public int Health
@@ -80,9 +86,13 @@ namespace Core.Player
         {
             Health = Math.Max(0, Health - amount);
 
+            var effect = Instantiate(HitEffect);
+            effect.transform.position = transform.position;
+            Destroy(effect.gameObject, 1f);
+
             if (!IsAlive)
             {
-                // TODO Die animation
+                Player._anim.SetTrigger("Die");
                 GameManager.Instance.RestartGame();
             }
         }

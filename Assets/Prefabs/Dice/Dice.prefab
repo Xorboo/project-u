@@ -252,6 +252,7 @@ MonoBehaviour:
   PitchDiff: 0.2
   MinRepeatDelay: 0.1
   Volume: 0.5
+  EffectPrefab: {fileID: 7820495121474786368, guid: c57dce1cbf3d09a46811bfff18f15973, type: 3}
 --- !u!1001 &1600332505971173683
 PrefabInstance:
   m_ObjectHideFlags: 0
