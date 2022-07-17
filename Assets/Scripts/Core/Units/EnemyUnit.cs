@@ -73,7 +73,8 @@ namespace Core.Units
                     .Join(transform.DOScale(new Vector3(1.7f, 1.7f, 0f), sinkDuration))
                     .OnComplete(() =>
                     {
-                        Destroy(gameObject);
+                        if (gameObject)
+                            Destroy(gameObject);
                         onCompleted?.Invoke();
                     });
             }

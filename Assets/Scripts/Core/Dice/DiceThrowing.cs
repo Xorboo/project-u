@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Core.Player;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using Random = UnityEngine.Random;
@@ -46,34 +47,38 @@ namespace Core.Dice
         void OnEnable()
         {
             GameManager.Instance.OnDieWaitingChanged += DieWaitingChanged;
+            GameManager.Instance.OnPlayerSpawned += PlayerSpawned;
+
+            PlayerSpawned(null);
             DieWaitingChanged(GameManager.Instance.IsWaitingForDie);
         }
 
         void OnDisable()
         {
             if (GameManager.Exists())
+            {
                 GameManager.Instance.OnDieWaitingChanged -= DieWaitingChanged;
-        }
-
-        void Start()
-        {
-            Body.isKinematic = true;
+                GameManager.Instance.OnPlayerSpawned -= PlayerSpawned;
+            }
         }
 
         void FixedUpdate()
         {
-            // Custom gravity to adjust for level scale
-            Body.AddForce(GravityForceFactor * Body.mass * Physics.gravity);
+            if (ReadyForThrowing)
+            {
+                Body.position = DicePositionAtCamera.position;
+                Body.rotation = DicePositionAtCamera.rotation;
+            }
+
+            if (!Body.isKinematic)
+            {
+                // Custom gravity to adjust for level scale
+                Body.AddForce(GravityForceFactor * Body.mass * Physics.gravity);
+            }
         }
 
         void Update()
         {
-            if (ReadyForThrowing)
-            {
-                transform.position = DicePositionAtCamera.position;
-                transform.rotation = DicePositionAtCamera.rotation;
-            }
-
             if (FollowingMouse)
             {
                 Ray ray = Camera.ScreenPointToRay(Input.mousePosition);
@@ -129,16 +134,25 @@ namespace Core.Dice
 
             FollowingMouse = false;
             Throwing = true;
-            UpVectorOld = transform.rotation.eulerAngles;
+            UpVectorOld = transform.up;
             FramesCount = 0;
         }
 
         #endregion
 
 
+        void PlayerSpawned(PlayerController player)
+        {
+            ResetCube();
+        }
+
         void DieWaitingChanged(bool isWaiting)
         {
             ReadyForThrowing = isWaiting;
+            if (ReadyForThrowing)
+            {
+                ResetCube();
+            }
         }
 
         void ThrowingResult()
@@ -167,9 +181,15 @@ namespace Core.Dice
             {
                 Debug.Log($"Reset cube");
                 ReadyForThrowing = true;
-                FollowingMouse = false;
-                Throwing = false;
+                ResetCube();
             }
+        }
+
+        void ResetCube()
+        {
+            FollowingMouse = false;
+            Throwing = false;
+            Body.isKinematic = true;
         }
     }
 }
