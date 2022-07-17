@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6e8f5a83de1e5843a77ea08c846aa2e, type: 3}
   m_Name: Poring
   m_EditorClassIdentifier: 
-  UnitName: Poring
+  UnitName: Wormie
   Hp: 2
   HpScaleFactor: 1
   MinDamage: 1
   MaxDamage: 3
+  MinLoot: 5
+  MaxLoot: 15

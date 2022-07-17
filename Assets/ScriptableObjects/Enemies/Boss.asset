@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6e8f5a83de1e5843a77ea08c846aa2e, type: 3}
   m_Name: Boss
   m_EditorClassIdentifier: 
-  UnitName: Final boss
+  UnitName: DODECAHEDRON
   Hp: 50
   HpScaleFactor: 0
   MinDamage: 4
