@@ -31,6 +31,8 @@ namespace Core.Player
 
         public PlayerHealth Health;
 
+        [SerializeField]
+        Animator _anim;
 
         public Vector2Int Coordinates { get; private set; }
         public State CurrentState { get; private set; } = State.Idle;
@@ -119,6 +121,7 @@ namespace Core.Player
             }
 
             CurrentState = State.Moving;
+            _anim.SetBool("isWalking", true);
             Vector2Int delta = coord - Coordinates;
             Coordinates = coord;
             MovesLeft--;
@@ -141,6 +144,7 @@ namespace Core.Player
                 MapManager.Instance.RevealTilesAround(coord, () =>
                 {
                     CurrentState = State.Idle;
+                    _anim.SetBool("isWalking", false);
                     ActiveMoveTween = null;
                     onFinished?.Invoke();
                 });

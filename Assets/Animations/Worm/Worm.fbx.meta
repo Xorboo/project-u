@@ -1,30 +1,65 @@
 fileFormatVersion: 2
-guid: ea97d467211f13c4c905f11d4a7eaa0f
+guid: 7ca5383010016b94ba11cf59287e8909
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable:
   - first:
-      74: 2932621209331322776
-    second: Armature.005|BatDeath
+      74: -4182326462238737355
+    second: Armature.001|Cube.020Action
   - first:
-      74: -7910019690364662169
-    second: Armature.005|BatGetHit
+      74: 8532295219475921262
+    second: Armature.001|MOB_BOSS_CROWNAction
   - first:
-      74: -4452317123094416858
-    second: Armature.005|BatHitting
+      74: -7789913753882397390
+    second: Armature.001|ScullDeath
   - first:
-      74: -4679525068770412018
-    second: Armature.005|BatIdle
+      74: 1339928213490292613
+    second: Armature.001|ScullIdle
   - first:
-      74: -7808211990167113437
-    second: Armature.005|Cube.020Action
+      74: 16899117048352469
+    second: Armature.001|ScullIdleGetHit
   - first:
-      74: -306165979759330354
-    second: Armature.005|MOB_BOSS_CROWNAction
+      74: 6046218005823527883
+    second: Armature.001|ScullIdleHitting
   - first:
-      74: 1273472434317551043
-    second: Armature.005|SkullIdle
-  externalObjects: {}
+      74: 3821441836935657178
+    second: Armature.001|SkullIdle
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MOB_SKULL_BONE
+    second: {fileID: 2100000, guid: 7b0924a53a585c047bc2442116ee93e3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MOB_SKULL_BONE.001
+    second: {fileID: 2100000, guid: 5e862ebc154fa8745af1ad7f38784a70, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MOB_SKULL_MOUTH
+    second: {fileID: 2100000, guid: 0e6a39eba75981e4488f6462fa76eee6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MOB_SKULL_MOUTH.001
+    second: {fileID: 2100000, guid: 170b7828c08b66d4a8790ec710a708c7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MOB_SKULL_WORM_D
+    second: {fileID: 2100000, guid: 63f33965ff147c44999f0f0b84c554eb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MOB_SKULL_WORM_L
+    second: {fileID: 2100000, guid: fe750524b954b5d43a77c3047dbbca10, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MOB_SKULL_YELLOW
+    second: {fileID: 2100000, guid: 3b11f9432ec3f53489b53d6b87824b28, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
