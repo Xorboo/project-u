@@ -53,7 +53,10 @@ namespace Core.Player
 
         public void Initialize()
         {
-            MaxHealth = Health = GameParameters.PlayerHealth + GatheredBonusHealth;
+            if (PlayerPrefs.HasKey("MaxHealth"))
+                MaxHealth = Health = PlayerPrefs.GetInt("MaxHealth");
+            else
+                MaxHealth = Health = GameParameters.PlayerHealth + GatheredBonusHealth;
             UpdateHealthUi();
         }
 
@@ -69,6 +72,8 @@ namespace Core.Player
             GatheredBonusHealth += amount;
             MaxHealth += amount;
             Health += amount;
+            PlayerPrefs.SetInt("MaxHealth", MaxHealth);
+            PlayerPrefs.Save();
         }
 
         public void ReceiveDamage(int amount)

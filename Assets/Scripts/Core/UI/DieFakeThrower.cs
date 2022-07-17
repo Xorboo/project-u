@@ -49,5 +49,17 @@ namespace Core.UI
         {
             GameManager.Instance.ChangeDice(delta);
         }
+
+        public void ClearSave()
+        {
+            PlayerPrefs.DeleteAll();
+            PlayerPrefs.Save();
+            GameManager.Instance.RestartGame();
+        }
+
+        public void GetMoney()
+        {
+            GameManager.Instance.Player.GetLoot(100);
+        }
     }
 }

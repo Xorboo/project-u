@@ -1,5 +1,6 @@
-using System;
+﻿using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Core.UI
 {
@@ -23,8 +24,9 @@ namespace Core.UI
         {
             ClosePanel();
 
-            RestartListener?.Invoke();
-            RestartListener = null;
+            SceneManager.LoadScene("game");  //Ярослав: делаем перезагрузку по хардкору, чтобы не разбираться что мы откатили, а что забыли
+            //RestartListener?.Invoke();
+            //RestartListener = null;
         }
 
         public void ClosePanel()

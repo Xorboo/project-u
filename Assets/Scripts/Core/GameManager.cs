@@ -87,7 +87,10 @@ namespace Core
 
         void StartGame()
         {
-            DiceCount = Data.StartingDice + ExtraStartingDice;
+            if (PlayerPrefs.HasKey("StartDices"))
+                DiceCount = PlayerPrefs.GetInt("StartDices");
+            else
+                DiceCount = Data.StartingDice + ExtraStartingDice;
             IsWaitingForDie = false;
             DieResultListener = null;
             EnemyExtraHpFactor = 0;
@@ -133,6 +136,8 @@ namespace Core
         {
             Debug.Log($"Adding permanent pack of {Data.MysticPermanentDiceCount} dice");
             ExtraStartingDice += Data.MysticPermanentDiceCount;
+            PlayerPrefs.SetInt("StartDices", Data.StartingDice + ExtraStartingDice);
+            PlayerPrefs.Save();
         }
 
         public void AddPackOfDice()
