@@ -690,7 +690,7 @@ GameObject:
   - component: {fileID: 6327406009728996869}
   - component: {fileID: 5605818541814780987}
   m_Layer: 5
-  m_Name: NPC_Name
+  m_Name: NpcNameText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -778,7 +778,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 1
-  m_HorizontalAlignment: 2
+  m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -881,8 +881,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Fight
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: e7c841b74737e504a9300a33a5b13f29, type: 2}
+  m_sharedMaterial: {fileID: 4498643330913075457, guid: e7c841b74737e504a9300a33a5b13f29, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1252,10 +1252,10 @@ RectTransform:
   m_Children:
   - {fileID: 2524639536658580569}
   - {fileID: 6275123566404640995}
-  - {fileID: 380040009357250532}
   - {fileID: 2387157740792133924}
   - {fileID: 3533512026552793628}
   - {fileID: 3862109674960852310}
+  - {fileID: 380040009357250532}
   - {fileID: 6170512209737812246}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -1282,7 +1282,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 1
+  m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -1342,6 +1342,7 @@ MonoBehaviour:
   DireThrowRequestText: {fileID: 5126177932846027714}
   MoveThrowText: Toss a die to get more moves
   RandomEncounterUi: {fileID: 6249548676601975725}
+  DialogUi: {fileID: 4634679580956895759}
 --- !u!1 &2524639536560380275
 GameObject:
   m_ObjectHideFlags: 0
@@ -2061,10 +2062,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Exp or Gold?
+  m_text: Roll the dice to get more dices
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: e7c841b74737e504a9300a33a5b13f29, type: 2}
+  m_sharedMaterial: {fileID: 4498643330913075457, guid: e7c841b74737e504a9300a33a5b13f29, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2104,7 +2105,7 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 0
+  m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
@@ -2124,7 +2125,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: -145.35658, y: 0, z: -143.50317, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -3454,7 +3455,7 @@ GameObject:
   - component: {fileID: 77884764986458108}
   - component: {fileID: 4774170666982188147}
   m_Layer: 5
-  m_Name: NPC_Text
+  m_Name: NpcPhraseText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4048,8 +4049,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 42
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: e7c841b74737e504a9300a33a5b13f29, type: 2}
+  m_sharedMaterial: {fileID: 4498643330913075457, guid: e7c841b74737e504a9300a33a5b13f29, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -4146,7 +4147,7 @@ RectTransform:
   m_Children:
   - {fileID: 1365153428542918595}
   m_Father: {fileID: 2524639536559818012}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -4736,7 +4737,7 @@ RectTransform:
   m_Children:
   - {fileID: 3452035372984343756}
   m_Father: {fileID: 2524639536559818012}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -5218,8 +5219,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DialogPanel: {fileID: 3910743938298320259}
-  npc_name_text: {fileID: 5605818541814780987}
-  npc_text_text: {fileID: 4774170666982188147}
+  NpcNameText: {fileID: 5605818541814780987}
+  DialogText: {fileID: 4774170666982188147}
 --- !u!1 &8064416020841465282
 GameObject:
   m_ObjectHideFlags: 0
@@ -5252,7 +5253,7 @@ RectTransform:
   m_Children:
   - {fileID: 6831180283344262488}
   m_Father: {fileID: 2524639536559818012}
-  m_RootOrder: 2
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
@@ -5498,7 +5499,7 @@ RectTransform:
   m_Children:
   - {fileID: 6729084178274397914}
   m_Father: {fileID: 2524639536559818012}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}

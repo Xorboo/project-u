@@ -849,30 +849,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 240655372374938189, guid: 2e8c7cbf809b4c145913ab12504b72fd, type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: e7c841b74737e504a9300a33a5b13f29, type: 2}
-    - target: {fileID: 240655372374938189, guid: 2e8c7cbf809b4c145913ab12504b72fd, type: 3}
-      propertyPath: m_sharedMaterial
-      value: 
-      objectReference: {fileID: 4498643330913075457, guid: e7c841b74737e504a9300a33a5b13f29, type: 2}
-    - target: {fileID: 1624275697751050020, guid: 2e8c7cbf809b4c145913ab12504b72fd, type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: e7c841b74737e504a9300a33a5b13f29, type: 2}
-    - target: {fileID: 1624275697751050020, guid: 2e8c7cbf809b4c145913ab12504b72fd, type: 3}
-      propertyPath: m_sharedMaterial
-      value: 
-      objectReference: {fileID: 4498643330913075457, guid: e7c841b74737e504a9300a33a5b13f29, type: 2}
-    - target: {fileID: 2524639535964993414, guid: 2e8c7cbf809b4c145913ab12504b72fd, type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: e7c841b74737e504a9300a33a5b13f29, type: 2}
-    - target: {fileID: 2524639535964993414, guid: 2e8c7cbf809b4c145913ab12504b72fd, type: 3}
-      propertyPath: m_sharedMaterial
-      value: 
-      objectReference: {fileID: 4498643330913075457, guid: e7c841b74737e504a9300a33a5b13f29, type: 2}
     - target: {fileID: 2524639536559818008, guid: 2e8c7cbf809b4c145913ab12504b72fd, type: 3}
       propertyPath: m_Name
       value: Canvas
@@ -961,50 +937,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2524639537344139822, guid: 2e8c7cbf809b4c145913ab12504b72fd, type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: e7c841b74737e504a9300a33a5b13f29, type: 2}
-    - target: {fileID: 2524639537344139822, guid: 2e8c7cbf809b4c145913ab12504b72fd, type: 3}
-      propertyPath: m_sharedMaterial
-      value: 
-      objectReference: {fileID: 4498643330913075457, guid: e7c841b74737e504a9300a33a5b13f29, type: 2}
-    - target: {fileID: 6298407903645407227, guid: 2e8c7cbf809b4c145913ab12504b72fd, type: 3}
-      propertyPath: m_text
-      value: Roll the dice to get more dices
-      objectReference: {fileID: 0}
-    - target: {fileID: 6298407903645407227, guid: 2e8c7cbf809b4c145913ab12504b72fd, type: 3}
-      propertyPath: m_margin.x
-      value: -145.35658
-      objectReference: {fileID: 0}
-    - target: {fileID: 6298407903645407227, guid: 2e8c7cbf809b4c145913ab12504b72fd, type: 3}
-      propertyPath: m_margin.z
-      value: -143.50317
-      objectReference: {fileID: 0}
-    - target: {fileID: 6298407903645407227, guid: 2e8c7cbf809b4c145913ab12504b72fd, type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: e7c841b74737e504a9300a33a5b13f29, type: 2}
-    - target: {fileID: 6298407903645407227, guid: 2e8c7cbf809b4c145913ab12504b72fd, type: 3}
-      propertyPath: m_sharedMaterial
-      value: 
-      objectReference: {fileID: 4498643330913075457, guid: e7c841b74737e504a9300a33a5b13f29, type: 2}
-    - target: {fileID: 6298407903645407227, guid: 2e8c7cbf809b4c145913ab12504b72fd, type: 3}
-      propertyPath: m_enableWordWrapping
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8219939124194489547, guid: 2e8c7cbf809b4c145913ab12504b72fd, type: 3}
-      propertyPath: m_text
-      value: Random Encounter
-      objectReference: {fileID: 0}
-    - target: {fileID: 8219939124194489547, guid: 2e8c7cbf809b4c145913ab12504b72fd, type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: e7c841b74737e504a9300a33a5b13f29, type: 2}
-    - target: {fileID: 8219939124194489547, guid: 2e8c7cbf809b4c145913ab12504b72fd, type: 3}
-      propertyPath: m_sharedMaterial
-      value: 
-      objectReference: {fileID: 4498643330913075457, guid: e7c841b74737e504a9300a33a5b13f29, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e8c7cbf809b4c145913ab12504b72fd, type: 3}
 --- !u!114 &2524639536428401282 stripped
@@ -1102,6 +1034,10 @@ PrefabInstance:
       propertyPath: _ui
       value: 
       objectReference: {fileID: 2524639536428401282}
+    - target: {fileID: 3112381902151415873, guid: 64f28c7e7ca37d844ab526c9e3566af0, type: 3}
+      propertyPath: StoryData
+      value: 
+      objectReference: {fileID: 11400000, guid: dda64cff61ea90a43b4a067263da4995, type: 2}
     - target: {fileID: 3112381902151415873, guid: 64f28c7e7ca37d844ab526c9e3566af0, type: 3}
       propertyPath: dialogs.Array.size
       value: 3

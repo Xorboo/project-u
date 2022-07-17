@@ -1,5 +1,6 @@
 using System;
 using Core.Player;
+using Core.Story;
 using Core.Triggers.RandomEncounter;
 using TMPro;
 using UnityEngine;
@@ -24,6 +25,9 @@ namespace Core.UI
         [Space]
         [SerializeField]
         RandomEventUi RandomEncounterUi;
+
+        [SerializeField]
+        DialogUi DialogUi;
 
 
         #region Unity
@@ -69,11 +73,17 @@ namespace Core.UI
             // Reset all states
             HideDieRequest();
             RandomEncounterUi.CloseEncounter();
+            DialogUi.CloseDialog();
         }
 
         public void ShowEncounterWindow(RandomEncounterData encounter, int diceChange, Action onEncounterWindowClosed)
         {
             RandomEncounterUi.OpenEncounter(encounter.Description, diceChange, onEncounterWindowClosed);
+        }
+
+        public void ShowStoryEntry(StoryEntry entry, Action onDialogClosed)
+        {
+            DialogUi.OpenDialog(entry, onDialogClosed);
         }
     }
 }

@@ -1,28 +1,41 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+using System;
+using Core.Story;
 using TMPro;
+using UnityEngine;
 
-public class DialogUi : MonoBehaviour
+namespace Core.UI
 {
-    [SerializeField]
-    GameObject DialogPanel;
-    [SerializeField] TMP_Text npc_name_text, npc_text_text;
-    
-    void Start()
+    public class DialogUi : MonoBehaviour
     {
-        CloseDialog();
-    }
+        [SerializeField]
+        GameObject DialogPanel;
 
-    public void OpenDialog(string npc_name, string npc_text)
-    {
-        DialogPanel.SetActive(true);
-        npc_name_text.text = npc_name;
-        npc_text_text.text = npc_text;
-    }
+        [SerializeField]
+        TMP_Text NpcNameText, DialogText;
 
-    public void CloseDialog()
-    {
-        DialogPanel.SetActive(false);
+        Action DialogCloseListener = null;
+
+
+        void Start()
+        {
+            CloseDialog();
+        }
+
+        public void OpenDialog(StoryEntry entry, Action onDialogClosed)
+        {
+            DialogCloseListener = onDialogClosed;
+
+            DialogPanel.SetActive(true);
+            NpcNameText.text = entry.Npc.NpcName;
+            DialogText.text = entry.Text;
+        }
+
+        public void CloseDialog()
+        {
+            DialogPanel.SetActive(false);
+
+            DialogCloseListener?.Invoke();
+            DialogCloseListener = null;
+        }
     }
 }
