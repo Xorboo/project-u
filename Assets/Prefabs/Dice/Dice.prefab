@@ -1493,6 +1493,7 @@ MonoBehaviour:
     m_Bits: 256
   ThrowingForce: 3
   GravityForceFactor: 3
+  MaxThrowDuration: 10
   DicePositionAtCamera: {fileID: 0}
 --- !u!82 &9212969927433409060
 AudioSource:
@@ -1605,6 +1606,7 @@ MonoBehaviour:
   HitClip: {fileID: 8300000, guid: d91d9bc3dbeb7c8479f129f4b6148c9f, type: 3}
   PitchDiff: 0.2
   MinRepeatDelay: 0.1
+  Volume: 0.5
 --- !u!1 &7030342787114664156
 GameObject:
   m_ObjectHideFlags: 0

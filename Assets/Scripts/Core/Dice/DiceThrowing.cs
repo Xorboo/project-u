@@ -26,9 +26,13 @@ namespace Core.Dice
         [SerializeField]
         float GravityForceFactor = 5f;
 
+        [SerializeField]
+        float MaxThrowDuration = 10f;
+
         bool Throwing = false;
         Vector3 UpVectorOld;
         int FramesCount = 0;
+        float ThrowDuration = 0;
 
         [SerializeField]
         Transform DicePositionAtCamera;
@@ -104,13 +108,20 @@ namespace Core.Dice
                     if (FramesCount > idleFramesLimit)
                     {
                         Throwing = false;
-                        ThrowingResult();
+                        CheckThrowResult();
                     }
                 }
                 else
                 {
                     FramesCount = 0;
                     UpVectorOld = upVectorNew;
+                }
+
+                ThrowDuration += Time.deltaTime;
+                if (ThrowDuration > MaxThrowDuration)
+                {
+                    Debug.LogWarning($"Rolling for too long, resetting die");
+                    ResetReadyCube();
                 }
             }
         }
@@ -136,6 +147,7 @@ namespace Core.Dice
             Throwing = true;
             UpVectorOld = transform.up;
             FramesCount = 0;
+            ThrowDuration = 0f;
         }
 
         #endregion
@@ -155,7 +167,7 @@ namespace Core.Dice
             }
         }
 
-        void ThrowingResult()
+        void CheckThrowResult()
         {
             int dieResult = 0;
 
@@ -179,10 +191,15 @@ namespace Core.Dice
             }
             else //Например, куб уперся в коллизию и остановился под углом. Значит надо перебросить.
             {
-                Debug.Log($"Reset cube");
-                ReadyForThrowing = true;
-                ResetCube();
+                ResetReadyCube();
             }
+        }
+
+        void ResetReadyCube()
+        {
+            Debug.Log($"Reset cube");
+            ReadyForThrowing = true;
+            ResetCube();
         }
 
         void ResetCube()
