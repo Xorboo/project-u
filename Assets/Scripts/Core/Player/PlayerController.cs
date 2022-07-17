@@ -9,6 +9,7 @@ namespace Core.Player
     public class PlayerController : MonoBehaviour
     {
         public event Action<int> OnMovesCountChanged = delegate { };
+        public event Action<int> OnMoneyCountChanged = delegate { };
 
 
         public enum State
@@ -46,6 +47,17 @@ namespace Core.Player
 
         int MovesLeftValue = 0;
 
+        public int MoneyLeft
+        {
+            get => MoneyLeftValue;
+            private set
+            {
+                MoneyLeftValue = value;
+                OnMoneyCountChanged(MoneyLeftValue);
+            }
+        }
+
+        int MoneyLeftValue = 0;
 
         #region Unity
 

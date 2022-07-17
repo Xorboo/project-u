@@ -8,7 +8,7 @@ namespace Core.UI
     public class DieFakeThrower : MonoBehaviour
     {
         [SerializeField]
-        Button ThrowButton;
+        GameObject CheatPanel;
 
 
         #region Unity
@@ -30,7 +30,7 @@ namespace Core.UI
 
         void DieWaitingChanged(bool isWaiting)
         {
-            ThrowButton.gameObject.SetActive(isWaiting);
+            CheatPanel.SetActive(isWaiting);
         }
 
         public void OnFakeThrowClicked(int value)
