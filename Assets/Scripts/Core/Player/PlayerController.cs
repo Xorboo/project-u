@@ -8,6 +8,8 @@ namespace Core.Player
     public class PlayerController : MonoBehaviour
     {
         public event Action<int> OnMovesCountChanged = delegate { };
+        public event Action OnMovesDieStarted = delegate { };
+        public event Action OnMovesDieFinished = delegate { };
 
 
         public enum State
@@ -26,6 +28,8 @@ namespace Core.Player
 
         public Vector2Int Coordinates { get; private set; }
         public State CurrentState { get; private set; } = State.Idle;
+        public bool WaitingForMovesDie { get; private set; } = false;
+
 
         public int MovesLeft
         {
@@ -75,12 +79,16 @@ namespace Core.Player
                 return;
 
             Debug.Log($"Requiring die throw for moves");
+            WaitingForMovesDie = true;
+            OnMovesDieStarted();
             GameManager.Instance.WaitForDieThrowResult(MoveDieThrown);
 
             void MoveDieThrown(int dieResult)
             {
                 Debug.Log($"Player now has {dieResult} moves");
                 MovesLeft = dieResult;
+                WaitingForMovesDie = false;
+                OnMovesDieFinished();
             }
         }
 
