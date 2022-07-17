@@ -245,8 +245,7 @@ namespace Core
 
         public void RestartGame()
         {
-            // TODO Replace with a UI
-            StartGame();
+            UiManager.Instance.ShowGameOverPanel(StartGame);
         }
     }
 }

@@ -44,6 +44,9 @@ namespace Core.UI
         [SerializeField]
         PotionUi PotionUi;
 
+        [SerializeField]
+        GameOverUi GameOverUi;
+
 
         #region Unity
 
@@ -102,6 +105,7 @@ namespace Core.UI
             ChestUi.CloseChestInfo();
             MysticUi.ClosePanel();
             PotionUi.ClosePotionPanel();
+            GameOverUi.ClosePanel();
         }
 
         public void ShowEncounterWindow(RandomEncounterData encounter, int diceChange, Action onEncounterWindowClosed)
@@ -132,6 +136,11 @@ namespace Core.UI
         public void ShowBonusHealthEntry(int extraHealth, Action onPanelClosed)
         {
             PotionUi.OpenBonusHealthPotionPanel(extraHealth, onPanelClosed);
+        }
+
+        public void ShowGameOverPanel(Action onRestartPressed)
+        {
+            GameOverUi.OpenGameOverPanel(onRestartPressed);
         }
     }
 }
