@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Entries:
   - Npc: {fileID: 11400000, guid: 7028fd07ab1a1254cad3ee0ac610f8f6, type: 2}
-    Text: It smells like you possess brains... I will get into your ear!
+    Text: 'Ahh, brave dicefolk, have some brief rest here... You need to find '
     isFinal: 0
   - Npc: {fileID: 11400000, guid: 171b17c399ea6ae47b75fa186b8ed5f7, type: 2}
-    Text: Ahh, brave dicefolk, have some brief rest here...
+    Text: DICE KING has arrived! Reach them, it's your chance to get victorious!
     isFinal: 1
   - Npc: {fileID: 11400000, guid: fe048fdbe335b134c890cf372ba59f5f, type: 2}
-    Text: Awawaw!
+    Text: You can do it! Yeeee!
     isFinal: 0
