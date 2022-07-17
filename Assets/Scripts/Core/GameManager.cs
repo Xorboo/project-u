@@ -25,6 +25,7 @@ namespace Core
         // TODO Save to PlayerPrefs
         public int ExtraStartingDice { get; private set; } = 0;
 
+        public bool ReadyToBossSpawn = false;
 
         public int DiceCount
         {

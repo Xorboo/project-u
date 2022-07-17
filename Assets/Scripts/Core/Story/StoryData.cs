@@ -15,5 +15,6 @@ namespace Core.Story
     {
         public StoryNpcData Npc;
         public string Text;
+        public bool isFinal = false;
     }
 }

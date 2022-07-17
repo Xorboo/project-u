@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using Core.Player;
 using Core.UI;
 using UnityEngine;
@@ -43,6 +43,8 @@ namespace Core.Story
         public void ShowNpcStoryEntry(Action onStoryClosed)
         {
             var story = StoryData.Entries[CurrentStoryIndex];
+
+            if (story.isFinal) GameManager.Instance.ReadyToBossSpawn = true; //После этой реплики на месте следующего противника заспавнится боссу
 
             UiManager.Instance.ShowStoryEntry(story, onStoryClosed);
             CurrentStoryIndex = Math.Min(CurrentStoryIndex + 1, StoryData.Entries.Count - 1);
