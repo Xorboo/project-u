@@ -16,7 +16,8 @@ namespace Core.Triggers
             var player = other.GetComponent<PlayerController>();
             if (!player)
             {
-                Debug.LogError($"[{gameObject.name}] should only collide with player", gameObject);
+                Debug.LogWarning($"[{gameObject.name}] should only collide with player, and not with [{other.gameObject.name}]",
+                    gameObject);
                 return;
             }
 

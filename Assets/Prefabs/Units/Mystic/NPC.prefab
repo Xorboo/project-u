@@ -80,7 +80,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d6ae907ee931be4499231311b0fbcda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LookRotation: {fileID: 0}
+  LookRotation: {fileID: 8159410155486187216}
 --- !u!65 &7537646159255825064
 BoxCollider:
   m_ObjectHideFlags: 0
