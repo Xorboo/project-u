@@ -122,6 +122,30 @@ PrefabInstance:
       propertyPath: ShapeModule.m_Scale.z
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 6765873711043746242, guid: 77b09a4e1de3b6449808f893cbd02a33, type: 3}
+      propertyPath: TrailModule.colorOverTrail.maxGradient.key0.b
+      value: 0.7264151
+      objectReference: {fileID: 0}
+    - target: {fileID: 6765873711043746242, guid: 77b09a4e1de3b6449808f893cbd02a33, type: 3}
+      propertyPath: TrailModule.colorOverTrail.maxGradient.key0.g
+      value: 0.4777417
+      objectReference: {fileID: 0}
+    - target: {fileID: 6765873711043746242, guid: 77b09a4e1de3b6449808f893cbd02a33, type: 3}
+      propertyPath: TrailModule.colorOverTrail.maxGradient.key0.r
+      value: 0.3335113
+      objectReference: {fileID: 0}
+    - target: {fileID: 6765873711043746242, guid: 77b09a4e1de3b6449808f893cbd02a33, type: 3}
+      propertyPath: TrailModule.colorOverTrail.maxGradient.key1.b
+      value: 0.7264151
+      objectReference: {fileID: 0}
+    - target: {fileID: 6765873711043746242, guid: 77b09a4e1de3b6449808f893cbd02a33, type: 3}
+      propertyPath: TrailModule.colorOverTrail.maxGradient.key1.g
+      value: 0.4777417
+      objectReference: {fileID: 0}
+    - target: {fileID: 6765873711043746242, guid: 77b09a4e1de3b6449808f893cbd02a33, type: 3}
+      propertyPath: TrailModule.colorOverTrail.maxGradient.key1.r
+      value: 0.3335113
+      objectReference: {fileID: 0}
     - target: {fileID: 6765873711043746253, guid: 77b09a4e1de3b6449808f893cbd02a33, type: 3}
       propertyPath: m_RootOrder
       value: 1
