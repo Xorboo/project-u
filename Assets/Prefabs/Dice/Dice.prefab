@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 1359669282010865249}
   - component: {fileID: 9212969927433409060}
   - component: {fileID: 4612727398472989106}
+  - component: {fileID: 3954987996051114116}
   m_Layer: 7
   m_Name: Dice
   m_TagString: Dice
@@ -252,7 +253,24 @@ MonoBehaviour:
   PitchDiff: 0.2
   MinRepeatDelay: 0.1
   Volume: 0.5
-  EffectPrefab: {fileID: 7820495121474786368, guid: c57dce1cbf3d09a46811bfff18f15973, type: 3}
+  ParticleSpawner: {fileID: 3954987996051114116}
+  ParticlePositionShift: {x: 0, y: -0.5, z: 0}
+--- !u!114 &3954987996051114116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6817700147320577656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2381a6ff6f003da4ea89109cfabb09b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Prefab: {fileID: 7820495121474786368, guid: c57dce1cbf3d09a46811bfff18f15973, type: 3}
+  SpawnOnAwake: 0
+  DestroyAutomatically: 1
+  DestroyDelay: 1
 --- !u!1001 &1600332505971173683
 PrefabInstance:
   m_ObjectHideFlags: 0

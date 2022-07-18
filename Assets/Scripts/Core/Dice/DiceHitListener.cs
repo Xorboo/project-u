@@ -1,3 +1,4 @@
+using Core.Units;
 using UnityEngine;
 
 namespace Core.Dice
@@ -18,7 +19,10 @@ namespace Core.Dice
         float Volume = 0.5f;
 
         [SerializeField]
-        GameObject EffectPrefab;
+        TemporaryObjectSpawner ParticleSpawner;
+
+        [SerializeField]
+        Vector3 ParticlePositionShift = new Vector3(0, -0.5f, 0);
 
         AudioSource AudioSource;
         float LastPlayTime = float.MinValue;
@@ -33,13 +37,9 @@ namespace Core.Dice
 
         void OnCollisionEnter(Collision col)
         {
-            var point = col.contacts[0].point;
-
             if (Time.time > LastPlayTime + MinRepeatDelay)
             {
-                var effect = Instantiate(EffectPrefab);
-                effect.transform.position = transform.position;
-                Destroy(effect.gameObject, 1f);
+                ParticleSpawner.SpawnObject(transform.position + ParticlePositionShift);
 
                 AudioSource.pitch = Random.Range(1 - PitchDiff, 1 + PitchDiff);
                 AudioSource.PlayOneShot(HitClip, Volume);
@@ -49,5 +49,25 @@ namespace Core.Dice
         }
 
         #endregion
+
+        Vector3 GetContactCenter(Collision col)
+        {
+            var firstPoint = col.contacts[0].point;
+            Vector3 min = firstPoint, max = firstPoint;
+            foreach (var contact in col.contacts)
+            {
+                var p = contact.point;
+
+                min.x = Mathf.Min(min.x, p.x);
+                min.y = Mathf.Min(min.y, p.y);
+                min.z = Mathf.Min(min.z, p.z);
+
+                max.x = Mathf.Max(max.x, p.x);
+                max.y = Mathf.Max(max.y, p.y);
+                max.z = Mathf.Max(max.z, p.z);
+            }
+
+            return (min + max) / 2f;
+        }
     }
 }

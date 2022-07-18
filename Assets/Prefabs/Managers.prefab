@@ -125,3 +125,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerPrefab: {fileID: 3855582557399153125, guid: f8f048ed5a1bc2f47ae4b1524e7167f7, type: 3}
   Data: {fileID: 11400000, guid: 642340e6323c85c4d9ff031bf5c5f444, type: 2}
+  FinalScreen: {fileID: 0}
+  ReadyToBossSpawn: 0
