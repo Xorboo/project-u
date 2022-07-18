@@ -1242,6 +1242,7 @@ GameObject:
   - component: {fileID: 7593965707711326028}
   - component: {fileID: 8319529420197528673}
   - component: {fileID: 1347552167130379857}
+  - component: {fileID: 2120761432559400734}
   m_Layer: 10
   m_Name: Player
   m_TagString: Player
@@ -1284,7 +1285,8 @@ MonoBehaviour:
   GameParameters: {fileID: 11400000, guid: 642340e6323c85c4d9ff031bf5c5f444, type: 2}
   MoveTime: 1
   Health: {fileID: 1347552167130379857}
-  _anim: {fileID: 1770838614652085376}
+  Animator: {fileID: 1770838614652085376}
+  AnimationListener: {fileID: 6672068738061032260}
   MoneyValue: 0
 --- !u!54 &7593965707711326028
 Rigidbody:
@@ -1329,8 +1331,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GameParameters: {fileID: 11400000, guid: 642340e6323c85c4d9ff031bf5c5f444, type: 2}
   HealthText: {fileID: 7509355854426690439}
-  HitEffect: {fileID: 8299151356811090127, guid: 823fdc685edf83c4b8227c039000dd0c, type: 3}
-  Animator: {fileID: 1770838614652085376}
+  HitSpawner: {fileID: 2120761432559400734}
+--- !u!114 &2120761432559400734
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3855582557399153124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd813a4f42a09c04ebd99c8b8798e1f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Prefab: {fileID: 8299151356811090127, guid: 823fdc685edf83c4b8227c039000dd0c, type: 3}
+  SpawnOnAwake: 0
+  DestroyAutomatically: 1
+  DestroyDelay: 1
+  CameraShiftDistance: 0.7
 --- !u!1 &4521329128334390597
 GameObject:
   m_ObjectHideFlags: 0

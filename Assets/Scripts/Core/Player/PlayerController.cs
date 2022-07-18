@@ -3,7 +3,9 @@ using Core.Map;
 using Core.UI;
 using Core.Units;
 using DG.Tweening;
+using UnityEditor.Animations;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Core.Player
 {
@@ -31,8 +33,13 @@ namespace Core.Player
 
         public PlayerHealth Health;
 
+        [FormerlySerializedAs("_anim")]
         [SerializeField]
-        public Animator _anim;
+        public Animator Animator;
+
+        [SerializeField]
+        PlayerAnimationListener AnimationListener;
+
 
         public Vector2Int Coordinates { get; private set; }
         public State CurrentState { get; private set; } = State.Idle;
@@ -121,7 +128,7 @@ namespace Core.Player
             }
 
             CurrentState = State.Moving;
-            _anim.SetBool("isWalking", true);
+            Animator.SetBool("isWalking", true);
             Vector2Int delta = coord - Coordinates;
             Coordinates = coord;
             MovesLeft--;
@@ -144,7 +151,7 @@ namespace Core.Player
                 MapManager.Instance.RevealTilesAround(coord, () =>
                 {
                     CurrentState = State.Idle;
-                    _anim.SetBool("isWalking", false);
+                    Animator.SetBool("isWalking", false);
                     ActiveMoveTween = null;
                     onFinished?.Invoke();
                 });
@@ -183,19 +190,8 @@ namespace Core.Player
 
         public void AnimateAttack(EnemyUnit enemy, Action onDealDamage, Action onCompleted)
         {
-            Vector3 playerDir = (enemy.transform.position - transform.position).normalized;
-            playerDir.y = 0f;
-
-            float shiftDistance = 0.7f;
-            float shiftDuration = 0.4f;
-            float shiftBackDuration = 0.7f;
-            Vector3 originalPos = transform.localPosition;
-            Vector3 attackPos = originalPos + playerDir * shiftDistance;
-            DOTween.Sequence(gameObject)
-                .Append(transform.DOLocalMove(attackPos, shiftDuration).SetEase(Ease.OutElastic))
-                .AppendCallback(() => onDealDamage?.Invoke())
-                .Append(transform.DOLocalMove(originalPos, shiftBackDuration).SetEase(Ease.InOutSine))
-                .OnComplete(() => onCompleted?.Invoke());
+            AnimationListener.SetAttackListener(onDealDamage, onCompleted);
+            Animator.SetTrigger("Attack");
         }
 
         public void GetLoot(int money_value)

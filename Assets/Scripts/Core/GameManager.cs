@@ -16,6 +16,9 @@ namespace Core
         public event Action OnEnemyHpIncreased = delegate { };
 
 
+        protected override bool IsPersistent => false;
+
+
         [SerializeField]
         PlayerController PlayerPrefab;
 

@@ -1,32 +1,20 @@
 using System;
-using Core.Units;
 using UnityEngine;
-using Utils;
 
-namespace Core.Player
+namespace Core.Units
 {
     [RequireComponent(typeof(AudioSource))]
-    public class PlayerAnimationListener : MonoBehaviour
+    public class EnemyAnimationListener : MonoBehaviour
     {
-        [SerializeField]
-        AudioClip StepClip;
-
-        [SerializeField]
-        float StepPitchDiff = 0.2f;
-
-        [SerializeField]
-        TemporaryObjectSpawner StepSpawner;
-
-        [SerializeField]
-        AudioPlayer AudioPlayer;
-
         Action AttackDamageListener;
         Action AttackCompletedListener;
+        Action DeathCompletedListener;
 
 
         #region Unity
 
         #endregion
+
 
         public void SetAttackListener(Action onAttackDamage, Action onAttackCompleted)
         {
@@ -39,11 +27,11 @@ namespace Core.Player
             AttackCompletedListener = onAttackCompleted;
         }
 
-        public void OnWalkStepEvent()
+        public void SetDeathCompletedListener(Action onDeathCompleted)
         {
-            StepSpawner.SpawnObject(transform.position);
-            if (StepClip != null)
-                AudioPlayer.PlayOneShot(StepClip, StepPitchDiff);
+            if (DeathCompletedListener != null)
+                Debug.LogWarning("Overriding player death listener");
+            DeathCompletedListener = onDeathCompleted;
         }
 
         public void OnAttackDamageEvent()
@@ -56,6 +44,12 @@ namespace Core.Player
         {
             AttackCompletedListener?.Invoke();
             AttackCompletedListener = null;
+        }
+
+        public void OnDeathCompletedEvent()
+        {
+            DeathCompletedListener?.Invoke();
+            DeathCompletedListener = null;
         }
     }
 }

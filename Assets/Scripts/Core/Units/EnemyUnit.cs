@@ -1,4 +1,5 @@
 using System;
+using Core.Effects;
 using Core.Player;
 using Core.Triggers;
 using Core.UI;
@@ -25,12 +26,19 @@ namespace Core.Units
         public bool IsInFight { get; private set; }
 
         [SerializeField]
-        float DeathDuration = 1f;
+        float DeathDelay = 0.3f;
 
+        [SerializeField]
+        float DeathSinkDelay = 0.7f;
+
+        [SerializeField]
         Animator Animator;
 
         [SerializeField]
-        GameObject HitEffect;
+        EnemyAnimationListener AnimationListener;
+
+        [SerializeField]
+        HitSpawner HitSpawner;
 
 
         Action<bool> FightEndListener;
@@ -38,10 +46,7 @@ namespace Core.Units
 
         #region Unity
 
-        void Awake()
-        {
-            Animator = GetComponentInChildren<Animator>();
-        }
+        void Awake() { }
 
         void OnEnable()
         {
@@ -78,27 +83,34 @@ namespace Core.Units
 
             void AnimateEnemyDeath()
             {
-                float sinkDuration = 2f;
-                Animator.SetTrigger("Die");
-                DOTween.Sequence()
-                    .AppendInterval(DeathDuration)
-                    .AppendCallback(() =>
-                    {
-                        if (gameObject)
-                        {
-                            if (gameObject.CompareTag("Boss"))
-                                GameManager.Instance.PlayFinal();
-                        }
+                bool isBoss = gameObject.CompareTag("Boss");
 
-                        onCompleted?.Invoke();
-                    })
-                    .Append(transform.DOLocalMove(transform.localPosition + new Vector3(0, -0.3f, 0f), sinkDuration))
-                    .Join(transform.DOScale(new Vector3(1.7f, 0f, 1.7f), sinkDuration))
-                    .OnComplete(() =>
-                    {
-                        if (gameObject)
-                            Destroy(gameObject);
-                    });
+                AnimationListener.SetDeathCompletedListener(() =>
+                {
+                    float sinkDuration = 2f;
+                    Vector3 sinkScale = new Vector3(1.7f, 0f, 1.7f);
+                    Vector3 sinkShift = new Vector3(0, -0.3f, 0f);
+
+                    DOTween.Sequence()
+                        .AppendInterval(DeathDelay)
+                        .AppendCallback(() =>
+                        {
+                            if (isBoss)
+                                GameManager.Instance.PlayFinal();
+
+                            onCompleted?.Invoke();
+                        })
+                        .AppendInterval(DeathSinkDelay)
+                        .Append(transform.DOLocalMove(transform.localPosition + sinkShift, sinkDuration))
+                        .Join(transform.DOScale(sinkScale, sinkDuration))
+                        .OnComplete(() =>
+                        {
+                            if (gameObject)
+                                Destroy(gameObject);
+                        });
+                });
+
+                Animator.SetTrigger("Die");
             }
         }
 
@@ -132,8 +144,6 @@ namespace Core.Units
             void PerformPlayerAttack(int dieResult)
             {
                 UiManager.Instance.HideDieRequest();
-
-                // TODO Animate attack
                 player.AnimateAttack(this, () => ApplyPlayerAttack(dieResult), FinishPlayerAttack);
             }
 
@@ -142,11 +152,13 @@ namespace Core.Units
                 CurrentHealth = Math.Max(0, CurrentHealth - dieResult);
                 UpdateHealthUi();
 
-                var effect = Instantiate(HitEffect);
-                effect.transform.position = transform.position;
-                Destroy(effect.gameObject, 1f);
+                HitSpawner.SpawnHit(transform);
 
-                if (CurrentHealth <= 0)
+                if (CurrentHealth > 0)
+                {
+                    Animator.SetTrigger("GetHit");
+                }
+                else
                 {
                     int loot = Data.RandomLoot;
                     player.GetLoot(loot);
@@ -164,19 +176,8 @@ namespace Core.Units
 
             void PerformEnemyAttack()
             {
-                Vector3 playerDir = (player.transform.position - transform.position).normalized;
-                playerDir.y = 0f;
-
-                float shiftDistance = 0.7f;
-                float shiftDuration = 0.4f;
-                float shiftBackDuration = 0.7f;
-                Vector3 originalPos = transform.localPosition;
-                Vector3 attackPos = originalPos + playerDir * shiftDistance;
-                DOTween.Sequence(gameObject)
-                    .Append(transform.DOLocalMove(attackPos, shiftDuration).SetEase(Ease.OutElastic))
-                    .AppendCallback(ApplyEnemyAttack)
-                    .Append(transform.DOLocalMove(originalPos, shiftBackDuration).SetEase(Ease.InOutSine))
-                    .OnComplete(FinishEnemyAttack);
+                AnimationListener.SetAttackListener(ApplyEnemyAttack, FinishEnemyAttack);
+                Animator.SetTrigger("Attack");
             }
 
             void ApplyEnemyAttack()
