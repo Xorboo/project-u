@@ -142,6 +142,7 @@ namespace Core.Player
 
             void VisitTile()
             {
+                Animator.SetBool("isWalking", false);
                 tile.Visit(RevealTiles);
             }
 
@@ -150,7 +151,6 @@ namespace Core.Player
                 MapManager.Instance.RevealTilesAround(coord, () =>
                 {
                     CurrentState = State.Idle;
-                    Animator.SetBool("isWalking", false);
                     ActiveMoveTween = null;
                     onFinished?.Invoke();
                 });
@@ -165,6 +165,7 @@ namespace Core.Player
                 return;
             }
 
+            Animator.SetBool("isWalking", false);
             ActiveMoveTween.Pause();
         }
 
@@ -176,6 +177,7 @@ namespace Core.Player
                 return;
             }
 
+            Animator.SetBool("isWalking", true);
             ActiveMoveTween.Play();
         }
 

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2012280914125440782}
   - component: {fileID: 7202642904775273550}
   - component: {fileID: 1542045624145639307}
+  - component: {fileID: -6564058836819330534}
   m_Layer: 11
   m_Name: Boss
   m_TagString: Boss
@@ -49,12 +50,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Data: {fileID: 11400000, guid: a41e33dc71b8ca1469a695d2658ca2a3, type: 2}
+  OverheadCanvas: {fileID: 1007429293877778832}
   HpText: {fileID: 1906524792128870418}
   NameText: {fileID: 5249145906718611073}
-  DeathDuration: 6.5
+  DeathDelay: 0.3
+  DeathSinkDelay: 0.7
   Animator: {fileID: 6364953096297703543}
   AnimationListener: {fileID: 2967999867780183326}
-  HitSpawner: {fileID: 3030208047887052639, guid: 0c2e2d8cbd0bed54f9926858ca998830, type: 3}
+  HitSpawner: {fileID: 1542045624145639307}
+  LookRotation: {fileID: -6564058836819330534}
 --- !u!65 &7202642904775273550
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -85,6 +89,21 @@ MonoBehaviour:
   DestroyAutomatically: 0
   DestroyDelay: 0
   CameraShiftDistance: 3
+--- !u!114 &-6564058836819330534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1723210832287530129}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd9325d0c8575a641bb527d41d1b287c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ExtraAngle: 0
+  RotationRoot: {fileID: 2790132530518516091}
+  RotationTime: 0.5
 --- !u!1 &8136575059539869997
 GameObject:
   m_ObjectHideFlags: 0
@@ -202,7 +221,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6445017183433664580, guid: e61e998034080824c995a6df31f2c389, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 7.44
+      value: 7.726
       objectReference: {fileID: 0}
     - target: {fileID: 6445017183433664580, guid: e61e998034080824c995a6df31f2c389, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -222,6 +241,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e61e998034080824c995a6df31f2c389, type: 3}
+--- !u!223 &1007429293877778832 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 8885382305358493167, guid: e61e998034080824c995a6df31f2c389, type: 3}
+  m_PrefabInstance: {fileID: 8553500881193495679}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1906524792128870418 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7836674061493498989, guid: e61e998034080824c995a6df31f2c389, type: 3}
@@ -323,26 +347,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 85b1e912fd710ef4c91b582886ea81f1, type: 3}
   m_PrefabInstance: {fileID: 9120062171274221764}
   m_PrefabAsset: {fileID: 0}
---- !u!95 &6364953096297703543
-Animator:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8237525620738368917}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 9733936f2cd5f6745a5c76c96d37186e, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!82 &6083928916703794799
 AudioSource:
   m_ObjectHideFlags: 0
@@ -439,6 +443,26 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!95 &6364953096297703543
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8237525620738368917}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9733936f2cd5f6745a5c76c96d37186e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &2967999867780183326
 MonoBehaviour:
   m_ObjectHideFlags: 0

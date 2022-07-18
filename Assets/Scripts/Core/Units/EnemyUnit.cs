@@ -15,6 +15,9 @@ namespace Core.Units
         UnitData Data;
 
         [SerializeField]
+        Canvas OverheadCanvas;
+
+        [SerializeField]
         TMP_Text HpText;
 
         [SerializeField]
@@ -39,6 +42,9 @@ namespace Core.Units
 
         [SerializeField]
         HitSpawner HitSpawner;
+
+        [SerializeField]
+        LookRotation LookRotation;
 
 
         Action<bool> FightEndListener;
@@ -95,6 +101,8 @@ namespace Core.Units
                         .AppendInterval(DeathDelay)
                         .AppendCallback(() =>
                         {
+                            OverheadCanvas.gameObject.SetActive(false);
+
                             if (isBoss)
                                 GameManager.Instance.PlayFinal();
 
@@ -124,6 +132,7 @@ namespace Core.Units
 
             CurrentHealth = MaxHealth;
             IsInFight = true;
+            LookRotation.RotateTo(player.transform);
 
             RequestPlayerAttack();
 
