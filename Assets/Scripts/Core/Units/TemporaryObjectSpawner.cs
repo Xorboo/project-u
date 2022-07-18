@@ -41,6 +41,12 @@ namespace Core.Units
 
         public GameObject SpawnObject(Vector3 position, Quaternion rotation)
         {
+            if (Prefab == null)
+            {
+                Debug.LogWarning("Can't spawn temporary object, prefab is not set");
+                return null;
+            }
+
             var spawnedObject = Instantiate(Prefab, position, rotation);
 
             if (DestroyAutomatically)
