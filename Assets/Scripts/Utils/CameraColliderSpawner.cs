@@ -11,6 +11,9 @@ namespace Utils
         [SerializeField]
         PhysicMaterial PlaneMaterial;
 
+        [SerializeField]
+        string Tag = "CameraPlane";
+
         #region Unity
 
         void Awake()
@@ -26,6 +29,7 @@ namespace Utils
             {
                 GameObject p = GameObject.CreatePrimitive(PrimitiveType.Plane);
                 p.name = $"Plane {i}";
+                p.tag = "CameraPlane";
                 p.transform.position = -planes[i].normal * planes[i].distance;
                 p.transform.rotation = Quaternion.FromToRotation(Vector3.up, planes[i].normal);
                 p.transform.localScale = new Vector3(100, 100, 100);

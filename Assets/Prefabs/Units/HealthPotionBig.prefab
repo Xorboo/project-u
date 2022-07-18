@@ -7,6 +7,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7878495913479671939, guid: 5839b4dab6f6c80488dd0e0276f1e8c7, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7878495913479671939, guid: 5839b4dab6f6c80488dd0e0276f1e8c7, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7878495913479671939, guid: 5839b4dab6f6c80488dd0e0276f1e8c7, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 8812249345568439504, guid: 5839b4dab6f6c80488dd0e0276f1e8c7, type: 3}
       propertyPath: m_Name
       value: HealthPotionBig

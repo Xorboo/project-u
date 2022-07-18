@@ -1,4 +1,5 @@
 using System;
+using Core.Effects;
 using TMPro;
 using UnityEngine;
 
@@ -13,12 +14,11 @@ namespace Core.Player
         TMP_Text HealthText;
 
         [SerializeField]
-        GameObject HitEffect;
+        HitSpawner HitSpawner;
 
-
-        public Animator Animator;
 
         PlayerController Player;
+
 
         public int Health
         {
@@ -86,13 +86,15 @@ namespace Core.Player
         {
             Health = Math.Max(0, Health - amount);
 
-            var effect = Instantiate(HitEffect);
-            effect.transform.position = transform.position;
-            Destroy(effect.gameObject, 1f);
+            HitSpawner.SpawnHit(transform);
 
-            if (!IsAlive)
+            if (IsAlive)
             {
-                Player._anim.SetTrigger("Die");
+                Player.Animator.SetTrigger("GetHit");
+            }
+            else
+            {
+                Player.Animator.SetTrigger("Die");
                 GameManager.Instance.RestartGame();
             }
         }

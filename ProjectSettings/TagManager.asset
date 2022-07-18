@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Dice
   - Boss
+  - CameraPlane
   layers:
   - Default
   - TransparentFX
