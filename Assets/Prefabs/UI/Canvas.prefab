@@ -1502,9 +1502,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "1. Roll the dice by dragging it. Now you can move! \r\n2. Move on the
-    tile by clicking LMB on it\r\n3. Explore the map and manage your resources\r\n4.
-    Find the way to meet DICE KING\r\n5. ???\r\n6. Return back home!"
+  m_text: "1. Roll the die by dragging it. Now you can move! \r\n2. Click LMB on
+    the tile to move on it\r\n3. Explore the map\r\n4. Find DICE KING\r\n5. ???\r\n6.
+    Return back home!"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e7c841b74737e504a9300a33a5b13f29, type: 2}
   m_sharedMaterial: {fileID: 4498643330913075457, guid: e7c841b74737e504a9300a33a5b13f29, type: 2}
