@@ -36,7 +36,7 @@ MonoBehaviour:
         DiceChange: 0
       Chance: 5
     - Data:
-        Description: You fed some dices to Gambler Squirel. It was so hungry...
+        Description: You fed some dices to the Gambler Squirel. It was so hungry...
         Type: 5
         DiceChange: -2
       Chance: 10
@@ -46,7 +46,7 @@ MonoBehaviour:
         DiceChange: 0
       Chance: 10
     - Data:
-        Description: You met a merchant! Woo-hoo, capitalism!
+        Description: You met a merchant! Capitalism, ho!
         Type: 6
         DiceChange: 0
       Chance: 20
