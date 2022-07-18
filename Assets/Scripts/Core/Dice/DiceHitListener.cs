@@ -39,7 +39,8 @@ namespace Core.Dice
         {
             if (Time.time > LastPlayTime + MinRepeatDelay)
             {
-                ParticleSpawner.SpawnObject(transform.position + ParticlePositionShift);
+                if (!col.transform.CompareTag("CameraPlane"))
+                    ParticleSpawner.SpawnObject(transform.position + ParticlePositionShift);
 
                 AudioSource.pitch = Random.Range(1 - PitchDiff, 1 + PitchDiff);
                 AudioSource.PlayOneShot(HitClip, Volume);
