@@ -20,11 +20,11 @@ RenderSettings:
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.4717871, g: 0.50777936, b: 0.5849056, a: 1}
+  m_AmbientSkyColor: {r: 0.7169812, g: 0.7169812, b: 0.7169812, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
-  m_AmbientMode: 0
+  m_AmbientMode: 3
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 2100000, guid: 757b09dca348a9749a259121b7b7109c, type: 2}
   m_HaloStrength: 0.5
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.70995855, g: 0.55147386, b: 0.7364522, a: 1}
+  m_IndirectSpecularColor: {r: 0.7072949, g: 0.65142757, b: 0.68841857, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -178,6 +178,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TILE_HOUSE
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b7517673101c3254e9f0c16edebe654c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b7517673101c3254e9f0c16edebe654c, type: 3}
 --- !u!4 &7488110 stripped
@@ -285,6 +289,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TILE_FOGOFWAR (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0411090813aa9054db000c22c42f7fee, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0411090813aa9054db000c22c42f7fee, type: 3}
 --- !u!4 &15926920 stripped
@@ -346,6 +354,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 840e61d2abea7f44aa8bbe54ec967c21, type: 3}
       propertyPath: m_Name
       value: TILE_FIELDS_FLOWERFIELD (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 840e61d2abea7f44aa8bbe54ec967c21, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 840e61d2abea7f44aa8bbe54ec967c21, type: 3}
@@ -409,6 +421,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TILE_FIELDS_GRASSY
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 833f02042224c254cad3e6a312fa4299, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 833f02042224c254cad3e6a312fa4299, type: 3}
 --- !u!4 &156815442 stripped
@@ -470,6 +486,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 840e61d2abea7f44aa8bbe54ec967c21, type: 3}
       propertyPath: m_Name
       value: TILE_FIELDS_FLOWERFIELD (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 840e61d2abea7f44aa8bbe54ec967c21, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 840e61d2abea7f44aa8bbe54ec967c21, type: 3}
@@ -538,6 +558,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TILE_FIELDS_FLOWERFIELD (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 840e61d2abea7f44aa8bbe54ec967c21, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 840e61d2abea7f44aa8bbe54ec967c21, type: 3}
 --- !u!4 &299798387 stripped
@@ -599,6 +623,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 840e61d2abea7f44aa8bbe54ec967c21, type: 3}
       propertyPath: m_Name
       value: TILE_FIELDS_FLOWERFIELD (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 840e61d2abea7f44aa8bbe54ec967c21, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 840e61d2abea7f44aa8bbe54ec967c21, type: 3}
@@ -756,6 +784,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TILE_MYSTIC (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6852c5bcd95aadc46936dfa387ae5fd5, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6852c5bcd95aadc46936dfa387ae5fd5, type: 3}
 --- !u!4 &492851658 stripped
@@ -817,6 +849,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 556d7ae96717aaa46b90c95c6fc621e1, type: 3}
       propertyPath: m_Name
       value: TILE_FOREST (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 556d7ae96717aaa46b90c95c6fc621e1, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 556d7ae96717aaa46b90c95c6fc621e1, type: 3}
@@ -957,6 +993,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: HeroAnimAll2
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: cafec0d46ed41cf43b80c293b28e3d53, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cafec0d46ed41cf43b80c293b28e3d53, type: 3}
 --- !u!4 &591898918 stripped
@@ -1080,6 +1120,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TILE_LAKE (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 2297cc8fdd8e8154ba8af30444567ea8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2297cc8fdd8e8154ba8af30444567ea8, type: 3}
 --- !u!4 &609246831 stripped
@@ -1187,6 +1231,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TILE_ROCK (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 66718e066cf97bd4e826ccef390101e8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 66718e066cf97bd4e826ccef390101e8, type: 3}
 --- !u!4 &662162438 stripped
@@ -1248,6 +1296,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 840e61d2abea7f44aa8bbe54ec967c21, type: 3}
       propertyPath: m_Name
       value: TILE_FIELDS_FLOWERFIELD
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 840e61d2abea7f44aa8bbe54ec967c21, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 840e61d2abea7f44aa8bbe54ec967c21, type: 3}
@@ -1360,6 +1412,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TILE_LAKE
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 2297cc8fdd8e8154ba8af30444567ea8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2297cc8fdd8e8154ba8af30444567ea8, type: 3}
 --- !u!4 &779855478 stripped
@@ -1422,6 +1478,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TILE_LAKE (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 2297cc8fdd8e8154ba8af30444567ea8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2297cc8fdd8e8154ba8af30444567ea8, type: 3}
 --- !u!4 &810249823 stripped
@@ -1483,6 +1543,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 2297cc8fdd8e8154ba8af30444567ea8, type: 3}
       propertyPath: m_Name
       value: TILE_LAKE (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 2297cc8fdd8e8154ba8af30444567ea8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2297cc8fdd8e8154ba8af30444567ea8, type: 3}
@@ -1557,6 +1621,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: ea97d467211f13c4c905f11d4a7eaa0f, type: 3}
       propertyPath: m_Name
       value: Bat
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ea97d467211f13c4c905f11d4a7eaa0f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ea97d467211f13c4c905f11d4a7eaa0f, type: 3}
@@ -1651,6 +1719,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TILE_FIELDS_ROCKY (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bcda228f06984be48991d329af9b6534, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bcda228f06984be48991d329af9b6534, type: 3}
 --- !u!4 &984542483 stripped
@@ -1713,6 +1785,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TILE_FIELDS_BUSHY (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b419ed3744f45e642b3665a97e750b1d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b419ed3744f45e642b3665a97e750b1d, type: 3}
 --- !u!4 &1004921810 stripped
@@ -1774,6 +1850,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: b7517673101c3254e9f0c16edebe654c, type: 3}
       propertyPath: m_Name
       value: TILE_HOUSE (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b7517673101c3254e9f0c16edebe654c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b7517673101c3254e9f0c16edebe654c, type: 3}
@@ -2135,6 +2215,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TILE_FOREST
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 556d7ae96717aaa46b90c95c6fc621e1, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 556d7ae96717aaa46b90c95c6fc621e1, type: 3}
 --- !u!4 &1294834364 stripped
@@ -2196,6 +2280,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: bcda228f06984be48991d329af9b6534, type: 3}
       propertyPath: m_Name
       value: TILE_FIELDS_ROCKY (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bcda228f06984be48991d329af9b6534, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bcda228f06984be48991d329af9b6534, type: 3}
@@ -2259,6 +2347,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TILE_FOGOFWAR
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0411090813aa9054db000c22c42f7fee, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0411090813aa9054db000c22c42f7fee, type: 3}
 --- !u!4 &1352886656 stripped
@@ -2321,6 +2413,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TILE_FOREST (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 556d7ae96717aaa46b90c95c6fc621e1, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 556d7ae96717aaa46b90c95c6fc621e1, type: 3}
 --- !u!4 &1435229827 stripped
@@ -2382,6 +2478,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 840e61d2abea7f44aa8bbe54ec967c21, type: 3}
       propertyPath: m_Name
       value: TILE_FIELDS_FLOWERFIELD (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 840e61d2abea7f44aa8bbe54ec967c21, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 840e61d2abea7f44aa8bbe54ec967c21, type: 3}
@@ -2457,6 +2557,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: King
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 85b1e912fd710ef4c91b582886ea81f1, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 85b1e912fd710ef4c91b582886ea81f1, type: 3}
 --- !u!4 &1604803528 stripped
@@ -2518,6 +2622,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 6852c5bcd95aadc46936dfa387ae5fd5, type: 3}
       propertyPath: m_Name
       value: TILE_MYSTIC
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6852c5bcd95aadc46936dfa387ae5fd5, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6852c5bcd95aadc46936dfa387ae5fd5, type: 3}
@@ -2593,6 +2701,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Npc
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 4cb8cef439212324b8e77495ceba2e81, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4cb8cef439212324b8e77495ceba2e81, type: 3}
 --- !u!4 &1620600501 stripped
@@ -2655,6 +2767,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TILE_FIELDS_ROCKY
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bcda228f06984be48991d329af9b6534, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bcda228f06984be48991d329af9b6534, type: 3}
 --- !u!4 &1816446846 stripped
@@ -2716,6 +2832,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 556d7ae96717aaa46b90c95c6fc621e1, type: 3}
       propertyPath: m_Name
       value: TILE_FOREST (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 556d7ae96717aaa46b90c95c6fc621e1, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 556d7ae96717aaa46b90c95c6fc621e1, type: 3}
@@ -2836,6 +2956,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 7ca5383010016b94ba11cf59287e8909, type: 3}
       propertyPath: m_Name
       value: Worm
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 7ca5383010016b94ba11cf59287e8909, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7ca5383010016b94ba11cf59287e8909, type: 3}
@@ -2967,6 +3091,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TILE_FIELDS_BUSHY (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b419ed3744f45e642b3665a97e750b1d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b419ed3744f45e642b3665a97e750b1d, type: 3}
 --- !u!4 &2054302881 stripped
@@ -3028,6 +3156,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: b419ed3744f45e642b3665a97e750b1d, type: 3}
       propertyPath: m_Name
       value: TILE_FIELDS_BUSHY
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b419ed3744f45e642b3665a97e750b1d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b419ed3744f45e642b3665a97e750b1d, type: 3}
@@ -3188,6 +3320,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 66718e066cf97bd4e826ccef390101e8, type: 3}
       propertyPath: m_Name
       value: TILE_ROCK
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 66718e066cf97bd4e826ccef390101e8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 66718e066cf97bd4e826ccef390101e8, type: 3}
