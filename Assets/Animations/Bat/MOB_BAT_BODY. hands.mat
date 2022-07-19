@@ -80,6 +80,6 @@ Material:
     - _YDiv: 0
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 0.8301887, g: 0.64248574, b: 0.050124552, a: 1}
+    - _Color: {r: 0.36600947, g: 0.23787823, b: 0.49056602, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
   m_BuildTextureStacks: []
