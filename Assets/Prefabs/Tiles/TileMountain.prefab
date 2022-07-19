@@ -66,9 +66,9 @@ MonoBehaviour:
     - Data: {fileID: 3245055477463713726}
       Chance: 1
     - Data: {fileID: 7666061335669318276}
-      Chance: 1
+      Chance: 0.7
     - Data: {fileID: 8707452473066494477}
-      Chance: 1
+      Chance: 0.2
     - Data: {fileID: 5305780238943724363}
       Chance: 1
   ShowOnAwake: 1
