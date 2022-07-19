@@ -9,7 +9,8 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: ROCK
   m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
-  m_ValidKeywords: []
+  m_ValidKeywords:
+  - _SPECULARHIGHLIGHTS_OFF
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -72,13 +73,13 @@ Material:
     - _Offset: 0
     - _Parallax: 0.02
     - _SmoothnessTextureChannel: 0
-    - _SpecularHighlights: 1
+    - _SpecularHighlights: 0
     - _SrcBlend: 1
     - _TimeInfluence: 3
     - _UVSec: 0
     - _YDiv: 58.3
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 0.2191883, g: 0.29074404, b: 0.4433962, a: 1}
+    - _Color: {r: 0.30950516, g: 0.37264064, b: 0.509434, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
   m_BuildTextureStacks: []
