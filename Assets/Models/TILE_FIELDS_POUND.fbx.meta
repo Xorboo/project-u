@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 858cd0053706ced4a8600de36ef7088b
+guid: d1c4a76c7f315d9489bd7d5d5b63bbba
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
@@ -7,8 +7,13 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: FIRE
-    second: {fileID: 2100000, guid: e19a438410c0f5043b411be81e9ebc3b, type: 2}
+      name: Cardboard Outer.BLUE
+    second: {fileID: 2100000, guid: a0733a716e1645a45b4605616168f700, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: GRASS
+    second: {fileID: 2100000, guid: 5db05206760f1964d8ed763aadf62f06, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -17,23 +22,28 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: OBJ_POTION_RED_LIQUID
-    second: {fileID: 2100000, guid: 9e3bf4b10aa589c4fa3f8f23f866b6b4, type: 2}
+      name: GROUND SEEN
+    second: {fileID: 2100000, guid: 95c645f0def56724db5e9615829aaf5b, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: POTION_WOOD
-    second: {fileID: 2100000, guid: 20aed052d2354d34ebeb14c4e3a2ac78, type: 2}
+      name: GROUND SEEN BRIGHT
+    second: {fileID: 2100000, guid: 6c35a17ddb128074d84de4c410f96747, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: POT_HAND
-    second: {fileID: 2100000, guid: 23398ae19b2b8e248a7c57cac6e86291, type: 2}
+      name: LEAF
+    second: {fileID: 2100000, guid: de5b41cd0d3a673448f076c2876a14a9, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: ROCK
-    second: {fileID: 2100000, guid: 983a15c0d894f8243bff8963eb47de5c, type: 2}
+      name: TREE_CUBE_FOLIAGE
+    second: {fileID: 2100000, guid: 372d34581589aca4bb930b4156b90771, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TREE_CUBE_TRUNK
+    second: {fileID: 2100000, guid: f17b41105dcf11145b2c1dae9e97271e, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

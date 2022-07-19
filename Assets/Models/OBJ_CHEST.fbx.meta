@@ -7,6 +7,11 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: FIRE
+    second: {fileID: 2100000, guid: e19a438410c0f5043b411be81e9ebc3b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: OBJ_CHEST
     second: {fileID: 2100000, guid: 25a097a167938e34f94d5156187f4e62, type: 2}
   - first:
@@ -17,8 +22,23 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: OBJ_CHEST.002
+    second: {fileID: 2100000, guid: b09da918a24ff7443b5a1c09c3194fb8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: OBJ_CHEST_DARK
     second: {fileID: 2100000, guid: d421c1b5d3615d7499c41237c46d1798, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: OBJ_CUBE
+    second: {fileID: 2100000, guid: 71babd652f749024cbe4afef76db59f5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ROCK
+    second: {fileID: 2100000, guid: 983a15c0d894f8243bff8963eb47de5c, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

@@ -304,6 +304,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BonusHealthPotion
       objectReference: {fileID: 0}
+    - target: {fileID: 8812249345568439504, guid: 3d944bf3d31affa40b9082f563110ebc, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8812249345568439505, guid: 3d944bf3d31affa40b9082f563110ebc, type: 3}
       propertyPath: m_RootOrder
       value: 1

@@ -29,6 +29,11 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: TREE
     second: {fileID: 2100000, guid: 4dcfaacd51b78a54fb68bbd7ebee447b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TREE_STUMP
+    second: {fileID: 2100000, guid: 71babd652f749024cbe4afef76db59f5, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
