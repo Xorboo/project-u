@@ -15,7 +15,7 @@ MonoBehaviour:
   Encounters:
     Elements:
     - Data:
-        Description: All the villages you visited have sent you some dices!
+        Description: All the villages you visited have sent you some dice!
         Type: 2
         DiceChange: 0
       Chance: 15
@@ -25,7 +25,7 @@ MonoBehaviour:
         DiceChange: 0
       Chance: 5
     - Data:
-        Description: You see a mysterious bag with some dices inside. You take it...
+        Description: You see a mysterious bag with some dice inside. You take it...
         Type: 5
         DiceChange: 4
       Chance: 10
@@ -36,7 +36,7 @@ MonoBehaviour:
         DiceChange: 0
       Chance: 5
     - Data:
-        Description: You fed some dices to the Gambler Squirel. It was so hungry...
+        Description: You fed some dice to the Gambler Squirrel. It was so hungry...
         Type: 5
         DiceChange: -2
       Chance: 10
