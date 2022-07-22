@@ -57,7 +57,6 @@ namespace Core.Map
 
             // Scale parameters
             var t = MainSide.transform;
-            Vector3 defaultScale = t.localScale;
 
             DOTween.Sequence(gameObject)
                 .AppendInterval(revealDelay)
@@ -66,16 +65,18 @@ namespace Core.Map
                     // Show tile
                     HiddenSide.SetActive(false);
                     MainSide.SetActive(true);
+
+                    Vector3 defaultScale = t.localScale;
                     t.localScale = new Vector3(defaultScale.x, 0f, defaultScale.z);
 
                     // Add particles
                     var particlesTransform = Instantiate(Parameters.ParticlePrefab, transform).transform;
                     particlesTransform.localPosition = new Vector3(0f, Parameters.ParticleVerticalShift, 0f);
-                    particlesTransform.localScale = particlesTransform.localScale * Parameters.ParticlesScaleFactor;
+                    particlesTransform.localScale *= Parameters.ParticlesScaleFactor;
                     Destroy(particlesTransform.gameObject, Parameters.ParticlesDestroyDelay);
                 })
                 // Animate scale
-                .Join(t.DOScaleY(defaultScale.y, Parameters.Duration).SetEase(Parameters.EaseType))
+                .Join(t.DOScaleY(t.localScale.y, Parameters.Duration).SetEase(Parameters.EaseType))
                 .OnComplete(() => onFinished?.Invoke());
         }
 
