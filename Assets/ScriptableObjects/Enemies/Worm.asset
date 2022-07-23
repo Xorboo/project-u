@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b6e8f5a83de1e5843a77ea08c846aa2e, type: 3}
-  m_Name: Wolf
+  m_Name: Worm
   m_EditorClassIdentifier: 
-  UnitName: Batty The Sucker
-  Hp: 5
-  HpScaleFactor: 2
-  MinDamage: 2
-  MaxDamage: 4
-  MinLoot: 30
-  MaxLoot: 50
+  UnitName: Wormie The Mush Eater
+  Hp: 2
+  HpScaleFactor: 1
+  MinDamage: 1
+  MaxDamage: 3
+  MinLoot: 5
+  MaxLoot: 15

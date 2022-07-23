@@ -11,6 +11,9 @@ namespace Core.Units
 {
     public class EnemyUnit : PlayerTriggerBase
     {
+        public event Action OnUnitDied = delegate { };
+
+
         [SerializeField]
         UnitData Data;
 
@@ -93,6 +96,8 @@ namespace Core.Units
 
                 AnimationListener.SetDeathCompletedListener(() =>
                 {
+                    OnUnitDied();
+
                     float sinkDuration = 2f;
                     Vector3 sinkScale = new Vector3(1.7f, 0f, 1.7f);
                     Vector3 sinkShift = new Vector3(0, -0.3f, 0f);

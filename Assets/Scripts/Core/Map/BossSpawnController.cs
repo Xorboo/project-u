@@ -1,24 +1,25 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class BossSpawnController : MonoBehaviour
+namespace Core.Map
 {
-    [SerializeField] GameObject common_enemy, boss;
-
-    void Awake()
+    public class BossSpawnController : MonoBehaviour
     {
-        if (Core.GameManager.Instance.ReadyToBossSpawn)
+        [SerializeField]
+        GameObject common_enemy, boss;
+
+        void Awake()
         {
-            common_enemy.SetActive(false);
-            boss.SetActive(true);
-            Core.GameManager.Instance.ReadyToBossSpawn = false;
+            if (GameManager.Instance.ReadyToBossSpawn || true)
+            {
+                common_enemy.SetActive(false);
+                boss.SetActive(true);
+                GameManager.Instance.ReadyToBossSpawn = false;
+            }
+            else
+            {
+                common_enemy.SetActive(true);
+                boss.SetActive(false);
+            }
         }
-        else
-        {
-            common_enemy.SetActive(true);
-            boss.SetActive(false);
-        }
-        
     }
 }
