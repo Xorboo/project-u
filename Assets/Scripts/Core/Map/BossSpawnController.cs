@@ -9,7 +9,7 @@ namespace Core.Map
 
         void Awake()
         {
-            if (GameManager.Instance.ReadyToBossSpawn || true)
+            if (GameManager.Instance.ReadyToBossSpawn)
             {
                 common_enemy.SetActive(false);
                 boss.SetActive(true);
