@@ -1293,11 +1293,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7254762124301335508, guid: 129db02345d1e4a439264829cd66764c, type: 3}
       propertyPath: InitialModule.maxNumParticles
-      value: 1000
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 7254762124301335509, guid: 129db02345d1e4a439264829cd66764c, type: 3}
       propertyPath: m_MaxParticleSize
       value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8445585054949766762, guid: 129db02345d1e4a439264829cd66764c, type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 129db02345d1e4a439264829cd66764c, type: 3}
