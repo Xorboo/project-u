@@ -7,7 +7,7 @@ using Random = UnityEngine.Random;
 
 namespace Core.Map
 {
-    public class MapManager : Singleton<MapManager>, IPointerDownHandler
+    public class MapManager : Singleton<MapManager>, IPointerDownHandler, IPointerMoveHandler, IPointerExitHandler
     {
         public event Action<Vector2Int, Tile> OnTileClicked = delegate { };
 
@@ -22,6 +22,12 @@ namespace Core.Map
 
         [SerializeField]
         BoxCollider MapCollider;
+
+        [SerializeField]
+        GameObject TileHighlightObject;
+
+        [SerializeField]
+        Vector3 TileHighlightShift = new Vector3(0, 0.1f, 0);
 
 
         protected override bool IsPersistent => false;
@@ -124,20 +130,6 @@ namespace Core.Map
             Map = null;
         }
 
-        public void OnPointerDown(PointerEventData eventData)
-        {
-            Vector3 pressPos = eventData.pointerPressRaycast.worldPosition;
-            Vector2Int pressCoordinates = new Vector2Int(
-                Mathf.FloorToInt(pressPos.x / Parameters.TileWorldSize),
-                Mathf.FloorToInt(pressPos.z / Parameters.TileWorldSize));
-            bool isInBound = IsInBound(pressCoordinates);
-            // Debug.Log($"Clicked {pressCoordinates} -> {isInBound}");
-            if (!isInBound)
-                return;
-
-            OnTileClicked(pressCoordinates, Map[pressCoordinates.y, pressCoordinates.x]);
-        }
-
         public void RevealTilesAround(Vector2Int pos, Action onFinished)
         {
             float revealDelay = 0f;
@@ -160,7 +152,52 @@ namespace Core.Map
             DOTween.Sequence().AppendInterval(revealDelay).OnComplete(() => onFinished());
         }
 
+        Vector2Int GetPointerCoordinate(Vector3 pressPos)
+        {
+            return new Vector2Int(
+                Mathf.FloorToInt(pressPos.x / Parameters.TileWorldSize),
+                Mathf.FloorToInt(pressPos.z / Parameters.TileWorldSize));
+        }
+
         bool IsInBound(Vector2Int coord) => IsInBound(coord.x, coord.y);
         bool IsInBound(int x, int y) => x >= 0 && x < Parameters.MapSize.x && y >= 0 && y < Parameters.MapSize.y;
+
+
+        #region Pointer Events
+
+        void IPointerDownHandler.OnPointerDown(PointerEventData eventData)
+        {
+            Vector2Int pressCoordinates = GetPointerCoordinate(eventData.pointerPressRaycast.worldPosition);
+            if (!IsInBound(pressCoordinates))
+                return;
+
+            OnTileClicked(pressCoordinates, Map[pressCoordinates.y, pressCoordinates.x]);
+        }
+
+        void IPointerMoveHandler.OnPointerMove(PointerEventData eventData)
+        {
+            Vector2Int pressCoordinates = GetPointerCoordinate(eventData.pointerCurrentRaycast.worldPosition);
+            var tile = Map[pressCoordinates.y, pressCoordinates.x];
+
+            if (!IsInBound(pressCoordinates) || !GameManager.Instance.CanClickOnTile(pressCoordinates, tile))
+            {
+                if (TileHighlightObject.activeSelf)
+                    TileHighlightObject.SetActive(false);
+                return;
+            }
+
+            Vector3 desiredPosition = tile.transform.localPosition + TileHighlightShift;
+            if (TileHighlightObject.transform.localPosition != desiredPosition)
+                TileHighlightObject.transform.localPosition = desiredPosition;
+            if (!TileHighlightObject.activeSelf)
+                TileHighlightObject.SetActive(true);
+        }
+
+        void IPointerExitHandler.OnPointerExit(PointerEventData eventData)
+        {
+            TileHighlightObject.SetActive(false);
+        }
+
+        #endregion
     }
 }

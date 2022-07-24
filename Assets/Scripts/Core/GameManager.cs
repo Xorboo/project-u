@@ -169,19 +169,27 @@ namespace Core
             OnEnemyHpIncreased();
         }
 
-        void TileClicked(Vector2Int coord, Tile tile)
+        public bool CanClickOnTile(Vector2Int coord, Tile tile)
         {
             if (IsWaitingForDie || Player.CurrentState != PlayerController.State.Idle || !Player.IsAdjacent(coord))
-                return;
+                return false;
 
             if (tile == null)
             {
-                Debug.LogError($"Null tile clicked on {coord}");
-                return;
+                Debug.LogError($"Null tile on {coord}");
+                return false;
             }
 
             if (!tile.Data.IsPassable)
-                return; // Do nothing, wasted die
+                return false;
+
+            return true;
+        }
+
+        void TileClicked(Vector2Int coord, Tile tile)
+        {
+            if (!CanClickOnTile(coord, tile))
+                return;
 
             if (!tile.Data.IsMystic || tile.MysticRevealed)
             {
@@ -191,7 +199,6 @@ namespace Core
 
             // Special case
             CheckMysticTile(coord, tile);
-            return;
         }
 
         void CheckMysticTile(Vector2Int coord, Tile tile)
