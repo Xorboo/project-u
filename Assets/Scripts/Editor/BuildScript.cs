@@ -34,7 +34,7 @@ namespace Editor
             var options = WindowsPLayerOptions;
             options.options = BuildOptions.Development;
 
-            Build(options);
+            BuildWindows(options);
         }
 
         [MenuItem("Build/Windows (Production)")]
@@ -43,7 +43,22 @@ namespace Editor
             var options = WindowsPLayerOptions;
             options.options = BuildOptions.None;
 
-            Build(options);
+            BuildWindows(options);
+        }
+
+        static void BuildWindows(BuildPlayerOptions buildPlayerOptions)
+        {
+            string baseWindowsDir = "Build/Windows";
+            if (Directory.Exists(baseWindowsDir))
+                Directory.Delete(baseWindowsDir, true);
+
+            Build(buildPlayerOptions);
+            string rootDir = Path.GetDirectoryName(buildPlayerOptions.locationPathName);
+            string projectName = Path.GetFileNameWithoutExtension(buildPlayerOptions.locationPathName);
+            string pdbDir = $"{projectName}_BackUpThisFolder_ButDontShipItWithYourGame";
+            string pdbDirectoryPath = Path.Combine(rootDir, pdbDir);
+            if (Directory.Exists(pdbDirectoryPath))
+                Directory.Delete(pdbDirectoryPath, true);
         }
 
         static void Build(BuildPlayerOptions buildPlayerOptions)
