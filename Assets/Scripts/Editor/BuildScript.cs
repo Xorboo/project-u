@@ -46,6 +46,24 @@ namespace Editor
             BuildWindows(options);
         }
 
+        [MenuItem("Build/MacOS (Development)")]
+        public static void BuildMacOsDevelopment()
+        {
+            var options = MacOsPLayerOptions;
+            options.options = BuildOptions.Development;
+
+            BuildMacOs(options);
+        }
+
+        [MenuItem("Build/MacOS (Production)")]
+        public static void BuildMacOsProduction()
+        {
+            var options = MacOsPLayerOptions;
+            options.options = BuildOptions.None;
+
+            BuildMacOs(options);
+        }
+
         static void BuildWindows(BuildPlayerOptions buildPlayerOptions)
         {
             string baseWindowsDir = "Build/Windows";
@@ -53,6 +71,7 @@ namespace Editor
                 Directory.Delete(baseWindowsDir, true);
 
             Build(buildPlayerOptions);
+
             string rootDir = Path.GetDirectoryName(buildPlayerOptions.locationPathName);
             string projectName = Path.GetFileNameWithoutExtension(buildPlayerOptions.locationPathName);
             string pdbDir = $"{projectName}_BackUpThisFolder_ButDontShipItWithYourGame";
@@ -64,6 +83,20 @@ namespace Editor
             }
             else
                 Debug.LogWarning($"Couldn't find pdb dir to remove: {pdbDirectoryPath}");
+        }
+
+        static void BuildMacOs(BuildPlayerOptions buildPlayerOptions)
+        {
+            var defaultStandaloneScriptingBackend = PlayerSettings.GetScriptingBackend(BuildTargetGroup.Standalone);
+            try
+            {
+                PlayerSettings.SetScriptingBackend(BuildTargetGroup.Standalone, ScriptingImplementation.Mono2x);
+                Build(buildPlayerOptions);
+            }
+            finally
+            {
+                PlayerSettings.SetScriptingBackend(BuildTargetGroup.Standalone, defaultStandaloneScriptingBackend);
+            }
         }
 
         static void Build(BuildPlayerOptions buildPlayerOptions)
@@ -108,6 +141,13 @@ namespace Editor
         {
             target = BuildTarget.StandaloneWindows64,
             locationPathName = "Build/Windows/RollAndCrawl/RollAndCrawl.exe",
+            scenes = EditorBuildSettings.scenes.Select(scene => scene.path).ToArray()
+        };
+
+        static BuildPlayerOptions MacOsPLayerOptions => new()
+        {
+            target = BuildTarget.StandaloneOSX,
+            locationPathName = "Build/MacOS/RollAndCrawl",
             scenes = EditorBuildSettings.scenes.Select(scene => scene.path).ToArray()
         };
     }
