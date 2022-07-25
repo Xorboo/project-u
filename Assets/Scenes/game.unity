@@ -534,7 +534,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4096
   PlaneMaterial: {fileID: 13400000, guid: 359f95fb06e63a84eb53d3a9aa6cc0ed, type: 2}
-  Tag: CameraPlane
 --- !u!114 &1178417007
 MonoBehaviour:
   m_ObjectHideFlags: 0
