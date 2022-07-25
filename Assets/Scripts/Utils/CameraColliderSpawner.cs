@@ -11,9 +11,6 @@ namespace Utils
         [SerializeField]
         PhysicMaterial PlaneMaterial;
 
-        [SerializeField]
-        string Tag = "CameraPlane";
-
         #region Unity
 
         void Awake()

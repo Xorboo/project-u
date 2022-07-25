@@ -13,22 +13,40 @@ namespace Editor
         [MenuItem("Build/WebGL (Development)")]
         public static void BuildWebGlDevelopment()
         {
-            var options = DefaultPLayerOptions;
+            var options = WebGlPLayerOptions;
             options.options = BuildOptions.Development;
 
-            BuildWebGl(options);
+            Build(options);
         }
 
         [MenuItem("Build/WebGL (Production)")]
         public static void BuildWebGlProduction()
         {
-            var options = DefaultPLayerOptions;
+            var options = WebGlPLayerOptions;
             options.options = BuildOptions.None;
 
-            BuildWebGl(options);
+            Build(options);
         }
 
-        static void BuildWebGl(BuildPlayerOptions buildPlayerOptions)
+        [MenuItem("Build/Windows (Development)")]
+        public static void BuildWindowsDevelopment()
+        {
+            var options = WindowsPLayerOptions;
+            options.options = BuildOptions.Development;
+
+            Build(options);
+        }
+
+        [MenuItem("Build/Windows (Production)")]
+        public static void BuildWindowsProduction()
+        {
+            var options = WindowsPLayerOptions;
+            options.options = BuildOptions.None;
+
+            Build(options);
+        }
+
+        static void Build(BuildPlayerOptions buildPlayerOptions)
         {
             if (AddressableAssetSettingsDefaultObject.Settings != null)
             {
@@ -43,7 +61,7 @@ namespace Editor
             else
                 Debug.Log("Addressable settings object is null, can't build it");
 
-
+            buildPlayerOptions.targetGroup = BuildPipeline.GetBuildTargetGroup(buildPlayerOptions.target);
             BuildReport report = BuildPipeline.BuildPlayer(buildPlayerOptions);
             BuildSummary summary = report.summary;
 
@@ -59,10 +77,17 @@ namespace Editor
             }
         }
 
-        static BuildPlayerOptions DefaultPLayerOptions => new BuildPlayerOptions
+        static BuildPlayerOptions WebGlPLayerOptions => new()
         {
             target = BuildTarget.WebGL,
-            locationPathName = "Build/WebGL",
+            locationPathName = "Build/WebGL/",
+            scenes = EditorBuildSettings.scenes.Select(scene => scene.path).ToArray()
+        };
+
+        static BuildPlayerOptions WindowsPLayerOptions => new()
+        {
+            target = BuildTarget.StandaloneWindows64,
+            locationPathName = "Build/Windows/RollAndCrawl/RollAndCrawl.exe",
             scenes = EditorBuildSettings.scenes.Select(scene => scene.path).ToArray()
         };
     }
