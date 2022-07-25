@@ -58,7 +58,12 @@ namespace Editor
             string pdbDir = $"{projectName}_BackUpThisFolder_ButDontShipItWithYourGame";
             string pdbDirectoryPath = Path.Combine(rootDir, pdbDir);
             if (Directory.Exists(pdbDirectoryPath))
+            {
+                Debug.Log($"Removing pdb dir: {pdbDirectoryPath}");
                 Directory.Delete(pdbDirectoryPath, true);
+            }
+            else
+                Debug.LogWarning($"Couldn't find pdb dir to remove: {pdbDirectoryPath}");
         }
 
         static void Build(BuildPlayerOptions buildPlayerOptions)
