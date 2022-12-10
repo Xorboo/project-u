@@ -12,7 +12,7 @@ A curious dicefolk teen DeeSix got into an unknown board game by accident. Aid n
 
 Will you get to the end of the board?
 
-Play [here on itch.io](https://xorboo.itch.io/roll-crawl)
+**Play [here on itch.io](https://xorboo.itch.io/roll-crawl)**
 
 ## How to play
 
@@ -25,8 +25,8 @@ Play [here on itch.io](https://xorboo.itch.io/roll-crawl)
 
 ## Screenshots
 
-| --- | --- |
 | ![Gameplay gif #1](/images/gameplay_1.gif) | ![Gameplay gif #2](/images/gameplay_2.gif) |
+|--------------------------------------------|--------------------------------------------|
 | ![Gameplay gif #3](/images/gameplay_3.gif) | ![Gameplay gif #4](/images/gameplay_4.gif) |
 | ![Gameplay gif #5](/images/gameplay_5.gif) | ![Gameplay gif #6](/images/gameplay_6.gif) |
 
