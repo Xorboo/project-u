@@ -8,9 +8,7 @@ A game crafted for [GMTK Game Jam 2022](https://itch.io/jam/gmtk-jam-2022/rate/1
 
 **ROLL TO CRAWL AND SLICE AND HOARD!**
 
-A curious dicefolk teen DeeSix got into an unknown board game by accident. Aid naive and brave DeeSix in their finding-the-way-home-quest! This is how the story starts rolling.
-
-Will you get to the end of the board?
+A curious dicefolk teen DeeSix got into an unknown board game by accident. Aid naive and brave DeeSix in their finding-the-way-home-quest! This is how the story starts rolling. Will you get to the end of the board?
 
 **Play [here on itch.io](https://xorboo.itch.io/roll-crawl)**
 
